@@ -8535,8 +8535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: 12.049}
-  m_SizeDelta: {x: 1609.0122, y: 182.0417}
+  m_AnchoredPosition: {x: 2.1561, y: 12.049}
+  m_SizeDelta: {x: 1903.8, y: 182.0417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034407889
 MonoBehaviour:
@@ -8552,6 +8552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   continueLevelButton: {fileID: 671223417}
+  continueLevelText: {fileID: 2034407892}
   enemyManager: {fileID: 407886984}
 --- !u!114 &2034407892
 MonoBehaviour:
@@ -9791,7 +9792,7 @@ PrefabInstance:
     - target: {fileID: 7936427491543566528, guid: 70336042f28f1c8499a3d038798c5c38,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7936427491646735606, guid: 70336042f28f1c8499a3d038798c5c38,
         type: 3}

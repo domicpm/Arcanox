@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4525864eabf774a8151b3276523a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 100
+  maxhp: 1250
   healthbar: {fileID: 2715785419927453507}
   bullet: {fileID: 0}
   isHit: 0
@@ -378,8 +378,9 @@ MonoBehaviour:
   isSpawned: 0
   hpEnemy: {fileID: 2715785419702085007}
   dmgtextSpawnLocation: {fileID: 2715785419620837975}
+  spawnAfterKill: 1
   atc: {fileID: 2715785419122472964}
-  speed: 5
+  speed: 7
   damageTextPrefab: {fileID: 3399920392444358936, guid: cce2cc47e89e8a14e88886167b141576,
     type: 3}
   enemyprefab: {fileID: 2715785419217849713}
@@ -979,7 +980,7 @@ Animator:
   m_GameObject: {fileID: 5884019277527600349}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0b1f126ec1b04b43bfbdb86bbca23ad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

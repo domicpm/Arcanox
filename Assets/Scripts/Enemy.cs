@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
     public bool isSpawned = false;
     public Text hpEnemy;
     public Transform dmgtextSpawnLocation;
-    private int maxEnemies = 5;
-    private int spawnAfterKill = 1;
+    private int maxEnemies = 3;
+    public int spawnAfterKill = 1;
     public static int enemyCount = 0;
     public AttackRangeCircle atc;
-    public float speed = 5f;
+    public float speed = 7f;
     public DamageText damageTextPrefab;
     public GameObject enemyprefab;
     public fireball fb;
@@ -36,11 +36,7 @@ public class Enemy : MonoBehaviour
     public void destroyObj()
     {
         enemyCount++;
-        Destroy(gameObject);
-if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
-        {
-            LevelSuccess.Instance.setAct();
-        }
+        Destroy(gameObject);     
     }
 
     public Vector3 getCurrentEnemyPos()
@@ -69,7 +65,6 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
         Enemy enemyScript = enemyObj.GetComponent<Enemy>();
         enemyScript.p = p;
         enemyScript.bullet = this.bullet;
-        // HIER: fb-Referenz holen (falls nicht über Inspector gesetzt)
         enemyScript.fb = enemyObj.GetComponentInChildren<fireball>();
 
         // Fireball-Ziel setzen
@@ -84,20 +79,7 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
         }
     }
 
-    public void initializeLevel()
-    {
-        if (LevelSuccess.Instance.level > 1)
-        {
-            spawn();
-            maxhp += 500;
-            maxEnemies += 1;
-            spawnAfterKill += 1;
-            p.damageFromEnemy += 1;
-            speed += 1;
-            enemyCount = 0;
-        }
-
-    }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -127,7 +109,7 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
 
                     if (enemyCount <= maxEnemies)
                     {
-                        spawn();
+                        //spawn();
                     }
                 }
                 destroyObj();
@@ -158,7 +140,7 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
                 {
                     if (enemyCount <= maxEnemies)
                     {
-                        spawn();
+                        //spawn();
                     }
                 }
                 destroyObj();

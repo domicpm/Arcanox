@@ -8,6 +8,7 @@ public class LevelSuccess : MonoBehaviour
     public static LevelSuccess Instance;
     public int level = 1;
     public Button continueLevelButton;
+    public Text continueLevelText;
     public EnemyManager enemyManager;
 
 
@@ -30,13 +31,15 @@ public class LevelSuccess : MonoBehaviour
     public void OnContinueLevelButtonClicked()
     {
         level++;
-        gameObject.SetActive(false);       
-        //enemyManager.InitializeLevel(level);
 
+        enemyManager.InitializeLevel(level, true);
+        gameObject.SetActive(false);
     }
     public void setAct()
     {
         gameObject.SetActive(true);
+        continueLevelText.text = "Level " + (level) +  " done!";
     }
+    
 
 }
