@@ -9,31 +9,29 @@ public class Enemy : MonoBehaviour
     public bool isHit = false;
     public Heal heal;
     public Vector2 enemydeathpos;
-    public fireball fb;
     public AttackBoost ab;
     public PlayerMovement p;
     public Vector3 randomPosition;
     public bool isSpawned = false;
     public Text hpEnemy;
     public Transform dmgtextSpawnLocation;
-    public TextMesh damageText;
     private int maxEnemies = 5;
     private int spawnAfterKill = 1;
     public static int enemyCount = 0;
     public AttackRangeCircle atc;
-    private float speed = 5f;
+    public float speed = 5f;
     public DamageText damageTextPrefab;
-    public static Enemy Instance;
+    public GameObject enemyprefab;
+    public fireball fb;
     private void Start()
     {
-        maxhp = 1000;
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
         atc.inRange = false;
     }
     public void Awake()
     {
-        Instance = this;
+        //Instance = this;
     }
     public void destroyObj()
     {
@@ -64,9 +62,28 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
 
     public void spawn()
     {
+        maxhp = 1500;
         randomPosition = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
-        Instantiate(gameObject, randomPosition, Quaternion.identity);
+
+        GameObject enemyObj = Instantiate(enemyprefab, randomPosition, Quaternion.identity);
+        Enemy enemyScript = enemyObj.GetComponent<Enemy>();
+        enemyScript.p = p;
+        enemyScript.bullet = this.bullet;
+        // HIER: fb-Referenz holen (falls nicht über Inspector gesetzt)
+        enemyScript.fb = enemyObj.GetComponentInChildren<fireball>();
+
+        // Fireball-Ziel setzen
+        if (enemyScript.fb != null)
+        {
+            enemyScript.fb.player = p.transform;
+            enemyScript.fb.p = p;
+        }
+        else
+        {
+            Debug.LogWarning("fireball-Komponente im EnemyPrefab nicht gefunden!");
+        }
     }
+
     public void initializeLevel()
     {
         if (LevelSuccess.Instance.level > 1)

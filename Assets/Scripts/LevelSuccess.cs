@@ -8,7 +8,8 @@ public class LevelSuccess : MonoBehaviour
     public static LevelSuccess Instance;
     public int level = 1;
     public Button continueLevelButton;
-    
+    public EnemyManager enemyManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +30,13 @@ public class LevelSuccess : MonoBehaviour
     public void OnContinueLevelButtonClicked()
     {
         level++;
-        Enemy.Instance.initializeLevel();
+        gameObject.SetActive(false);       
+        //enemyManager.InitializeLevel(level);
+
     }
     public void setAct()
     {
         gameObject.SetActive(true);
-
     }
 
 }

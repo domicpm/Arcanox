@@ -140,4 +140,6 @@ MonoBehaviour:
   Prefab: {fileID: 8202535746269988529}
   interval: 1
   enemy: {fileID: 0}
-  p: {fileID: 2759682679175259032, guid: ae1d9f3ccb030d84e813e4891fa5895b, type: 3}
+  p: {fileID: 6062591081660094899, guid: 9405e07986ba5dd469e29d11078a4c3a, type: 3}
+  animator: {fileID: 0}
+  arc: {fileID: 0}

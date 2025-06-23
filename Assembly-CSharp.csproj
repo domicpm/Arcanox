@@ -97,6 +97,7 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
+    <Compile Include="Assets\Scripts\EnemyManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
