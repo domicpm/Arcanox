@@ -85,7 +85,7 @@ public class fireball : MonoBehaviour
             
         {
             GameObject newFireball = Instantiate(Prefab, enemy.gameObject.transform.position, Quaternion.identity);
-
+            newFireball.transform.localScale *= EnemyManager.fireMultiplier;
             // Setze Referenzen für den geklonten Feuerball
             fireball newFireballScript = newFireball.GetComponent<fireball>();
 

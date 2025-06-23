@@ -9,11 +9,13 @@ ScriptsOnlyBuild:
     - CooldownUI
     - DamageText
     - Enemy
+    - EnemyManager
     - ExitGame
     - GameOver
     - Heal
     - HealthBar
     - InputDevice
+    - LevelSuccess
     - Loot
     - PauseManager
     - PlayerHealthBar
@@ -89,25 +91,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1470}
+      Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1472}
+      Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1474}
+      Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 1782}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2452}
+      Script: {instanceID: 2462}
     - Class: 114
-      Script: {instanceID: 2590}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2632}
+      Script: {instanceID: 2644}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2966}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 4644}
+      Script: {instanceID: 4660}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -146,23 +148,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1470}
+      Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1472}
+      Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1474}
+      Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 1652}
+      Script: {instanceID: 1660}
     - Class: 114
-      Script: {instanceID: 1782}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2088}
+      Script: {instanceID: 2098}
     - Class: 114
-      Script: {instanceID: 2452}
+      Script: {instanceID: 2462}
     - Class: 114
-      Script: {instanceID: 4170}
+      Script: {instanceID: 4186}
     - Class: 114
-      Script: {instanceID: 4492}
+      Script: {instanceID: 4508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -197,21 +199,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1470}
+      Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1472}
+      Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1474}
+      Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 2452}
+      Script: {instanceID: 2462}
     - Class: 114
-      Script: {instanceID: 2590}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2966}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 4348}
+      Script: {instanceID: 4364}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -270,83 +272,85 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1470}
+      Script: {instanceID: 1478}
     - Class: 114
-      Script: {instanceID: 1472}
+      Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1474}
+      Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 1476}
+      Script: {instanceID: 1484}
     - Class: 114
-      Script: {instanceID: 1536}
-    - Class: 114
-      Script: {instanceID: 1654}
+      Script: {instanceID: 1544}
     - Class: 114
       Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 1734}
+      Script: {instanceID: 1670}
     - Class: 114
-      Script: {instanceID: 1782}
+      Script: {instanceID: 1742}
     - Class: 114
-      Script: {instanceID: 1826}
+      Script: {instanceID: 1784}
     - Class: 114
-      Script: {instanceID: 1920}
+      Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2112}
+      Script: {instanceID: 1836}
     - Class: 114
-      Script: {instanceID: 2178}
+      Script: {instanceID: 1930}
     - Class: 114
-      Script: {instanceID: 2208}
+      Script: {instanceID: 2122}
     - Class: 114
-      Script: {instanceID: 2256}
+      Script: {instanceID: 2188}
     - Class: 114
-      Script: {instanceID: 2452}
+      Script: {instanceID: 2218}
     - Class: 114
-      Script: {instanceID: 2562}
+      Script: {instanceID: 2266}
     - Class: 114
-      Script: {instanceID: 2590}
+      Script: {instanceID: 2462}
     - Class: 114
-      Script: {instanceID: 2632}
+      Script: {instanceID: 2570}
     - Class: 114
-      Script: {instanceID: 2738}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 2602}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2644}
+    - Class: 114
+      Script: {instanceID: 2750}
+    - Class: 114
+      Script: {instanceID: 2872}
     - Class: 114
       Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2966}
     - Class: 114
-      Script: {instanceID: 2980}
+      Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3068}
+      Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 3208}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3222}
     - Class: 114
-      Script: {instanceID: 3536}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 3666}
+      Script: {instanceID: 3498}
     - Class: 114
-      Script: {instanceID: 4032}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 4130}
+      Script: {instanceID: 3680}
     - Class: 114
-      Script: {instanceID: 4358}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 4488}
+      Script: {instanceID: 4146}
     - Class: 114
-      Script: {instanceID: 4970}
+      Script: {instanceID: 4374}
     - Class: 114
-      Script: {instanceID: 17410}
+      Script: {instanceID: 4504}
     - Class: 114
-      Script: {instanceID: 23550}
+      Script: {instanceID: 4942}
     - Class: 114
-      Script: {instanceID: 273148}
+      Script: {instanceID: 4988}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -374,16 +378,16 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
-  - hash:
-      serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: 21a9c6dbf300fc1f6dc15ca7e2c39a37
@@ -458,7 +462,7 @@ ScriptsOnlyBuild:
     className: BulletPosition
   - hash:
       serializedVersion: 2
-      Hash: d4d890e542350b5ee080c7a5dcb4bedf
+      Hash: 0829fc0b3fa315b704426a3f928667cf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -486,6 +490,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: projectile
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpellShield
   - hash:
       serializedVersion: 2
       Hash: 300fd99066f8c288e85f5e81ce65fe34
@@ -570,6 +580,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: aed2004b095c6aaf1a8bbf78d8fbbff8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyManager
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -660,6 +676,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: bb00e0c28652bfc0dc4d52d8799b3114
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shadow
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -806,10 +828,10 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 4a3c25fbf26bde09dd3d71aec6152d99
+      Hash: 7b9b5a6502c22380eef7b18eec70d1c2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ContinueGame
+    className: CooldownUI
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1022,7 +1044,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 1ee2eb314cbfe31e544f411bdc3fefe8
+      Hash: e3c2ff4f8cd7cb1d7743da2b41f8ed70
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullets
@@ -1088,6 +1110,12 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 93c6a010b957feb72d3f92ab714007fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelSuccess
+  - hash:
+      serializedVersion: 2
       Hash: 762a30c8d779b11af16ed9ce1f2d32fa
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
@@ -1098,210 +1126,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
-  - hash:
-      serializedVersion: 2
-      Hash: 7b9b5a6502c22380eef7b18eec70d1c2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CooldownUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpellShield
-  - hash:
-      serializedVersion: 2
-      Hash: 23986f0596ac3fa61fa65b9ac7b7e414
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: MineBotAI
-  - hash:
-      serializedVersion: 2
-      Hash: 424c99376ea3422d85441e7a4c2141fb
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: MineBotAnimation
-  - hash:
-      serializedVersion: 2
-      Hash: e7af7273c8177a5779551d022b323d84
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: RaycastModifier
-  - hash:
-      serializedVersion: 2
-      Hash: de673e1340c90424cfde9cdd2df0ab93
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AILerp
-  - hash:
-      serializedVersion: 2
-      Hash: e59b4ddbf539212f3d2f911f95cc1bb3
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: AstarSmoothFollow2
-  - hash:
-      serializedVersion: 2
-      Hash: 0cceca996e1eb1401d74a841f34c4f83
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: SimpleSmoothModifier
-  - hash:
-      serializedVersion: 2
-      Hash: c0e31dd31c35455f422978da26bb908a
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: Patrol
-  - hash:
-      serializedVersion: 2
-      Hash: ff653aebffb231eb559930e8cf311d62
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: GraphUpdateScene
-  - hash:
-      serializedVersion: 2
-      Hash: 6cd30e66b8b8737cd9e9c9402bc9f6e1
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: UnityReferenceHelper
-  - hash:
-      serializedVersion: 2
-      Hash: c181fc48305e752f3e25e609d7495634
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AstarDebugger
-  - hash:
-      serializedVersion: 2
-      Hash: 2fde15209800c4e94cf99bcad8981a24
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: ProceduralWorld
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: 
-    className: SnapToNode
-  - hash:
-      serializedVersion: 2
-      Hash: 427e4ae6223362877cde7ac01baa97c3
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: NodeLink3
-  - hash:
-      serializedVersion: 2
-      Hash: 57ba1b28f190a91e43977dcf11319678
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: ProceduralGridMover
-  - hash:
-      serializedVersion: 2
-      Hash: 46cdbf48786f1faf06540c1959cd7b81
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: NodeLink
-  - hash:
-      serializedVersion: 2
-      Hash: 125b4f826408d1743d30f89860edf799
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Legacy
-    className: LegacyAIPath
-  - hash:
-      serializedVersion: 2
-      Hash: b349b142d600a2478af04cea15b41a0b
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AnimationLink
-  - hash:
-      serializedVersion: 2
-      Hash: e15de9f58c449375f85e6200683cd414
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AIPath
-  - hash:
-      serializedVersion: 2
-      Hash: 43acdecfcc62de1110964c47067c846f
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AlternativePath
-  - hash:
-      serializedVersion: 2
-      Hash: a5a60d0b9e6d53d72e12aef88e23ee68
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: FunnelModifier
-  - hash:
-      serializedVersion: 2
-      Hash: 95ec5ef41811e64837c657c402b6d78f
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: Seeker
-  - hash:
-      serializedVersion: 2
-      Hash: b478fca366fa93f5a93f584cd5ba32cc
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: DoorController
-  - hash:
-      serializedVersion: 2
-      Hash: e2c52df92f5a11103c324ae820575e40
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: TurnBasedAI
-  - hash:
-      serializedVersion: 2
-      Hash: 427e4ae6223362877cde7ac01baa97c3
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: NodeLink2
-  - hash:
-      serializedVersion: 2
-      Hash: 482b4788a1650225af3664f1486faf28
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding.Examples
-    className: ObjectPlacer
-  - hash:
-      serializedVersion: 2
-      Hash: 607ec805afd8d80d43f15ef06639440f
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: BlockManager
-  - hash:
-      serializedVersion: 2
-      Hash: 3dd5460199f4f71ddeb16f492607b8fb
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: AIDestinationSetter
-  - hash:
-      serializedVersion: 2
-      Hash: bcb1cb4a9395b5b5db8b7a2dd4db50da
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: 
-    className: AstarPath
-  - hash:
-      serializedVersion: 2
-      Hash: 8abe5c5970b933d28c84fe29c2232578
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: RelevantGraphSurface
-  - hash:
-      serializedVersion: 2
-      Hash: cbdd099350fe077cb17fee9dea4b37a1
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: TargetMover
-  - hash:
-      serializedVersion: 2
-      Hash: f08fcc1618ec9915d9530432bf8be751
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: SingleNodeBlocker
-  - hash:
-      serializedVersion: 2
-      Hash: 2d57f4d10d5ed795e4304ee5d6404144
-    assemblyName: AstarPathfindingProject.dll
-    namespaceName: Pathfinding
-    className: DynamicGridObstacle
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity

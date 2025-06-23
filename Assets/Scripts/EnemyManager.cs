@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     private float baseSpeed = 7f;
     private int damageBoost = 1;
     private int spawnAfterKill = 2;
-
+    public static int fireMultiplier = 1;
     private float spawnInterval = 2f; // alle 2 Sekunden
     private float spawnTimer = 0f;
     private int maxEnemies = 3;
@@ -37,9 +37,10 @@ public class EnemyManager : MonoBehaviour
 
     public void InitializeLevel(int level)
     {
+
         Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-        ;
+        
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.maxhp = baseHP + (level * 100);
         enemy.speed = baseSpeed + (0.2f * level);
@@ -53,12 +54,24 @@ public class EnemyManager : MonoBehaviour
         enemy.fb.player = enemy.p.transform;
         enemy.fb.p = enemy.p;
         enemy.bullet = bulletPrefab;
+        if (enemyCount == maxEnemies - 1)
+        {
+            enemyGO.transform.localScale *= 1.5f;
+
+            enemy.maxhp *= 2f;
+            enemyGO.GetComponent<SpriteRenderer>().color = Color.red;
+            fireMultiplier = 2;
+            player.damageFromEnemy *= 5;
+
+        }
     }
     public void InitializeLevel(int level, bool a)
     {
         enemyCount = 0;
         Enemy.enemyCount = 1;
         maxEnemies *= 2;
+        fireMultiplier = 1;
+        player.damageFromEnemy /= 5;
     }
 
 }

@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\UIDamage.cs" />
     <Compile Include="Assets\Scripts\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\dmgTextSpawn.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\RotateEnemySprite.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
