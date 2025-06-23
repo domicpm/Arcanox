@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\ExitGame.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Scripts\Heal.cs" />
+    <Compile Include="Assets\Scripts\Shadow.cs" />
     <Compile Include="Assets\Scripts\Loot.cs" />
     <Compile Include="Assets\Scripts\PotUI.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\GameLogic.cs" />
     <Compile Include="Assets\Scripts\InputDevice.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
   </ItemGroup>
   <ItemGroup>

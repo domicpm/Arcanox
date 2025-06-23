@@ -14,6 +14,7 @@ public class InputDevice : MonoBehaviour
     {
         ButtonController.onClick.AddListener(OnButtonClick); 
         ButtonMouse.onClick.AddListener(OnButtonClick1);
+        Enemy.enemyCount = 0;
 
 
     }
