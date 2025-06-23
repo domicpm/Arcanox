@@ -6,7 +6,6 @@ public class PauseManager : MonoBehaviour
     public static PauseManager Instance { get; private set; }
     public Button continueGameButton;
     public Text pauseText;
-
     public bool IsPaused { get; private set; } = false;
 
     void Awake()
@@ -25,8 +24,9 @@ public class PauseManager : MonoBehaviour
         pauseText.gameObject.SetActive(false);
         continueGameButton.gameObject.SetActive(false);
         continueGameButton.onClick.AddListener(OnContinueButtonClicked);
+
     }
-    
+
 
     void Update()
     {
@@ -42,7 +42,7 @@ public class PauseManager : MonoBehaviour
         pauseText.gameObject.SetActive(false);
         continueGameButton.gameObject.SetActive(false);
     }
-
+ 
     public void TogglePause()
     {
         if (IsPaused)

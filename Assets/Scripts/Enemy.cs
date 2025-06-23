@@ -18,17 +18,23 @@ public class Enemy : MonoBehaviour
     public Transform dmgtextSpawnLocation;
     public TextMesh damageText;
     private int maxEnemies = 5;
-    private int spawnAfterKill = 3;
+    private int spawnAfterKill = 1;
     public static int enemyCount = 0;
     public AttackRangeCircle atc;
-    public DamageText damageTextPrefab; // Prefab im Inspector zuweisen
+    private float speed = 5f;
+    public DamageText damageTextPrefab;
+    public static Enemy Instance;
     private void Start()
     {
+        maxhp = 1000;
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
         atc.inRange = false;
     }
-
+    public void Awake()
+    {
+        Instance = this;
+    }
     public void destroyObj()
     {
         enemyCount++;
@@ -36,7 +42,6 @@ public class Enemy : MonoBehaviour
 if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
         {
             LevelSuccess.Instance.setAct();
-            Debug.Log("Success");
         }
     }
 
@@ -51,7 +56,6 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
         if (atc.inRange == false)
         {
             Vector2 dir = (p.transform.position - transform.position).normalized;
-            float speed = 5f;
 
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
         }
@@ -60,11 +64,23 @@ if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
 
     public void spawn()
     {
-        maxhp = 1000;
         randomPosition = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         Instantiate(gameObject, randomPosition, Quaternion.identity);
     }
+    public void initializeLevel()
+    {
+        if (LevelSuccess.Instance.level > 1)
+        {
+            spawn();
+            maxhp += 500;
+            maxEnemies += 1;
+            spawnAfterKill += 1;
+            p.damageFromEnemy += 1;
+            speed += 1;
+            enemyCount = 0;
+        }
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))

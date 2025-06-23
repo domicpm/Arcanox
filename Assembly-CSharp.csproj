@@ -84,7 +84,6 @@
     <Compile Include="Assets\Scripts\PlayerHealthBar.cs" />
     <Compile Include="Assets\Scripts\UIDamage.cs" />
     <Compile Include="Assets\Scripts\CooldownUI.cs" />
-    <Compile Include="Assets\Scripts\ContinueGame.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\dmgTextSpawn.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
