@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Bullets : MonoBehaviour
 {
-    public float mindamage = 20;
-    public float maxdamage = 125;
-    public float mindamageSpell = 75;
-    public float maxdamageSpell = 250;
+    private float mindamage = 100;
+    private float maxdamage = 300;
+    private float mindamageSpell = 250;
+    private float maxdamageSpell = 550;
     public float speed = 6f;
     public float damage;
     public float damageSpell;

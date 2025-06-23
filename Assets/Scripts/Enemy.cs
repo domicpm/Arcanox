@@ -17,20 +17,27 @@ public class Enemy : MonoBehaviour
     public Text hpEnemy;
     public Transform dmgtextSpawnLocation;
     public TextMesh damageText;
-    private int maxEnemies = 6;
+    private int maxEnemies = 5;
+    private int spawnAfterKill = 3;
     public static int enemyCount = 0;
     public AttackRangeCircle atc;
     public DamageText damageTextPrefab; // Prefab im Inspector zuweisen
-
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
+        atc.inRange = false;
     }
 
     public void destroyObj()
     {
+        enemyCount++;
         Destroy(gameObject);
+if(enemyCount == spawnAfterKill * (maxEnemies + 1) + 1)
+        {
+            LevelSuccess.Instance.setAct();
+            Debug.Log("Success");
+        }
     }
 
     public Vector3 getCurrentEnemyPos()
@@ -40,7 +47,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-
 
         if (atc.inRange == false)
         {
@@ -57,8 +63,6 @@ public class Enemy : MonoBehaviour
         maxhp = 1000;
         randomPosition = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         Instantiate(gameObject, randomPosition, Quaternion.identity);
-        enemyCount++;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,7 +89,7 @@ public class Enemy : MonoBehaviour
                 if (random <= 50) heal.spawn(enemydeathpos);
                 else ab.spawn(enemydeathpos);
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < spawnAfterKill; i++)
                 {
 
                     if (enemyCount <= maxEnemies)
@@ -117,7 +121,7 @@ public class Enemy : MonoBehaviour
                 int random = Random.Range(1, 101);
                 if (random <= 50) heal.spawn(enemydeathpos);
                 else ab.spawn(enemydeathpos);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < spawnAfterKill; i++)
                 {
                     if (enemyCount <= maxEnemies)
                     {
