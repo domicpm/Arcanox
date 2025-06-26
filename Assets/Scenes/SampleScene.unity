@@ -3820,6 +3820,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &826952407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1890261603346751901, guid: 70336042f28f1c8499a3d038798c5c38,
+    type: 3}
+  m_PrefabInstance: {fileID: 7936427492929352247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &826952411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826952407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbb8bf046b154f438d5cc82e4915b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &843508267
 GameObject:
   m_ObjectHideFlags: 0
@@ -9759,6 +9777,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1402766101}
+    - target: {fileID: 2527527623285953366, guid: 70336042f28f1c8499a3d038798c5c38,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4795363162621231457, guid: 6d7cd4f7505dc674c891ca8946cfd98b,
+        type: 3}
+    - target: {fileID: 2527527623285953366, guid: 70336042f28f1c8499a3d038798c5c38,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5039537149206216430, guid: 70336042f28f1c8499a3d038798c5c38,
         type: 3}
       propertyPath: m_Controller
@@ -9870,6 +9899,11 @@ PrefabInstance:
       propertyPath: lcs
       value: 
       objectReference: {fileID: 2034407889}
+    - target: {fileID: 7936427492132528191, guid: 70336042f28f1c8499a3d038798c5c38,
+        type: 3}
+      propertyPath: res
+      value: 
+      objectReference: {fileID: 826952411}
     - target: {fileID: 7936427492132528191, guid: 70336042f28f1c8499a3d038798c5c38,
         type: 3}
       propertyPath: maxhp

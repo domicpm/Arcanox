@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public float maxhp;
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     public DamageText damageTextPrefab;
     public GameObject enemyprefab;
     public fireball fb;
+    private bool isDead = false;
+    public RotateEnemySprite res;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -35,9 +37,25 @@ public class Enemy : MonoBehaviour
     }
     public void destroyObj()
     {
-        enemyCount++;
-        Destroy(gameObject);     
+        this.isDead = true;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
+        healthbar.gameObject.SetActive(false);
+        damageTextPrefab.gameObject.SetActive(false);
+        hpEnemy.gameObject.SetActive(false);
+        fb.gameObject.SetActive(false);
+        res.setDeadAnimation();
+        StartCoroutine(DestroyAfterDelay(2f));
     }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        enemyCount++;
+        Destroy(gameObject);
+    }
+
 
     public Vector3 getCurrentEnemyPos()
     {
@@ -46,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-
+        if (isDead) return;  // kein Movement, wenn tot
         if (atc.inRange == false)
         {
             Vector2 dir = (p.transform.position - transform.position).normalized;
@@ -82,6 +100,7 @@ public class Enemy : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isDead) return;  // keine Collision , wenn tot
         if (collision.gameObject.CompareTag("Bullet"))
         {
             isHit = true;

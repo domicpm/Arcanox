@@ -385,6 +385,7 @@ MonoBehaviour:
     type: 3}
   enemyprefab: {fileID: 2715785419217849713}
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
+  res: {fileID: 2362712619157992117}
 --- !u!61 &2715785419217849712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -897,6 +898,7 @@ GameObject:
   - component: {fileID: 5420605257967220815}
   - component: {fileID: 7530060671961808406}
   - component: {fileID: 1036877828887172014}
+  - component: {fileID: 2362712619157992117}
   m_Layer: 0
   m_Name: SpriteEnemy
   m_TagString: Untagged
@@ -989,6 +991,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2362712619157992117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884019277527600349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbb8bf046b154f438d5cc82e4915b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &72313630572308317
 PrefabInstance:
   m_ObjectHideFlags: 0

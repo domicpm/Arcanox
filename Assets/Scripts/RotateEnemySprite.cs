@@ -20,6 +20,6 @@ public class RotateEnemySprite : MonoBehaviour
 
     public void setDeadAnimation()
     {
-        animator.SetTrigger("IsDead");
+        animator.SetTrigger("isDead");
     }
 }

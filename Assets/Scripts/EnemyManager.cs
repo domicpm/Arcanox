@@ -40,7 +40,6 @@ public class EnemyManager : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-        
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.maxhp = baseHP + (level * 100);
         enemy.speed = baseSpeed + (0.2f * level);
@@ -59,7 +58,7 @@ public class EnemyManager : MonoBehaviour
             enemyGO.transform.localScale *= 1.5f;
 
             enemy.maxhp *= 2f;
-            enemyGO.GetComponent<SpriteRenderer>().color = Color.red;
+            enemyGO.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.red;
             fireMultiplier = 2;
             player.damageFromEnemy *= 5;
 
