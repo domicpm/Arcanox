@@ -9,13 +9,12 @@ public class InputDevice : MonoBehaviour
     public Button ButtonController;
     public Button ButtonMouse;
     public static bool mouse = false;
+    private bool firstTimeCheck = false;
     // Start is called before the first frame update
     void Start()
     {
         ButtonController.onClick.AddListener(OnButtonClick); 
         ButtonMouse.onClick.AddListener(OnButtonClick1);
-        Enemy.enemyCount = 0;
-
 
     }
 
@@ -27,15 +26,25 @@ public class InputDevice : MonoBehaviour
     void OnButtonClick()
     {
         mouse = false;
-        Debug.Log("MOUSE FALSCH");
         SceneManager.LoadScene("SampleScene");
-
+        firstTimeCheckfunc();
     }
     void OnButtonClick1()
     {
         mouse = true;
-        Debug.Log("MOUSE WAHR");
         SceneManager.LoadScene("SampleScene");
-
+        firstTimeCheckfunc();
+    }
+    void firstTimeCheckfunc()
+    {
+        if (firstTimeCheck == true)
+        {
+            EnemyManager.Instance.InitializeLevel(1, true);
+        }
+        else
+        {
+            EnemyManager.Instance.InitializeLevel(1, false);
+        }
+        firstTimeCheck = true;
     }
 }

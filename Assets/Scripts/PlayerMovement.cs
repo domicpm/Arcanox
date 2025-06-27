@@ -191,8 +191,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (newhp <= 0 && !isDead)
                 {
-                    Hp.text = "";
-
+                    Hp.gameObject.SetActive(false);
                     healthbar.gameObject.SetActive(false);
                     isDead = true;
                     playerSprite.setDeadAnimation();

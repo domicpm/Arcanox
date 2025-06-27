@@ -31,7 +31,6 @@ public class LevelSuccess : MonoBehaviour
     public void OnContinueLevelButtonClicked()
     {
         level++;
-
         enemyManager.InitializeLevel(level, true);
         gameObject.SetActive(false);
     }

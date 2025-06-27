@@ -37,12 +37,13 @@ public class Enemy : MonoBehaviour
     }
     public void destroyObj()
     {
+        enemyCount++;
+        Debug.Log("Count in Enemy: " + enemyCount);
         this.isDead = true;
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
         healthbar.gameObject.SetActive(false);
-        damageTextPrefab.gameObject.SetActive(false);
         hpEnemy.gameObject.SetActive(false);
         fb.gameObject.SetActive(false);
         res.setDeadAnimation();
@@ -52,7 +53,6 @@ public class Enemy : MonoBehaviour
     private IEnumerator DestroyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        enemyCount++;
         Destroy(gameObject);
     }
 
@@ -72,31 +72,6 @@ public class Enemy : MonoBehaviour
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
         }
     }
-
-
-    public void spawn()
-    {
-        maxhp = 1500;
-        randomPosition = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
-
-        GameObject enemyObj = Instantiate(enemyprefab, randomPosition, Quaternion.identity);
-        Enemy enemyScript = enemyObj.GetComponent<Enemy>();
-        enemyScript.p = p;
-        enemyScript.bullet = this.bullet;
-        enemyScript.fb = enemyObj.GetComponentInChildren<fireball>();
-
-        // Fireball-Ziel setzen
-        if (enemyScript.fb != null)
-        {
-            enemyScript.fb.player = p.transform;
-            enemyScript.fb.p = p;
-        }
-        else
-        {
-            Debug.LogWarning("fireball-Komponente im EnemyPrefab nicht gefunden!");
-        }
-    }
-
    
     private void OnTriggerEnter2D(Collider2D collision)
     {

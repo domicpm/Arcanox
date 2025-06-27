@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\RetryGame.cs" />
     <Compile Include="Assets\Scripts\DamageText.cs" />
+    <Compile Include="Assets\Scripts\BossAttributes.cs" />
     <Compile Include="Assets\Scripts\AttackRangeCircle.cs" />
     <Compile Include="Assets\Scripts\PlayerHealthBar.cs" />
     <Compile Include="Assets\Scripts\UIDamage.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\BossAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

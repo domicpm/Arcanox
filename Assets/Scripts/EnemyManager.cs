@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
     private float baseHP = 1500;
@@ -17,20 +18,33 @@ public class EnemyManager : MonoBehaviour
     private float spawnTimer = 0f;
     private int maxEnemies = 3;
     private int enemyCount = 0;
+    public int counter = 0;
+    private void Awake()
+{
+    if (Instance == null)
+    {
+        Instance = this;
+    }
+    else
+    {
+        Destroy(gameObject); // Singleton
+    }
+}
+    
     private void Update()
     {
         spawnTimer += Time.deltaTime;
-        Debug.Log("Enemy Count" + enemyCount);
-        Debug.Log("Enemy Count von Enemy" + Enemy.enemyCount);
+      
 
         if (spawnTimer >= spawnInterval &&  enemyCount < maxEnemies)
         {
-            InitializeLevel(10);
+            InitializeLevel(1);
             enemyCount++;
             spawnTimer = 0f;
         }
         if (Enemy.enemyCount > maxEnemies && enemyCount >= maxEnemies)
         {
+                Debug.Log("enemycount" + Enemy.enemyCount);
             LevelSuccess.Instance.setAct();
         }       
     }
@@ -44,7 +58,6 @@ public class EnemyManager : MonoBehaviour
         enemy.maxhp = baseHP + (level * 100);
         enemy.speed = baseSpeed + (0.2f * level);
         player.damageFromEnemy = player.damageFromEnemy + level;
-
         spawnAfterKill += level;
         enemy.p = player;
         enemy.healthbar.setMaxHealth(enemy.maxhp);
@@ -67,7 +80,12 @@ public class EnemyManager : MonoBehaviour
     public void InitializeLevel(int level, bool a)
     {
         enemyCount = 0;
-        Enemy.enemyCount = 1;
+        if(a == false) {        Enemy.enemyCount = 0;
+        }
+        else
+        {
+            Enemy.enemyCount = 1;
+        }
         maxEnemies *= 2;
         fireMultiplier = 1;
         player.damageFromEnemy /= 5;

@@ -3,7 +3,6 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AttackBoost
     - AttackRangeCircle
-    - BossAttributes
     - BulletPosition
     - Bullets
     - CameraFollow
@@ -24,6 +23,7 @@ ScriptsOnlyBuild:
     - PotImageUI
     - PotUI
     - RetryGame
+    - RotateEnemySprite
     - RotatePlayerSprite
     - Spell
     - SpellShield
@@ -38,6 +38,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -109,7 +110,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 4660}
+      Script: {instanceID: 4662}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -162,9 +163,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2462}
     - Class: 114
-      Script: {instanceID: 4186}
+      Script: {instanceID: 4188}
     - Class: 114
-      Script: {instanceID: 4508}
+      Script: {instanceID: 4510}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -213,7 +214,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3072}
     - Class: 114
-      Script: {instanceID: 4364}
+      Script: {instanceID: 4366}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -330,29 +331,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3222}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 3272}
+      Script: {instanceID: 3274}
     - Class: 114
-      Script: {instanceID: 3498}
+      Script: {instanceID: 3500}
     - Class: 114
-      Script: {instanceID: 3550}
+      Script: {instanceID: 3552}
     - Class: 114
-      Script: {instanceID: 3680}
+      Script: {instanceID: 3682}
     - Class: 114
-      Script: {instanceID: 4048}
+      Script: {instanceID: 4050}
     - Class: 114
-      Script: {instanceID: 4146}
+      Script: {instanceID: 4148}
     - Class: 114
-      Script: {instanceID: 4374}
+      Script: {instanceID: 4314}
     - Class: 114
-      Script: {instanceID: 4504}
+      Script: {instanceID: 4376}
     - Class: 114
-      Script: {instanceID: 4942}
+      Script: {instanceID: 4506}
     - Class: 114
-      Script: {instanceID: 4988}
+      Script: {instanceID: 4944}
     - Class: 114
-      Script: {instanceID: 32446}
+      Script: {instanceID: 4990}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -464,7 +465,7 @@ ScriptsOnlyBuild:
     className: BulletPosition
   - hash:
       serializedVersion: 2
-      Hash: 0829fc0b3fa315b704426a3f928667cf
+      Hash: c234bb85841d600fe9cde2baa0b13154
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -584,7 +585,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: aed2004b095c6aaf1a8bbf78d8fbbff8
+      Hash: 63310cd8587c5d1e572545f24ff534f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyManager
@@ -774,6 +775,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossAttributes
   - hash:
       serializedVersion: 2
       Hash: 338268f8ace5b9afa933ec54cb271459
@@ -1128,12 +1135,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BossAttributes
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity
