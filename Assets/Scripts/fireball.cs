@@ -6,7 +6,7 @@ public class fireball : MonoBehaviour
 {
     public Transform player;
     public int ppos = 175;
-    [SerializeField] private float moveSpeed = 0.01f;
+    public float moveSpeed = 8f;
     private float angle;
     Vector3 direction;
     public GameObject Prefab;
@@ -19,6 +19,7 @@ public class fireball : MonoBehaviour
     private bool isOriginal = true; // Flag to identify the original prefab
     public Animator animator;
     public AttackRangeCircle arc;
+    public Enemy boss;
     private void Start()
     {
         originalScale = transform.localScale;
@@ -85,15 +86,17 @@ public class fireball : MonoBehaviour
             
         {
             GameObject newFireball = Instantiate(Prefab, enemy.gameObject.transform.position, Quaternion.identity);
-            newFireball.transform.localScale *= EnemyManager.fireMultiplier;
+            newFireball.transform.localScale *= boss.fireballSizeMultiplier;
+            
             // Setze Referenzen für den geklonten Feuerball
             fireball newFireballScript = newFireball.GetComponent<fireball>();
-
+            newFireballScript.interval = boss.fireballInterval;
+            newFireballScript.moveSpeed = boss.fireballSpeed;
             if (newFireballScript != null)
             {
                 newFireballScript.isOriginal = false; // Markiere als Klon
                 newFireballScript.player = player;
-                newFireballScript.moveSpeed = moveSpeed;
+                //newFireballScript.moveSpeed = moveSpeed;
                 newFireballScript.p = p;
 
                 // Berechne Richtung zum Spieler

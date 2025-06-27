@@ -143,3 +143,4 @@ MonoBehaviour:
   p: {fileID: 6062591081660094899, guid: 9405e07986ba5dd469e29d11078a4c3a, type: 3}
   animator: {fileID: 0}
   arc: {fileID: 0}
+  boss: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c, type: 3}

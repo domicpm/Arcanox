@@ -9801,6 +9801,11 @@ PrefabInstance:
       objectReference: {fileID: 1402766097}
     - target: {fileID: 2303195437805750880, guid: 70336042f28f1c8499a3d038798c5c38,
         type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 864457224}
+    - target: {fileID: 2303195437805750880, guid: 70336042f28f1c8499a3d038798c5c38,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1402766101}

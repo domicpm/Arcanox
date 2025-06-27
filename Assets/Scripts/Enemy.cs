@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     public fireball fb;
     private bool isDead = false;
     public RotateEnemySprite res;
+    public int fireballSizeMultiplier = 1;
+    public float fireballInterval = 0.7f;
+    public float fireballSpeed = 8f;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -38,7 +41,6 @@ public class Enemy : MonoBehaviour
     public void destroyObj()
     {
         enemyCount++;
-        Debug.Log("Count in Enemy: " + enemyCount);
         this.isDead = true;
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
@@ -93,20 +95,7 @@ public class Enemy : MonoBehaviour
 
             if (maxhp <= 0)
             {
-                enemydeathpos = transform.position;
-                int random = Random.Range(1, 101);
-                if (random <= 50) heal.spawn(enemydeathpos);
-                else ab.spawn(enemydeathpos);
-
-                for (int i = 0; i < spawnAfterKill; i++)
-                {
-
-                    if (enemyCount <= maxEnemies)
-                    {
-                        //spawn();
-                    }
-                }
-                destroyObj();
+                deathHandler();
             }
         }
         if (collision.gameObject.CompareTag("Spell"))
@@ -126,20 +115,18 @@ public class Enemy : MonoBehaviour
 
             if (maxhp <= 0)
             {
-                enemydeathpos = transform.position;
-                int random = Random.Range(1, 101);
-                if (random <= 50) heal.spawn(enemydeathpos);
-                else ab.spawn(enemydeathpos);
-                for (int i = 0; i < spawnAfterKill; i++)
-                {
-                    if (enemyCount <= maxEnemies)
-                    {
-                        //spawn();
-                    }
-                }
-                destroyObj();
+                deathHandler();
             }
         }
     }
+    void deathHandler()
+    {
+        enemydeathpos = transform.position;
+        int random = Random.Range(1, 101);
+        if (random <= 50) heal.spawn(enemydeathpos);
+        else ab.spawn(enemydeathpos);
+        destroyObj();
+    }
+
 
 }

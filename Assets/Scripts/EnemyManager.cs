@@ -44,7 +44,6 @@ public class EnemyManager : MonoBehaviour
         }
         if (Enemy.enemyCount > maxEnemies && enemyCount >= maxEnemies)
         {
-                Debug.Log("enemycount" + Enemy.enemyCount);
             LevelSuccess.Instance.setAct();
         }       
     }
@@ -72,9 +71,17 @@ public class EnemyManager : MonoBehaviour
 
             enemy.maxhp *= 2f;
             enemyGO.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.red;
-            fireMultiplier = 2;
+            enemy.fireballSizeMultiplier = 2;
             player.damageFromEnemy *= 5;
+            enemy.fireballInterval = 0.2f;
+            enemy.fireballSpeed = 12f;
 
+        }
+        else
+        {
+            enemy.fireballSizeMultiplier = 1;
+            enemy.fireballInterval = 0.7f;
+            enemy.fireballSpeed = 8f;
         }
     }
     public void InitializeLevel(int level, bool a)
@@ -87,7 +94,6 @@ public class EnemyManager : MonoBehaviour
             Enemy.enemyCount = 1;
         }
         maxEnemies *= 2;
-        fireMultiplier = 1;
         player.damageFromEnemy /= 5;
     }
 

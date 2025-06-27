@@ -386,6 +386,7 @@ MonoBehaviour:
   enemyprefab: {fileID: 2715785419217849713}
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   res: {fileID: 2362712619157992117}
+  fireballSizeMultiplier: 1
 --- !u!61 &2715785419217849712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1080,6 +1081,11 @@ PrefabInstance:
       propertyPath: arc
       value: 
       objectReference: {fileID: 2715785419122472964}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 2715785419217849727}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: enemy

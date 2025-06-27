@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool shield;
     private bool onCooldown = false;
-
+    private float spellShieldCooldown = 7f;
     public Enemy enemy;
     [SerializeField] private TrailRenderer tr;
     public GameObject player;
@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Cooldown()
     {
         onCooldown = true;
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(spellShieldCooldown);
         onCooldown = false;
     }
 }
