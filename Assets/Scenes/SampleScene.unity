@@ -1874,10 +1874,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c2a1ca86a95f2479b4d9e2633697b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 5062452613649619855, guid: 2e55d9c08e72daa498ab8e20791035e4,
+    type: 3}
   enemyPrefab: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
     type: 3}
   player: {fileID: 1402766097}
   bulletPrefab: {fileID: 715943271}
+  bossSpawned: 0
   counter: 0
 --- !u!4 &407886985
 Transform:

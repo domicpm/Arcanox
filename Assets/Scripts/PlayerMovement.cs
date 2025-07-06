@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public const float maxhp = 500;
     public PlayerHealthBar healthbar;
-    public float damageFromEnemy = 5;
+    public int damageFromEnemy = 5;
     public Text Hp;
     public Heal heal;
     public float healamount = 10;

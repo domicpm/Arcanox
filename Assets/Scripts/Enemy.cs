@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public float maxhp;
     public HealthBar healthbar;
     public Bullets bullet;
+    public bool isBoss = false;
     public bool isHit = false;
     public Heal heal;
     public Vector2 enemydeathpos;
@@ -126,6 +127,12 @@ public class Enemy : MonoBehaviour
         if (random <= 50) heal.spawn(enemydeathpos);
         else ab.spawn(enemydeathpos);
         destroyObj();
+
+        if (isBoss)
+        {
+            LevelSuccess.Instance.setAct();
+        }
+
     }
 
 
