@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\SpellShield.cs" />
     <Compile Include="Assets\Scripts\AttackBoost.cs" />
+    <Compile Include="Assets\Scripts\PrefabPooling.cs" />
     <Compile Include="Assets\Scripts\enemyWeapon.cs" />
     <Compile Include="Assets\Scripts\Spell.cs" />
     <Compile Include="Assets\Scripts\RotatePlayerSprite.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooling.cs" />
     <Compile Include="Assets\Scripts\dmgTextSpawn.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\RotateEnemySprite.cs" />

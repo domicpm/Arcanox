@@ -12,17 +12,22 @@ public class Bullets : MonoBehaviour
     public float speed = 6f;
     public float damage;
     public float damageSpell;
+    public ObjectPooling objectPooling; 
 
     public PlayerMovement player;
     private Vector3 originalScale;
     private CooldownUI cdUI;
     public GameObject b;
-    public projectile p;
     public Spell spell;
 
     // public DamageText dmgtxt;
     // public UIDamage uidmg;
     // public UIDamage uidmg1;
+
+    private void Awake()
+    {
+        objectPooling = FindObjectOfType<ObjectPooling>();
+    }
 
     private void Start()
     {
@@ -42,13 +47,13 @@ public class Bullets : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            objectPooling.RemoveObject(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // dmgtxt.spawnDmg(damage);
-            Destroy(gameObject);
+            objectPooling.RemoveObject(gameObject);
         }
     }
 
@@ -74,7 +79,9 @@ public class Bullets : MonoBehaviour
         if (PauseManager.Instance.IsPaused) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
 
-        var bullet = Instantiate(b, p.transform.position, Quaternion.identity);
+       // var bullet = Instantiate(b, player.bp.transform.position, Quaternion.identity); // <-- p.transform raus
+        GameObject bullet = objectPooling.ActivateObject(objectPooling.leftClick, player.bp.transform.position, Quaternion.identity);
+
         UpdateDamage();
         Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
@@ -86,7 +93,9 @@ public class Bullets : MonoBehaviour
         if (PauseManager.Instance.IsPaused) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
 
-        var bullet = Instantiate(spell, p.transform.position, Quaternion.identity);
+        //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
+        GameObject bullet = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
+        if (bullet == null) return;
         UpdateDamageSpell();
         Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
