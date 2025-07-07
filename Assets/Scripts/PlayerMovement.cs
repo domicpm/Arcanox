@@ -6,20 +6,22 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 10f;
     private Rigidbody2D rb;
     private Vector2 mousePos;
     public float angle;
 
-    public const float maxhp = 500;
+    private float spellShieldCooldown = 7f;
+    public const float maxhp = 200;
+    public int damageFromEnemy = 3;
+    private float healamount = 50;
+    public float speed = 8f;
+    public int potamount = 0;
+
     public PlayerHealthBar healthbar;
-    public int damageFromEnemy = 5;
     public Text Hp;
     public Heal heal;
-    public float healamount = 10;
     public float newhp;
 
-    [HideInInspector] public int potamount = 3;
     public bool PlayerGotDamage;
     public PotImageUI potui;
     public Bullets s;
@@ -32,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashingCooldown = 1f;
     private bool shield;
     private bool onCooldown = false;
-    private float spellShieldCooldown = 7f;
     public Enemy enemy;
     [SerializeField] private TrailRenderer tr;
     public GameObject player;
@@ -45,14 +46,16 @@ public class PlayerMovement : MonoBehaviour
         healthbar.setPlayerMaxHealth(maxhp);
         rb = GetComponent<Rigidbody2D>();
         Hp.text = healthbar.getPlayerHealth().ToString();
-        potamount = 3;
+        potamount = 0;
     }
 
     void Update()
     {
         if (PauseManager.Instance.IsPaused)
             return;
-
+        if(Enemy.allCleared == true)
+            return;
+        
         if (!isDead)
         {
             if (PauseManager.Instance.IsPaused)
@@ -164,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("AttackSpeedBuff"))
         {
-            s.speed += 5;
+            s.speed += 1;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

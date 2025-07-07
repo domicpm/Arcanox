@@ -7,28 +7,36 @@ public class DamageText : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.8f);
     }
 
     void Update()
     {
-        transform.position += Vector3.up * 2f * Time.deltaTime;
+        transform.position += Vector3.up * 2.5f * Time.deltaTime;
     }
 
     public void SetDamage(float dmg)
     {
-        damageText.text = dmg.ToString();
+        if (dmg != 0)
+        {
+            damageText.text = dmg.ToString();
+        }
+        else
+        {
+            damageText.fontStyle = FontStyles.Bold;
+            damageText.text = "MISS";
+        }
 
         // Style-Regeln direkt hier:
-        if (dmg > 80) // Beispiel: starker Schaden
+        if (dmg > 250) // Beispiel: starker Schaden
         {
-            damageText.fontSize = 10f;
+            damageText.fontSize = 12f;
             damageText.fontStyle = FontStyles.Bold | FontStyles.Italic;
             damageText.color = Color.red;
         }
         else
         {
-            damageText.fontSize = 6f;
+            damageText.fontSize = 8f;
             damageText.fontStyle = FontStyles.Normal;
         }
     }

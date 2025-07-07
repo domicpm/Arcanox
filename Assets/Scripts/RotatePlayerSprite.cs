@@ -21,7 +21,7 @@ public class RotatePlayerSprite : MonoBehaviour
     }
     public void rotate(bool right)
     {
-        if (player.isDead == false && PauseManager.Instance.IsPaused == false)
+        if (player.isDead == false && PauseManager.Instance.IsPaused == false && Enemy.allCleared == false)
         {
             if (right)
             {

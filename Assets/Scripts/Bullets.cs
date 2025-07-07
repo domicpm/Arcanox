@@ -7,9 +7,11 @@ public class Bullets : MonoBehaviour
 {
     private float mindamage = 100;
     private float maxdamage = 300;
-    private float mindamageSpell = 250;
-    private float maxdamageSpell = 550;
-    public float speed = 6f;
+    private float mindamageSpell = 450;
+    private float maxdamageSpell = 750;
+    [HideInInspector] public float accuracy = 70;
+    public float speed = 4f;
+
     public float damage;
     public float damageSpell;
     public ObjectPooling objectPooling; 
@@ -19,11 +21,6 @@ public class Bullets : MonoBehaviour
     private CooldownUI cdUI;
     public GameObject b;
     public Spell spell;
-
-    // public DamageText dmgtxt;
-    // public UIDamage uidmg;
-    // public UIDamage uidmg1;
-
     private void Awake()
     {
         objectPooling = FindObjectOfType<ObjectPooling>();
@@ -68,11 +65,27 @@ public class Bullets : MonoBehaviour
     }
     public void UpdateDamage()
     {
-        damage = Mathf.RoundToInt(Random.Range(mindamage, maxdamage));
+        int random = Random.Range(1, 101);
+        if (accuracy >= random)
+        {
+            damage = Mathf.RoundToInt(Random.Range(mindamage, maxdamage));
+        }
+        else
+        {
+            damage = 0;
+        }
     }
     public void UpdateDamageSpell()
     {
-        damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
+        int random = Random.Range(1, 101);
+        if (accuracy >= random)
+        {
+            damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
+        }
+        else
+        {
+            damageSpell = 0;
+        }
     }
     public void shoot()
     {

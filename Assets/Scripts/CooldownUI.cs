@@ -9,16 +9,16 @@ public class CooldownUI : MonoBehaviour
 
     void Start()
     {
-        cooldownTimer = cooldownDuration;
+        cooldownTimer = weapon.fireCooldownSpell;
         cooldownImage.fillAmount = 1f; // Anfang leer
     }
 
     void Update()
     {
-        if (cooldownTimer < cooldownDuration)
+        if (cooldownTimer < weapon.fireCooldownSpell)
         {
             cooldownTimer += Time.deltaTime;
-            cooldownImage.fillAmount = cooldownTimer / cooldownDuration;
+            cooldownImage.fillAmount = cooldownTimer / weapon.fireCooldownSpell;
         }
     }
 

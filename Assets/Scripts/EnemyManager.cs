@@ -98,6 +98,7 @@ public class EnemyManager : MonoBehaviour
         maxEnemies *= 2;
         player.damageFromEnemy += 4;
         bossSpawned = false;
+        Enemy.allCleared = false;
     }
     public void SpawnBoss(int level)
     {

@@ -17,11 +17,13 @@ ScriptsOnlyBuild:
     - InputDevice
     - LevelSuccess
     - Loot
+    - ObjectPooling
     - PauseManager
     - PlayerHealthBar
     - PlayerMovement
     - PotImageUI
     - PotUI
+    - PrefabPooling
     - RetryGame
     - RotateEnemySprite
     - RotatePlayerSprite
@@ -100,17 +102,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4666}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -159,13 +161,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 2098}
+      Script: {instanceID: 2100}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 4188}
+      Script: {instanceID: 4192}
     - Class: 114
-      Script: {instanceID: 4510}
+      Script: {instanceID: 4514}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -206,15 +208,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 4366}
+      Script: {instanceID: 4370}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -295,65 +297,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1836}
     - Class: 114
-      Script: {instanceID: 1930}
+      Script: {instanceID: 1838}
     - Class: 114
-      Script: {instanceID: 2122}
+      Script: {instanceID: 1932}
     - Class: 114
-      Script: {instanceID: 2188}
+      Script: {instanceID: 2124}
     - Class: 114
-      Script: {instanceID: 2218}
+      Script: {instanceID: 2190}
     - Class: 114
-      Script: {instanceID: 2266}
+      Script: {instanceID: 2220}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2268}
     - Class: 114
-      Script: {instanceID: 2570}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2572}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2576}
     - Class: 114
-      Script: {instanceID: 2644}
+      Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2750}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2872}
+      Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 2966}
+      Script: {instanceID: 2954}
     - Class: 114
-      Script: {instanceID: 2990}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 2994}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 2996}
     - Class: 114
-      Script: {instanceID: 3082}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3224}
+      Script: {instanceID: 3084}
     - Class: 114
-      Script: {instanceID: 3274}
+      Script: {instanceID: 3226}
     - Class: 114
-      Script: {instanceID: 3500}
+      Script: {instanceID: 3276}
     - Class: 114
-      Script: {instanceID: 3552}
+      Script: {instanceID: 3502}
     - Class: 114
-      Script: {instanceID: 3682}
+      Script: {instanceID: 3554}
     - Class: 114
-      Script: {instanceID: 4050}
+      Script: {instanceID: 3684}
     - Class: 114
-      Script: {instanceID: 4148}
+      Script: {instanceID: 4038}
     - Class: 114
-      Script: {instanceID: 4314}
+      Script: {instanceID: 4054}
     - Class: 114
-      Script: {instanceID: 4376}
+      Script: {instanceID: 4152}
     - Class: 114
-      Script: {instanceID: 4506}
+      Script: {instanceID: 4318}
     - Class: 114
-      Script: {instanceID: 4944}
+      Script: {instanceID: 4380}
     - Class: 114
-      Script: {instanceID: 4990}
+      Script: {instanceID: 4510}
+    - Class: 114
+      Script: {instanceID: 4948}
+    - Class: 114
+      Script: {instanceID: 4994}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -405,7 +411,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 74aae25748c9a27d68108e6be81f59e8
+      Hash: eff890a29ba2a6b6d3d875b285a04256
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: fireball
@@ -465,7 +471,7 @@ ScriptsOnlyBuild:
     className: BulletPosition
   - hash:
       serializedVersion: 2
-      Hash: c234bb85841d600fe9cde2baa0b13154
+      Hash: db7d8396d31d7d4b149dc5aa8d5515ca
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -511,6 +517,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AttackBoost
+  - hash:
+      serializedVersion: 2
+      Hash: 220bd265f54cc4cee8f1539ad2b2c64a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PrefabPooling
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -567,7 +579,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: bb00e0c28652bfc0dc4d52d8799b3114
+      Hash: 4e9f33bb29c66269d7dea5b73eed2da6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: weapon
@@ -585,7 +597,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 63310cd8587c5d1e572545f24ff534f2
+      Hash: 3e19caababa76eee4088b3fa3cd7ad0f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyManager
@@ -951,6 +963,12 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
+      Hash: c190f368bd2e9f48351124ef15d59f47
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObjectPooling
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -987,7 +1005,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 80b676ef833d50f33d76896311f92e16
+      Hash: 20637b9ab898b6913af3a7bf987f60a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1053,7 +1071,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: e3c2ff4f8cd7cb1d7743da2b41f8ed70
+      Hash: 35822b7ec27ccb1349b46285da513459
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullets

@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public int fireballSizeMultiplier = 1;
     public float fireballInterval = 0.7f;
     public float fireballSpeed = 8f;
+    public static bool allCleared = false;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -124,13 +125,18 @@ public class Enemy : MonoBehaviour
     {
         enemydeathpos = transform.position;
         int random = Random.Range(1, 101);
-        if (random <= 50) heal.spawn(enemydeathpos);
-        else ab.spawn(enemydeathpos);
+        if (random <= 30) heal.spawn(enemydeathpos);
+        else if(random <= 50) ab.spawn(enemydeathpos);
+        else if(random <= 10)
+        {
+            Debug.Log("lucky LOOT");
+        }
         destroyObj();
 
         if (isBoss)
         {
             LevelSuccess.Instance.setAct();
+            allCleared = true;
         }
 
     }
