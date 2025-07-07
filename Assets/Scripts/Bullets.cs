@@ -102,7 +102,7 @@ public class Bullets : MonoBehaviour
     }
     public void shootLeft()
     {
-        cdUI.ResetCooldown();
+        cdUI.ResetCooldown("spell");
         if (PauseManager.Instance.IsPaused) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
 

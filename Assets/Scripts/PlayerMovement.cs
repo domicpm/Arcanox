@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 mousePos;
     public float angle;
 
-    private float spellShieldCooldown = 7f;
+    public static float spellShieldCooldown = 7f;
     public const float maxhp = 200;
     public int damageFromEnemy = 3;
     private float healamount = 50;
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public RotatePlayerSprite playerSprite;
     public BulletPosition bp;
     public SpellShield spellshield;
+    public CooldownUI cdUI;
     void Start()
     {
         newhp = maxhp;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Hp.text = healthbar.getPlayerHealth().ToString();
         potamount = 0;
+        cdUI = FindObjectOfType<CooldownUI>();
     }
 
     void Update()
@@ -67,15 +69,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (onCooldown == false)
                     {
+                        cdUI.ResetCooldown("spellshield");
                         StartCoroutine(Cooldown());
                         spellshield.gameObject.SetActive(true);
                         shield = true;
                         StartCoroutine(setSpellshieldTimer());
-                    }
-                    else
-                    {
-                        Debug.LogError("COOLDOWN!");
-                    }
+                    }               
                 }
                     float horizontalInput = Input.GetAxis("Horizontal");
                 float verticalInput = Input.GetAxis("Vertical");

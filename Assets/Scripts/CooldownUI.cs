@@ -3,29 +3,47 @@ using UnityEngine.UI;
 
 public class CooldownUI : MonoBehaviour
 {
-    public Image cooldownImage; // das UI Image mit Fill Type = Filled
-    public float cooldownDuration = 2f;
-    private float cooldownTimer;
+    public Image spellCooldownImage; // das UI Image mit Fill Type = Filled
+    public Image spellshieldCooldownImage;
+
+
+    private float spellCooldownTimer;
+    private float spellshieldCooldownTimer;
 
     void Start()
     {
-        cooldownTimer = weapon.fireCooldownSpell;
-        cooldownImage.fillAmount = 1f; // Anfang leer
+        spellCooldownTimer = weapon.fireCooldownSpell;
+        spellCooldownImage.fillAmount = 1f; // Anfang leer
+        spellshieldCooldownTimer = PlayerMovement.spellShieldCooldown;
+        spellshieldCooldownImage.fillAmount = 1f;
     }
 
     void Update()
     {
-        if (cooldownTimer < weapon.fireCooldownSpell)
+        if (spellCooldownTimer < weapon.fireCooldownSpell)
         {
-            cooldownTimer += Time.deltaTime;
-            cooldownImage.fillAmount = cooldownTimer / weapon.fireCooldownSpell;
+            spellCooldownTimer += Time.deltaTime;
+            spellCooldownImage.fillAmount = spellCooldownTimer / weapon.fireCooldownSpell;
+        }
+        if (spellshieldCooldownTimer < PlayerMovement.spellShieldCooldown)
+        {
+            spellshieldCooldownTimer += Time.deltaTime;
+            spellshieldCooldownImage.fillAmount = spellshieldCooldownTimer / PlayerMovement.spellShieldCooldown;
         }
     }
 
     // Optional: Cooldown neu starten
-    public void ResetCooldown()
+    public void ResetCooldown(string type)
     {
-        cooldownTimer = 0f;
-        cooldownImage.fillAmount = 0f;
+        if (type == "spell")
+        {
+            spellCooldownTimer = 0f;
+            spellCooldownImage.fillAmount = 0f;
+        }
+        else if (type == "spellshield")
+        {
+            spellshieldCooldownTimer = 0f;
+            spellshieldCooldownImage.fillAmount = 0f;
+        }
     }
 }
