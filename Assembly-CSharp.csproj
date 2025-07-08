@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\ExitGame.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Scripts\Heal.cs" />
+    <Compile Include="Assets\Scripts\npcAzriel.cs" />
     <Compile Include="Assets\Scripts\Shadow.cs" />
     <Compile Include="Assets\Scripts\Interact.cs" />
     <Compile Include="Assets\Scripts\Loot.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\AttackRangeCircle.cs" />
     <Compile Include="Assets\Scripts\PlayerHealthBar.cs" />
     <Compile Include="Assets\Scripts\UIDamage.cs" />
+    <Compile Include="Assets\Scripts\Godmode.cs" />
     <Compile Include="Assets\Scripts\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
@@ -103,8 +105,7 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\npcAzriel.cs" />
-    <Compile Include="Assets\Godmode.cs" />
+    <Compile Include="Assets\Scripts\AzrielShop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

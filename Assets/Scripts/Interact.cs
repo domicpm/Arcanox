@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     public GameObject UI;
+    public AzrielShop shop;
     private bool isInRange = false;
 
     // Start is called before the first frame update
@@ -20,7 +21,6 @@ public class Interact : MonoBehaviour
         if (isInRange && Input.GetKeyDown(KeyCode.I))
         {
             UI.SetActive(true);
-            Debug.Log("Interacted with NPC");
 
         }
     }

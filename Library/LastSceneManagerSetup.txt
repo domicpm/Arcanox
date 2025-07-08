@@ -3,7 +3,7 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/Scenes/MainMenu.unity
+- path: Assets/Scenes/InputDevice.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
@@ -11,7 +11,7 @@ sceneSetups:
   isLoaded: 1
   isActive: 0
   isSubScene: 0
-- path: Assets/Scenes/InputDevice.unity
+- path: Assets/Scenes/MainMenu.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0

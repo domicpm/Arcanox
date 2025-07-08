@@ -11,6 +11,7 @@ public class LevelSuccess : MonoBehaviour
     public Button continueLevelButton;
     public Button continueLevelButtoninRoom;
     public Button teleportButton;
+    public Button shopButton;
     public Text teleportText;
     public Text continueLevelText;
     public EnemyManager enemyManager;
@@ -21,6 +22,7 @@ public class LevelSuccess : MonoBehaviour
     private bool isTeleported = false;
     public npcAzriel azriel;
     public Interact interactRange;
+    public AzrielShop shop;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +32,12 @@ public class LevelSuccess : MonoBehaviour
         teleportButton.onClick.AddListener(OnTeleportClicked);
         continueLevelButtoninRoom.onClick.AddListener(OnContinueLevelButtoninRoomClicked);
         azriel.gameObject.SetActive(false);
+        shopButton.onClick.AddListener(OnShopButtonClicked);
     }
     private void Awake()
     {
        Instance = this;
+        continueLevelButtoninRoom.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -42,11 +46,17 @@ public class LevelSuccess : MonoBehaviour
     }
     public void OnContinueLevelButtonClicked()
     {
+        healthbar.setPlayerHealth(shop.hpboost + player.newhp);
+        healthbar.setPlayerMaxHealth(shop.hpboost + player.maxhp);
         level++;
         enemyManager.InitializeLevel(level, true);
         gameObject.SetActive(false);
-        continueLevelButtoninRoom.gameObject.SetActive(true);
+        //continueLevelButtoninRoom.gameObject.SetActive(true);
         teleportButton.gameObject.SetActive(false);
+    }
+    public void OnShopButtonClicked() {
+        shop.gameObject.SetActive(true);
+        azriel.gameObject.SetActive(false);
     }
     public void OnContinueLevelButtoninRoomClicked()
     {
@@ -60,6 +70,7 @@ public class LevelSuccess : MonoBehaviour
         healthbar.gameObject.SetActive(true);
         azriel.gameObject.SetActive(false);
         interactRange.gameObject.SetActive(false);
+       
     }
 
     public void OnTeleportClicked()
@@ -67,8 +78,8 @@ public class LevelSuccess : MonoBehaviour
         isTeleported = true;
         nextSpawnPosition = new Vector2(82f, -87f); 
         player.transform.position = nextSpawnPosition;
-        player.Hp.gameObject.SetActive(false);
-        healthbar.gameObject.SetActive(false);
+        //player.Hp.gameObject.SetActive(false);
+        //healthbar.gameObject.SetActive(false);
         gameObject.SetActive(false);
         teleportButton.gameObject.SetActive(false);
         isInLootRoom = true;

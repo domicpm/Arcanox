@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float angle;
 
     public static float spellShieldCooldown = 7f;
-    public const float maxhp = 200;
+    public  float maxhp = 200;
     public int damageFromEnemy = 3;
     private float healamount = 50;
     public float speed = 8f;
@@ -56,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Hp.text = newhp.ToString();
+
+
         if (PauseManager.Instance.IsPaused)
             return;
         //if(Enemy.allCleared == true)
