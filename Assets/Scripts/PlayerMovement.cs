@@ -207,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSprite.setGotHitAnimation();
                 newhp -= damageFromEnemy;
+                healthbar.setPlayerMaxHealth(maxhp);
                 healthbar.setPlayerHealth(newhp);
                 Hp.text = newhp.ToString();
 

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     public float maxhp;
     public HealthBar healthbar;
     public Bullets bullet;
-    public bool isBoss = false;
+    public static bool isBoss = false;
     public bool isHit = false;
     public Heal heal;
     public Vector2 enemydeathpos;
@@ -30,11 +30,16 @@ public class Enemy : MonoBehaviour
     public float fireballInterval = 0.7f;
     public float fireballSpeed = 8f;
     public static bool allCleared = false;
+    public static bool isDummy = false;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
         atc.inRange = false;
+        
+          
+        
+
     }
     public void Awake()
     {
@@ -68,7 +73,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (isDead || LevelSuccess.isInLootRoom == true) return;  // kein Movement, wenn tot
+     
+        if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
         if (atc.inRange == false)
         {
             Vector2 dir = (p.transform.position - transform.position).normalized;
@@ -133,13 +139,18 @@ public class Enemy : MonoBehaviour
         }
         destroyObj();
 
-        if (isBoss)
-        {
-            LevelSuccess.Instance.setAct();
-            allCleared = true;
+        if(isBoss) {
+            {
+                StartCoroutine(Delay());
+            }
         }
 
     }
-
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(2f);
+        LevelSuccess.Instance.setAct();
+        //allCleared = true;
+    }
 
 }

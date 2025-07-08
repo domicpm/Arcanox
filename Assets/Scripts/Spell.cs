@@ -24,6 +24,11 @@ public class Spell : MonoBehaviour
             objectPooling.RemoveObject(gameObject);
             transform.localScale = originalScale;
         }
+        if(collision.gameObject.CompareTag("Dummy"))
+        {
+            objectPooling.RemoveObject(gameObject);
+            transform.localScale = originalScale;
+        }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {

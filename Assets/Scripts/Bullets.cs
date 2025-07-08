@@ -35,7 +35,7 @@ public class Bullets : MonoBehaviour
 
     private void Update()
     {
-        if (PauseManager.Instance.IsPaused)
+        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true)
             return;
 
     }
@@ -43,6 +43,10 @@ public class Bullets : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
+        {
+            objectPooling.RemoveObject(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Dummy"))
         {
             objectPooling.RemoveObject(gameObject);
         }

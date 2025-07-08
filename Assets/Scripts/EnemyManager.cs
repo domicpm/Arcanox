@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
+    public PlayerHealthBar hpBar;
+
     private float baseHP = 1500;
     public bool bossSpawned = false;
     private float baseSpeed = 7f;
@@ -40,7 +42,7 @@ public class EnemyManager : MonoBehaviour
 
         if (spawnTimer >= spawnInterval &&  enemyCount < maxEnemies)
         {
-            InitializeLevel(1);
+           InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
         }
@@ -99,6 +101,7 @@ public class EnemyManager : MonoBehaviour
         player.damageFromEnemy += 4;
         bossSpawned = false;
         Enemy.allCleared = false;
+        Enemy.isBoss = false;
     }
     public void SpawnBoss(int level)
     {
@@ -117,13 +120,11 @@ public class EnemyManager : MonoBehaviour
         boss.bullet = bulletPrefab;
 
         // BOSS SETUP
-        boss.transform.localScale *= 1.1f;
+        boss.transform.localScale *= 1f;
         boss.fireballSizeMultiplier = 2;
         boss.fireballInterval = 0.2f;
         boss.fireballSpeed = 12f;
-        boss.isBoss = true; 
-
-        bossGO.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.red;
+        Enemy.isBoss = true; 
         bossSpawned = true;
     }
 

@@ -46,8 +46,8 @@ public class LevelSuccess : MonoBehaviour
     }
     public void OnContinueLevelButtonClicked()
     {
-        healthbar.setPlayerHealth(shop.hpboost + player.newhp);
-        healthbar.setPlayerMaxHealth(shop.hpboost + player.maxhp);
+        //healthbar.setPlayerHealth(shop.hpboost + player.newhp);
+        //healthbar.setPlayerMaxHealth(shop.hpboost + player.maxhp);
         level++;
         enemyManager.InitializeLevel(level, true);
         gameObject.SetActive(false);
@@ -66,11 +66,9 @@ public class LevelSuccess : MonoBehaviour
         azriel.gameObject.SetActive(false);
         OnContinueLevelButtonClicked();
         isInLootRoom = false;
-        player.Hp.gameObject.SetActive(true);
-        healthbar.gameObject.SetActive(true);
         azriel.gameObject.SetActive(false);
         interactRange.gameObject.SetActive(false);
-       
+        Enemy.isDummy = false;
     }
 
     public void OnTeleportClicked()
@@ -84,14 +82,22 @@ public class LevelSuccess : MonoBehaviour
         teleportButton.gameObject.SetActive(false);
         isInLootRoom = true;
         interactRange.gameObject.SetActive(true);
+        Enemy.isDummy = true;
     }
 
 
     public void setAct()
     {
-        gameObject.SetActive(true);
-        teleportButton.gameObject.SetActive(true);
-        continueLevelText.text = "Level " + (level) +  " done!";
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
+        {
+            gameObject.SetActive(true);
+            teleportButton.gameObject.SetActive(true);
+            continueLevelText.text = "Level " + (level) + " done!";
+        }
+        else
+        {
+            Debug.Log("Fail0");
+        }
     }
     
 
