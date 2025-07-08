@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public SpellShield spellshield;
     public CooldownUI cdUI;
     public weapon wp;
+    public Godmode gm;
     void Start()
     {
         newhp = maxhp;
@@ -70,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.G))
                 {
                     //GodMode
+                    gm.gameObject.SetActive(true);
                     s.mindamage = 1000;
                     s.maxdamage = 1001;
                     s.mindamageSpell = 1500;

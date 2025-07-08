@@ -21,6 +21,7 @@ public class Interact : MonoBehaviour
         {
             UI.SetActive(true);
             Debug.Log("Interacted with NPC");
+
         }
     }
 
