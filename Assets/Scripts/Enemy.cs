@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;  // kein Movement, wenn tot
+        if (isDead || LevelSuccess.isInLootRoom == true) return;  // kein Movement, wenn tot
         if (atc.inRange == false)
         {
             Vector2 dir = (p.transform.position - transform.position).normalized;

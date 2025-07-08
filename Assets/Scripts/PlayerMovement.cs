@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public BulletPosition bp;
     public SpellShield spellshield;
     public CooldownUI cdUI;
+    public weapon wp;
     void Start()
     {
         newhp = maxhp;
@@ -50,13 +51,14 @@ public class PlayerMovement : MonoBehaviour
         potamount = 0;
         cdUI = FindObjectOfType<CooldownUI>();
     }
+    
 
     void Update()
     {
         if (PauseManager.Instance.IsPaused)
             return;
-        if(Enemy.allCleared == true)
-            return;
+        //if(Enemy.allCleared == true)
+        //    return;
         
         if (!isDead)
         {
@@ -65,7 +67,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isDead)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                    //GodMode
+                    s.mindamage = 1000;
+                    s.maxdamage = 1001;
+                    s.mindamageSpell = 1500;
+                    s.maxdamageSpell = 1501;
+                    speed = 20;
+                    damageFromEnemy = 0;
+                    s.accuracy = 100;
+                    wp.fireCooldown = 0.1f;
+                }
+                if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
                 {
                     if (onCooldown == false)
                     {
@@ -102,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
                 bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
 
                 // Heiltrank benutzen (Taste H)
-                if (Input.GetKeyDown(KeyCode.H))
+                if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.JoystickButton0))
                 {
                     if (potamount > 0 && newhp < maxhp)
                     {

@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - Heal
     - HealthBar
     - InputDevice
+    - Interact
     - LevelSuccess
     - Loot
     - ObjectPooling
@@ -42,9 +43,13 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManager
     - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridPaintPaletteClipboard
+    - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
+    - UnityEditor.Tilemaps.PaintableSceneViewGrid
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -59,8 +64,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -120,8 +127,6 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -233,6 +238,49 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    Assets/Scenes/Room.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 646}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
+      Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -274,6 +322,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 646}
     - Class: 114
       Script: {instanceID: 1478}
     - Class: 114
@@ -360,6 +410,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4948}
     - Class: 114
       Script: {instanceID: 4994}
+    - Class: 114
+      Script: {instanceID: 120488}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -377,6 +429,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -849,7 +907,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 7b9b5a6502c22380eef7b18eec70d1c2
+      Hash: 59e0075b8d85f32070a7061a91919421
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CooldownUI
@@ -1005,7 +1063,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 20637b9ab898b6913af3a7bf987f60a1
+      Hash: 4800783753cbf775e86f7955b7ec6587
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1071,7 +1129,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 35822b7ec27ccb1349b46285da513459
+      Hash: 3058aa0d1502aac2638b44788b682845
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullets
@@ -1137,7 +1195,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 93c6a010b957feb72d3f92ab714007fa
+      Hash: 4fbb19944e117061bf11931b2f218fb2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelSuccess
@@ -1153,10 +1211,17 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
+  - hash:
+      serializedVersion: 2
+      Hash: bbdf026ded2d89b4315ae9eca6dd2e52
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Interact
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/InputDevice.unity
   - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/Room.unity
   playerPath: C:/Users/domin/OneDrive/Desktop/SDCFIGHTER.exe

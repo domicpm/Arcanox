@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     public static int fireMultiplier = 1;
     private float spawnInterval = 2f; // alle 2 Sekunden
     private float spawnTimer = 0f;
-    private int maxEnemies = 4;
+    private int maxEnemies = 2;
     private int enemyCount = 0;
     public int counter = 0;
     private void Awake()

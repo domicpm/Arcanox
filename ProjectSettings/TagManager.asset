@@ -12,6 +12,7 @@ TagManager:
   - AttackSpeedBuff
   - Bullet
   - Spell
+  - Npc
   layers:
   - Default
   - TransparentFX

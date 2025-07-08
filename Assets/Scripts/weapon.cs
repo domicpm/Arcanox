@@ -7,7 +7,7 @@ public class weapon : MonoBehaviour
     public Bullets bullet;
     private float lastFireTime;
     private float lastFireTimeSpell;
-    [SerializeField]private float fireCooldown = 0.7f;
+    [SerializeField]public float fireCooldown = 0.7f;
     public static float fireCooldownSpell = 4f;
     public PlayerMovement player;
     private bool cooldown = false;
