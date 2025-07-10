@@ -3,14 +3,18 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AttackBoost
     - AttackRangeCircle
+    - AzrielShop
     - BulletPosition
     - Bullets
     - CameraFollow
     - CooldownUI
     - DamageText
+    - DamageTextSpawnLocation
     - Enemy
+    - EnemyAttackSpawn
     - EnemyManager
     - ExitGame
+    - Fireball
     - GameOver
     - Godmode
     - Heal
@@ -21,6 +25,7 @@ ScriptsOnlyBuild:
     - Loot
     - ObjectPooling
     - PauseManager
+    - PlayerAttackSpawn
     - PlayerHealthBar
     - PlayerMovement
     - PotImageUI
@@ -31,14 +36,9 @@ ScriptsOnlyBuild:
     - RotatePlayerSprite
     - Spell
     - SpellShield
-    - dmgTextSpawn
-    - enemyWeapon
-    - fireball
-    - loadingscreen
     - newGame
     - npcAzriel
     - projectile
-    - weapon
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -115,11 +115,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2972}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 4668}
+      Script: {instanceID: 4674}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,9 +170,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 4202}
     - Class: 114
-      Script: {instanceID: 4516}
+      Script: {instanceID: 4522}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,11 +217,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2604}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2972}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 4378}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -237,49 +237,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Room.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 646}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 1839735485
       Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -371,51 +328,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2872}
+      Script: {instanceID: 2774}
     - Class: 114
-      Script: {instanceID: 2876}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 2956}
+      Script: {instanceID: 2878}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2958}
     - Class: 114
-      Script: {instanceID: 2994}
+      Script: {instanceID: 2972}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 2996}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3086}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3228}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3278}
+      Script: {instanceID: 3230}
     - Class: 114
-      Script: {instanceID: 3504}
+      Script: {instanceID: 3280}
     - Class: 114
-      Script: {instanceID: 3556}
+      Script: {instanceID: 3460}
     - Class: 114
-      Script: {instanceID: 3686}
+      Script: {instanceID: 3508}
     - Class: 114
-      Script: {instanceID: 4040}
+      Script: {instanceID: 3560}
     - Class: 114
-      Script: {instanceID: 4056}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4154}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 4320}
+      Script: {instanceID: 4060}
     - Class: 114
-      Script: {instanceID: 4382}
+      Script: {instanceID: 4158}
     - Class: 114
-      Script: {instanceID: 4512}
+      Script: {instanceID: 4196}
     - Class: 114
-      Script: {instanceID: 4950}
+      Script: {instanceID: 4326}
     - Class: 114
-      Script: {instanceID: 4996}
+      Script: {instanceID: 4388}
     - Class: 114
-      Script: {instanceID: 64334}
+      Script: {instanceID: 4518}
     - Class: 114
-      Script: {instanceID: 131144}
+      Script: {instanceID: 4956}
+    - Class: 114
+      Script: {instanceID: 5002}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -473,10 +432,10 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: eff890a29ba2a6b6d3d875b285a04256
+      Hash: aa70462d3e02340ef87ecd0300259902
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: fireball
+    className: Fireball
   - hash:
       serializedVersion: 2
       Hash: afc5b93a7b192de2dcb3832fe35a5c7e
@@ -521,19 +480,13 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
-      Hash: a8aa1bf125b5f6ce383db5bc12ed2534
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: loadingscreen
-  - hash:
-      serializedVersion: 2
       Hash: 77c325912aeb2831a1fd4aa86b791bd8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BulletPosition
   - hash:
       serializedVersion: 2
-      Hash: db7d8396d31d7d4b149dc5aa8d5515ca
+      Hash: e63b22b38c5d1c80d154557ba6d7063c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -590,7 +543,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: enemyWeapon
+    className: EnemyAttackSpawn
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -644,7 +597,7 @@ ScriptsOnlyBuild:
       Hash: 4e9f33bb29c66269d7dea5b73eed2da6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: weapon
+    className: PlayerAttackSpawn
   - hash:
       serializedVersion: 2
       Hash: cfdd0010efd7b54c2b7512656dbc9119
@@ -659,7 +612,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 3e19caababa76eee4088b3fa3cd7ad0f
+      Hash: 6b6dfab1c0b5433b10d960ad527933b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyManager
@@ -725,6 +678,12 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: npcAzriel
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -761,7 +720,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: bbdf026ded2d89b4315ae9eca6dd2e52
+      Hash: 1ee10eb6adba2606da72f9d53ad047b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Interact
@@ -887,12 +846,6 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 6fe98f4af1ace19575d275621ca4cba1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UIDamage
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -909,6 +862,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Godmode
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1040,7 +999,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: dmgTextSpawn
+    className: DamageTextSpawnLocation
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -1073,7 +1032,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 4b989d8b3d65541c74c2ed821e31aee4
+      Hash: b8f12436849bd744b0d27acc91b3bd5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1083,6 +1042,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: fd3799ea77055052d0df861861ad1d7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AzrielShop
   - hash:
       serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
@@ -1205,7 +1170,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 0c3920ca9efe4c1d8565ecc86298debc
+      Hash: 8d8e5c1e09997ed1bd73067b0867ca9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelSuccess
@@ -1221,23 +1186,10 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PotImageUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: npcAzriel
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Godmode
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoadingScreen.unity
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/InputDevice.unity
   - Assets/Scenes/SampleScene.unity
-  - Assets/Scenes/Room.unity
   playerPath: C:/Users/domin/OneDrive/Desktop/SDCFIGHTER.exe
