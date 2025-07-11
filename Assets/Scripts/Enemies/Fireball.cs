@@ -103,10 +103,10 @@ public class Fireball : MonoBehaviour
                 Vector3 fireballDirection = (player.position - newFireball.transform.position).normalized;
 
                 // Setze die Rotation des Feuerballs so, dass er in die richtige Richtung fliegt
-                float fireballAngle = Mathf.Atan2(fireballDirection.y, fireballDirection.x) * Mathf.Rad2Deg;
-                newFireball.transform.rotation = Quaternion.Euler(0, 0, fireballAngle);
+                //float fireballAngle = Mathf.Atan2(fireballDirection.y, fireballDirection.x) * Mathf.Rad2Deg;
+                //newFireball.transform.rotation = Quaternion.Euler(0, 0, fireballAngle);
 
-                newFireball.transform.localScale = new Vector3(-Mathf.Abs(newFireball.transform.localScale.x), newFireball.transform.localScale.y, newFireball.transform.localScale.z);
+                newFireball.transform.localScale = new Vector3(Mathf.Abs(newFireball.transform.localScale.x), newFireball.transform.localScale.y, newFireball.transform.localScale.z);
                
 
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4054668345405907841}
   - component: {fileID: 4054668344869567375}
   - component: {fileID: -607242958932138212}
+  - component: {fileID: 7400815690198666573}
   m_Layer: 0
   m_Name: BulletPreFab
   m_TagString: Bullet
@@ -135,9 +136,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4805f23f7d5b16447b1bae2fdd4ae00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mindamage: 100
+  maxdamage: 300
+  mindamageSpell: 450
+  maxdamageSpell: 750
+  accuracy: 70
   speed: 15
   damage: 281
   damageSpell: 0
+  objectPooling: {fileID: 0}
   player: {fileID: 7098630828924542664, guid: cf28d9fddefd83a4e8dcce19d7c82551, type: 3}
   b: {fileID: 4054668345405907840}
   spell: {fileID: -3826364735981635567, guid: f2933215a308c674fb581975d92014d3, type: 3}
@@ -154,3 +161,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4054668345405907840}
+--- !u!122 &7400815690198666573
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054668345405907840}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294457392
+  m_Size: 0.5

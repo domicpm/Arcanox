@@ -109,8 +109,8 @@ public class EnemyManager : MonoBehaviour
         GameObject bossGO = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         Enemy boss = bossGO.GetComponent<Enemy>();
 
-        boss.maxhp = (baseHP + level * 100) * 2f;
-        boss.speed = baseSpeed + (0.2f * level);
+        boss.maxhp = (baseHP + level * 400) * 4f;
+        boss.speed = baseSpeed + (0.2f * level) * 6;
         boss.p = player;
         boss.healthbar.setMaxHealth(boss.maxhp);
         boss.hpEnemy.text = boss.maxhp.ToString();
@@ -120,10 +120,9 @@ public class EnemyManager : MonoBehaviour
         boss.bullet = bulletPrefab;
 
         // BOSS SETUP
-        boss.transform.localScale *= 1f;
         boss.fireballSizeMultiplier = 2;
-        boss.fireballInterval = 0.2f;
-        boss.fireballSpeed = 12f;
+        boss.fireballInterval = 0.1f;
+        boss.fireballSpeed = 25f;
         Enemy.isBoss = true; 
         bossSpawned = true;
     }

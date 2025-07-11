@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3161600152199654240}
   - component: {fileID: 1421795060047549918}
   - component: {fileID: 7713045168715831292}
+  - component: {fileID: 5098625935536293490}
   m_Layer: 0
   m_Name: bullet 1
   m_TagString: Spell
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1314655000645390656}
+--- !u!122 &5098625935536293490
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314655000645390656}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294457392
+  m_Size: 2

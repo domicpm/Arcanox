@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D4C93AB8-3F4B-ADEB-6138-6D2DE645256A}</ProjectGuid>
+    <ProjectGuid>{3C3CB635-AF84-EA1C-6297-EDC7082DF903}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -108,13 +108,20 @@
   <ItemGroup>
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Graphics\Flames\flame7\spine\flame7(2).atlas.txt" />
+    <None Include="Assets\Graphics\Flames\flame4\spine\flame4.atlas.txt" />
     <None Include="Assets\Graphics\Background for mobile games, forest\Documentation\Readmy.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Graphics\Flames\flame1\spine\flame1.atlas.txt" />
+    <None Include="Assets\Graphics\Flames\flame10\SPINE\flame10.atlas.txt" />
     <None Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Changelog.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Shader\SH Sprite Shadow.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Graphics\Flames\flame7\spine\flame7.atlas.txt" />
+    <None Include="Assets\Graphics\Flames\flame9\spine\flame9.atlas.txt" />
+    <None Include="Assets\Graphics\Flames\flame5\spine\flame5.atlas.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\UI\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -124,8 +131,12 @@
     <None Include="Assets\Graphics\EVil Wizard\License.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Graphics\Flames\flame3\spine\flame3.atlas.txt" />
+    <None Include="Assets\Graphics\Flames\flame2\spine\flame2.atlas.txt" />
     <None Include="Assets\UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Graphics\Flames\flame8\Spine\flame8.atlas.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Graphics\Flames\flame6\spine\flame6.atlas.txt" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Shader\SH Sprite Shadow Mask.shader" />
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
