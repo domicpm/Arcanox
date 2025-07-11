@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public DamageText damageTextPrefab;
     public GameObject enemyprefab;
     public Fireball fb;
-    private bool isDead = false;
+    public bool isDead = false;
     public RotateEnemySprite res;
     public int fireballSizeMultiplier = 1;
     public float fireballInterval = 0.7f;
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             col.enabled = false;
         healthbar.gameObject.SetActive(false);
         hpEnemy.gameObject.SetActive(false);
-        fb.gameObject.SetActive(false);
+        //fb.gameObject.SetActive(false);
         res.setDeadAnimation();
         StartCoroutine(DestroyAfterDelay(2f));
     }
@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
         if (atc.inRange == false)
         {
+            res.setWalkingAnimation();
             Vector2 dir = (p.transform.position - transform.position).normalized;
 
             transform.position += (Vector3)(dir * speed * Time.deltaTime);

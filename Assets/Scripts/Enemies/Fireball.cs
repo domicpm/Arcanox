@@ -20,10 +20,12 @@ public class Fireball : MonoBehaviour
     public Animator animator;
     public AttackRangeCircle arc;
     public Enemy boss;
+    public RotateEnemySprite res;
     private void Start()
     {
         originalScale = transform.localScale;
         animator = GetComponent<Animator>();
+        gameObject.SetActive(true);
         // Only the clones should move, not the original prefab
         if (!isOriginal)
         {
@@ -68,7 +70,7 @@ public class Fireball : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+          //  gameObject.SetActive(false);
         }
     }
 
@@ -82,9 +84,10 @@ public class Fireball : MonoBehaviour
 
     public void spawn()
     {
-        if (p != null && p.getDead() == false && enemy != null && arc.getInRange() == true)
+        if (p != null && p.getDead() == false && enemy != null && arc.getInRange() == true && boss.isDead == false)
             
         {
+            res.setCastAnimation();
             GameObject newFireball = Instantiate(Prefab, enemy.gameObject.transform.position, Quaternion.identity);
             newFireball.transform.localScale *= boss.fireballSizeMultiplier;
             

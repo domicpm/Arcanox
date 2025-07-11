@@ -6,12 +6,14 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject bossPrefab;
-    public GameObject enemyPrefab;
+    public GameObject deathEyePrefab;
+    public GameObject wraithPrefab;
     public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
     public PlayerHealthBar hpBar;
-
+    public Fireball deathEyeBulletPrefab;
+    public Fireball wraithBulletPrefab;
     private float baseHP = 1500;
     public bool bossSpawned = false;
     private float baseSpeed = 7f;
@@ -20,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     public static int fireMultiplier = 1;
     private float spawnInterval = 2f; // alle 2 Sekunden
     private float spawnTimer = 0f;
-    private int maxEnemies = 2;
+    private int maxEnemies = 8;
     private int enemyCount = 0;
     public int counter = 0;
     private void Awake()
@@ -56,11 +58,26 @@ public class EnemyManager : MonoBehaviour
     {
 
         Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
-        GameObject enemyGO = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        int spawnType = Random.Range(1, 101);
+        GameObject enemyGO;
+        int enemyType;
+        if (spawnType >= 50)
+        {
+             enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
+            enemyType = 1;
+        }
+        else
+        {
+             enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
+            enemyType = 2;
+        }
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.maxhp = baseHP + (level * 100);
         enemy.speed = baseSpeed + (0.2f * level);
-        player.damageFromEnemy = player.damageFromEnemy + level;
+        if (player.godmode == false)
+        {
+            player.damageFromEnemy = player.damageFromEnemy + level;
+        }
         spawnAfterKill += level;
         enemy.p = player;
         enemy.healthbar.setMaxHealth(enemy.maxhp);
@@ -69,6 +86,14 @@ public class EnemyManager : MonoBehaviour
         enemy.fb.player = enemy.p.transform;
         enemy.fb.p = enemy.p;
         enemy.bullet = bulletPrefab;
+        enemy.fb.gameObject.SetActive(true);
+        if (enemyType == 1)
+        {
+            enemy.fb = deathEyeBulletPrefab;
+        }else if (enemyType == 2)
+        {
+           enemy.fb = wraithBulletPrefab;
+        }
         if (enemyCount == maxEnemies - 1 && bossSpawned == false)
         {
             //enemyGO.transform.localScale *= 1.5f;
@@ -98,7 +123,10 @@ public class EnemyManager : MonoBehaviour
             Enemy.enemyCount = 1;
         }
         maxEnemies *= 2;
-        player.damageFromEnemy += 4;
+        if (player.godmode == false)
+        {
+            player.damageFromEnemy += 4;
+        }
         bossSpawned = false;
         Enemy.allCleared = false;
         Enemy.isBoss = false;

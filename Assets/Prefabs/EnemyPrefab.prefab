@@ -1085,6 +1085,11 @@ PrefabInstance:
       objectReference: {fileID: 2715785419122472964}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
+      propertyPath: res
+      value: 
+      objectReference: {fileID: 2362712619157992117}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
       propertyPath: boss
       value: 
       objectReference: {fileID: 2715785419217849727}

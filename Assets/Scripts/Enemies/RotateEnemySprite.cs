@@ -22,4 +22,12 @@ public class RotateEnemySprite : MonoBehaviour
     {
         animator.SetTrigger("isDead");
     }
+    public void setCastAnimation()
+    {
+        animator.SetTrigger("isCasting");
+    }
+    public void setWalkingAnimation()
+    {
+        animator.SetTrigger("isWalking");
+    }
 }

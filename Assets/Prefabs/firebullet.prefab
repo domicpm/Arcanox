@@ -130,6 +130,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   arc: {fileID: 0}
   boss: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c, type: 3}
+  res: {fileID: 0}
 --- !u!95 &4037065080436391447
 Animator:
   serializedVersion: 3

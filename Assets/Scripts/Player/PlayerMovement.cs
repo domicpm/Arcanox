@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public PotImageUI potui;
     public Bullets s;
     public bool isDead = false;
-
+    public bool godmode = false;
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 60f;
@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.G))
                 {
                     //GodMode
+                    godmode = true;
                     gm.gameObject.SetActive(true);
                     s.mindamage = 1000;
                     s.maxdamage = 1001;
