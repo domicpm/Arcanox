@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject bossPrefab;
     public GameObject deathEyePrefab;
     public GameObject wraithPrefab;
+    public GameObject golemPrefab;
     public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
@@ -22,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     public static int fireMultiplier = 1;
     private float spawnInterval = 2f; // alle 2 Sekunden
     private float spawnTimer = 0f;
-    private int maxEnemies = 8;
+    private int maxEnemies = 5;
     private int enemyCount = 0;
     public int counter = 0;
     private void Awake()
@@ -61,16 +62,22 @@ public class EnemyManager : MonoBehaviour
         int spawnType = Random.Range(1, 101);
         GameObject enemyGO;
         int enemyType;
-        if (spawnType >= 50)
+        if (spawnType < 30)
         {
              enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
             enemyType = 1;
         }
-        else
+        else if(spawnType >= 30 && spawnType <= 66)
         {
              enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
             enemyType = 2;
         }
+        else 
+        {
+            enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
+            enemyType = 2;
+        }
+
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.maxhp = baseHP + (level * 100);
         enemy.speed = baseSpeed + (0.2f * level);

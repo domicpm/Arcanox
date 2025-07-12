@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public float maxhp;
+    public Transform sprite;
     public HealthBar healthbar;
     public Bullets bullet;
     public static bool isBoss = false;
@@ -31,14 +32,19 @@ public class Enemy : MonoBehaviour
     public float fireballSpeed = 8f;
     public static bool allCleared = false;
     public static bool isDummy = false;
+    private SpriteRenderer spriteRenderer;
+    private Vector3 baseScale;
+
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
         atc.inRange = false;
-        
-          
-        
+        spriteRenderer = sprite.GetComponent<SpriteRenderer>();
+        baseScale = sprite.localScale; // Ausgangsskalierung speichern
+
+
+
 
     }
     public void Awake()
@@ -77,13 +83,41 @@ public class Enemy : MonoBehaviour
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
         if (atc.inRange == false)
         {
-            res.setWalkingAnimation();
+            res.setWalkingAnimation(true);
             Vector2 dir = (p.transform.position - transform.position).normalized;
 
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
         }
+        else
+        {
+            res.setWalkingAnimation(false);
+        }
+        FlipSprite();
+
+        //if(gameObject.transform.position.x > p.transform.position.x)
+        //{
+        //    sprite.localScale = new Vector3(-1, 1, 1); // Rechts
+
+        //}else
+        //{
+        //    sprite.localScale = new Vector3(1, 1, 1); // Rechts
+
+        //}
     }
-   
+    // Annahme: 'sprite' ist der Transform deines Sprite-GameObjects
+    // und 'p' ist das Ziel (z.B. Spieler)
+
+    void FlipSprite()
+    {
+        Vector3 scale = baseScale;
+        if (transform.position.x > p.transform.position.x)
+            scale.x = -Mathf.Abs(scale.x);  // nach links flippen
+        else
+            scale.x = Mathf.Abs(scale.x);   // nach rechts flippen
+
+        sprite.localScale = scale;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;  // keine Collision , wenn tot

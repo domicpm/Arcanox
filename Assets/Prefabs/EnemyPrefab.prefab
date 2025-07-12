@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhp: 1250
+  sprite: {fileID: 5420605257967220815}
   healthbar: {fileID: 2715785419927453507}
   bullet: {fileID: 0}
   isHit: 0
@@ -385,6 +386,7 @@ MonoBehaviour:
     type: 3}
   enemyprefab: {fileID: 2715785419217849713}
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
+  isDead: 0
   res: {fileID: 2362712619157992117}
   fireballSizeMultiplier: 1
   fireballInterval: 0.7
@@ -406,8 +408,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 9, y: 9}
+    newSize: {x: 9, y: 9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

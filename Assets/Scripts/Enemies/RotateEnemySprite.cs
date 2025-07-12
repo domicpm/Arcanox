@@ -26,8 +26,8 @@ public class RotateEnemySprite : MonoBehaviour
     {
         animator.SetTrigger("isCasting");
     }
-    public void setWalkingAnimation()
+    public void setWalkingAnimation(bool isWalking)
     {
-        animator.SetTrigger("isWalking");
+        animator.SetBool("isWalking" , isWalking);
     }
 }
