@@ -71,9 +71,11 @@
     <Compile Include="Assets\Scripts\Player\RotatePlayerSprite.cs" />
     <Compile Include="Assets\Scripts\GameManager\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttackSpawn.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Inventory.cs" />
     <Compile Include="Assets\Scripts\GameManager\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GameManager\ExitGame.cs" />
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Stats.cs" />
     <Compile Include="Assets\Scripts\Items\Heal.cs" />
     <Compile Include="Assets\Scripts\NPCs\npcAzriel.cs" />
     <Compile Include="Assets\Scripts\Player\Shadow.cs" />
@@ -104,8 +106,6 @@
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\GameManager\Inventory.cs" />
-    <Compile Include="Assets\Scripts\GameManager\Stats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />

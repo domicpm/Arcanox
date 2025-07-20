@@ -35,8 +35,6 @@ public class Bullets : MonoBehaviour
 
     private void Update()
     {
-        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true)
-            return;
 
     }
 
@@ -93,7 +91,7 @@ public class Bullets : MonoBehaviour
     }
     public void shoot()
     {
-        if (PauseManager.Instance.IsPaused) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
+        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true || LevelSuccess.levelDoneText == true) // wenn Pause gedrückt oder in loot room, werden keine weiteren Bullets gespawnt
             return;
 
        // var bullet = Instantiate(b, player.bp.transform.position, Quaternion.identity); // <-- p.transform raus
@@ -107,7 +105,7 @@ public class Bullets : MonoBehaviour
     public void shootLeft()
     {
         cdUI.ResetCooldown("spell");
-        if (PauseManager.Instance.IsPaused) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
+        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
 
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);

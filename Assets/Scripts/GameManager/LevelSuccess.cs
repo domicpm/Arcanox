@@ -18,6 +18,7 @@ public class LevelSuccess : MonoBehaviour
     public PlayerMovement player;
     public static Vector2 nextSpawnPosition;
     public static bool isInLootRoom = false;
+    public static bool levelDoneText = false;
     public PlayerHealthBar healthbar;
     private bool isTeleported = false;
     public npcAzriel azriel;
@@ -69,6 +70,7 @@ public class LevelSuccess : MonoBehaviour
         azriel.gameObject.SetActive(false);
         interactRange.gameObject.SetActive(false);
         Enemy.isDummy = false;
+        levelDoneText = false;
     }
 
     public void OnTeleportClicked()
@@ -90,6 +92,7 @@ public class LevelSuccess : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
         {
+            levelDoneText = true;
             gameObject.SetActive(true);
             teleportButton.gameObject.SetActive(true);
             continueLevelText.text = "Level " + (level) + " done!";
