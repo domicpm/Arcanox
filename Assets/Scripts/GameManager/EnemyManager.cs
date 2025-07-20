@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     public Fireball deathEyeBulletPrefab;
     public Fireball wraithBulletPrefab;
     private float baseHP = 1500;
-    public bool bossSpawned = false;
+    public static bool bossSpawned = false;
     private float baseSpeed = 7f;
     private int damageBoost = 1;
     private int spawnAfterKill = 2;
@@ -26,6 +26,8 @@ public class EnemyManager : MonoBehaviour
     private int maxEnemies = 5;
     private int enemyCount = 0;
     public int counter = 0;
+    private int enemiesInScene = 3;
+    private int level = 0;
     private void Awake()
 {
     if (Instance == null)
@@ -41,15 +43,22 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         spawnTimer += Time.deltaTime;
-      
 
-        if (spawnTimer >= spawnInterval &&  enemyCount < maxEnemies)
+        Debug.Log("Killed: " + Enemy.killCount);
+
+        if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
         {
-           InitializeLevel(1); //spawnt Gegner
+
+            InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
         }
-        if (Enemy.enemyCount > maxEnemies && enemyCount >= maxEnemies)
+        else if(bossSpawned == false && Enemy.killCount == maxEnemies)
+        {
+            level++;
+            SpawnBoss(level);
+        }
+        if (Enemy.killCount > maxEnemies && enemyCount >= maxEnemies)
         {
             //LevelSuccess.Instance.setAct();
         }       
@@ -101,7 +110,7 @@ public class EnemyManager : MonoBehaviour
         {
            enemy.fb = wraithBulletPrefab;
         }
-        if (enemyCount == maxEnemies - 1 && bossSpawned == false)
+        if (Enemy.killCount > 11 && bossSpawned == false)
         {
             //enemyGO.transform.localScale *= 1.5f;
 
@@ -111,7 +120,6 @@ public class EnemyManager : MonoBehaviour
             //player.damageFromEnemy *= 5;
             //enemy.fireballInterval = 0.2f;
             //enemy.fireballSpeed = 12f;
-            SpawnBoss(level);
         }
         else
         {
@@ -136,7 +144,7 @@ public class EnemyManager : MonoBehaviour
         }
         bossSpawned = false;
         Enemy.allCleared = false;
-        Enemy.isBoss = false;
+        //Enemy.isBoss = false;
     }
     public void SpawnBoss(int level)
     {
@@ -158,7 +166,7 @@ public class EnemyManager : MonoBehaviour
         boss.fireballSizeMultiplier = 2;
         boss.fireballInterval = 0.1f;
         boss.fireballSpeed = 25f;
-        Enemy.isBoss = true; 
+        //Enemy.isBoss = true; 
         bossSpawned = true;
     }
 

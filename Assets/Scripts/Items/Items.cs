@@ -5,6 +5,7 @@ using UnityEngine;
 public class Items : MonoBehaviour
 {
     public GameObject prefab;
+    public static bool looted = false;
   
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Items : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            looted = true;
             Destroy(gameObject);
         }
     }

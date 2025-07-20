@@ -257,6 +257,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c,
+        type: 3}
       propertyPath: fireballSpeed
       value: 25
       objectReference: {fileID: 0}

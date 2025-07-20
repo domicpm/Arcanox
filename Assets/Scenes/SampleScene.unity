@@ -2876,7 +2876,6 @@ MonoBehaviour:
     type: 3}
   wraithBulletPrefab: {fileID: 6812046802516297889, guid: 89643af294c00994a9a95920881150ad,
     type: 3}
-  bossSpawned: 0
   counter: 0
 --- !u!4 &407886985
 Transform:
@@ -5299,17 +5298,22 @@ PrefabInstance:
     - target: {fileID: 2715785419217258700, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419217258700, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_Name
       value: EnemyPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419217849725, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
@@ -5689,18 +5693,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062452613649619855, guid: 2e55d9c08e72daa498ab8e20791035e4,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062452613649619855, guid: 2e55d9c08e72daa498ab8e20791035e4,
+        type: 3}
       propertyPath: m_TagString
       value: Dummy
       objectReference: {fileID: 0}
     - target: {fileID: 5062452613650210354, guid: 2e55d9c08e72daa498ab8e20791035e4,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5062452613650210354, guid: 2e55d9c08e72daa498ab8e20791035e4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5062452613877342591, guid: 2e55d9c08e72daa498ab8e20791035e4,
         type: 3}
@@ -6006,6 +6015,7 @@ GameObject:
   - component: {fileID: 782975171}
   - component: {fileID: 782975173}
   - component: {fileID: 782975172}
+  - component: {fileID: 782975174}
   m_Layer: 5
   m_Name: WepImage
   m_TagString: Untagged
@@ -6070,6 +6080,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782975170}
   m_CullTransparentMesh: 1
+--- !u!114 &782975174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782975170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2ad54d994f3b74cbae35eb419f2cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 782975170}
 --- !u!1 &786768764
 GameObject:
   m_ObjectHideFlags: 0
@@ -18345,20 +18368,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 717099126}
     m_Modifications:
+    - target: {fileID: 363474655047845328, guid: 3083960b1ab87fd48b370d0f1a461440,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 363474655047845328, guid: 3083960b1ab87fd48b370d0f1a461440,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.033
+      objectReference: {fileID: 0}
     - target: {fileID: 363474655075874075, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 363474655075874075, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 363474655076200614, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
       propertyPath: m_Name
       value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 363474655076200614, guid: 3083960b1ab87fd48b370d0f1a461440,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 363474655076200616, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
@@ -18389,12 +18427,12 @@ PrefabInstance:
     - target: {fileID: 363474655076200618, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.88027
+      value: -23.44
       objectReference: {fileID: 0}
     - target: {fileID: 363474655076200618, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.594607
+      value: 3.97
       objectReference: {fileID: 0}
     - target: {fileID: 363474655076200618, guid: 3083960b1ab87fd48b370d0f1a461440,
         type: 3}
@@ -18466,6 +18504,12 @@ PrefabInstance:
       propertyPath: p
       value: 
       objectReference: {fileID: 757745747}
+    - target: {fileID: 4054668344869567375, guid: b16ed860b2cc7b144a9e2e597fb7a3b1,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
     - target: {fileID: 4054668344869567375, guid: b16ed860b2cc7b144a9e2e597fb7a3b1,
         type: 3}
       propertyPath: speed
@@ -18885,17 +18929,22 @@ PrefabInstance:
     - target: {fileID: 7372187077344183819, guid: a23c393fa39d24445991f4f71a2498a7,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372187077344183819, guid: a23c393fa39d24445991f4f71a2498a7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372187077344510902, guid: a23c393fa39d24445991f4f71a2498a7,
         type: 3}
       propertyPath: m_Name
       value: Wraith
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372187077344510902, guid: a23c393fa39d24445991f4f71a2498a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7372187077344510904, guid: a23c393fa39d24445991f4f71a2498a7,
         type: 3}

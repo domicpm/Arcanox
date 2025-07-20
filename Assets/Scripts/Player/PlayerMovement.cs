@@ -52,8 +52,15 @@ public class PlayerMovement : MonoBehaviour
         potamount = 0;
         cdUI = FindObjectOfType<CooldownUI>();
     }
-    
 
+    private void FixedUpdate()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
+        transform.position = movement;
+        bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+    }
     void Update()
     {
         Hp.text = newhp.ToString();
@@ -88,8 +95,7 @@ public class PlayerMovement : MonoBehaviour
                         StartCoroutine(setSpellshieldTimer());
                     }               
                 }
-                    float horizontalInput = Input.GetAxis("Horizontal");
-                float verticalInput = Input.GetAxis("Vertical");
+                    
 
                  //Controller rechter Stick auslesen (XY)
                 float rightStickX = Input.GetAxis("RightStickHorizontal");
@@ -109,9 +115,7 @@ public class PlayerMovement : MonoBehaviour
                     angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
                 }
 
-                Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
-                transform.position = movement;
-                bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+          
 
                 // Heiltrank benutzen (Taste H)
                 if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.JoystickButton0))

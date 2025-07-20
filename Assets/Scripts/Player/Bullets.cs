@@ -15,13 +15,14 @@ public class Bullets : MonoBehaviour
 
     public float damage;
     public float damageSpell;
-    public ObjectPooling objectPooling; 
-
+    public ObjectPooling objectPooling;
+    //public Sprite newSprite;
     public PlayerMovement player;
     private Vector3 originalScale;
     private CooldownUI cdUI;
     public GameObject b;
     public Spell spell;
+    public Items item;
     private void Awake()
     {
         objectPooling = FindObjectOfType<ObjectPooling>();
@@ -95,13 +96,22 @@ public class Bullets : MonoBehaviour
         if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true || LevelSuccess.levelDoneText == true) // wenn Pause gedrückt oder in loot room, werden keine weiteren Bullets gespawnt
             return;
 
-       // var bullet = Instantiate(b, player.bp.transform.position, Quaternion.identity); // <-- p.transform raus
+        // var bullet = Instantiate(b, player.bp.transform.position, Quaternion.identity); // <-- p.transform raus
         GameObject bullet = objectPooling.ActivateObject(objectPooling.leftClick, player.bp.transform.position, Quaternion.identity);
+        var renderer = bullet.GetComponent<SpriteRenderer>();
+        bullet.transform.localScale = originalScale;
 
+        if (Items.looted == true)
+        {
+            //renderer.GetComponent<SpriteRenderer>().sprite = newSprite;
+            renderer.color = new Color32(0xA2, 0xCF, 0x00, 0xFF);
+            bullet.transform.localScale = bullet.transform.localScale * 2f; // skaliert das Bullet um 1.5x
+            Debug.Log("Bullet wurde gefärbt");
+
+        }
         UpdateDamage();
         Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
-        bullet.transform.localScale = originalScale;
     }
     public void shootLeft()
     {

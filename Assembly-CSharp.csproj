@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Player\Godmode.cs" />
     <Compile Include="Assets\Scripts\Player\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Items\Items.cs" />
     <Compile Include="Assets\Scripts\ObjectPooling\ObjectPooling.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageTextSpawnLocation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
@@ -106,7 +107,7 @@
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\Items\Items.cs" />
+    <Compile Include="Assets\Scripts\GameManager\BulletType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -141,6 +141,7 @@ MonoBehaviour:
   mindamageSpell: 450
   maxdamageSpell: 750
   accuracy: 70
+  accuracySpell: 75
   speed: 15
   damage: 281
   damageSpell: 0
@@ -148,6 +149,7 @@ MonoBehaviour:
   player: {fileID: 7098630828924542664, guid: cf28d9fddefd83a4e8dcce19d7c82551, type: 3}
   b: {fileID: 4054668345405907840}
   spell: {fileID: -3826364735981635567, guid: f2933215a308c674fb581975d92014d3, type: 3}
+  item: {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae, type: 3}
 --- !u!114 &-607242958932138212
 MonoBehaviour:
   m_ObjectHideFlags: 0

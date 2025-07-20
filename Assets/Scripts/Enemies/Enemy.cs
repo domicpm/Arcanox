@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public Transform sprite;
     public HealthBar healthbar;
     public Bullets bullet;
-    public static bool isBoss = false;
+    public  bool isBoss = false;
     public bool isHit = false;
     public Heal heal;
     public Vector2 enemydeathpos;
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public PlayerMovement p;
     public Vector3 randomPosition;
     public bool isSpawned = false;
+    public static bool bossDead = false;
     public Text hpEnemy;
     public Transform dmgtextSpawnLocation;
     private int maxEnemies = 3;
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 baseScale;
     private static bool bulletSpawned = false;
-
+    public static int killCount = 0;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -167,10 +168,10 @@ public class Enemy : MonoBehaviour
     void deathHandler()
     {
         enemydeathpos = transform.position;
+        killCount++;
         int dropChance = Random.Range(1, 101);
-        if (dropChance <= 30 && !bulletSpawned)
+        if (dropChance <= 10 && !bulletSpawned && isBoss)
         {
-            Debug.Log("is drin");
             item.spawn(enemydeathpos);
             bulletSpawned = true;
         }
@@ -186,6 +187,8 @@ public class Enemy : MonoBehaviour
 
         if(isBoss) {
             {
+                bossDead = true;
+                killCount = 0;
                 StartCoroutine(Delay());
             }
         }

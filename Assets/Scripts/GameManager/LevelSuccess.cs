@@ -55,6 +55,8 @@ public class LevelSuccess : MonoBehaviour
         //continueLevelButtoninRoom.gameObject.SetActive(true);
         teleportButton.gameObject.SetActive(false);
         levelDoneText = false;
+        Enemy.bossDead = false;
+        EnemyManager.bossSpawned = false;
     }
     public void OnShopButtonClicked() {
         shop.gameObject.SetActive(true);
@@ -72,6 +74,9 @@ public class LevelSuccess : MonoBehaviour
         interactRange.gameObject.SetActive(false);
         Enemy.isDummy = false;
         levelDoneText = false;
+        Enemy.bossDead = false;
+        EnemyManager.bossSpawned = false;
+
     }
 
     public void OnTeleportClicked()
@@ -91,16 +96,12 @@ public class LevelSuccess : MonoBehaviour
 
     public void setAct()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && Enemy.bossDead == true)
         {
             levelDoneText = true;
             gameObject.SetActive(true);
             teleportButton.gameObject.SetActive(true);
             continueLevelText.text = "Level " + (level) + " done!";
-        }
-        else
-        {
-            Debug.Log("Fail0");
         }
     }
     
