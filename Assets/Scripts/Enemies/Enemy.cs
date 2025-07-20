@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Heal heal;
     public Vector2 enemydeathpos;
     public AttackBoost ab;
+    public Items item;
     public PlayerMovement p;
     public Vector3 randomPosition;
     public bool isSpawned = false;
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
     public static bool isDummy = false;
     private SpriteRenderer spriteRenderer;
     private Vector3 baseScale;
+    private static bool bulletSpawned = false;
 
     private void Start()
     {
@@ -165,12 +167,20 @@ public class Enemy : MonoBehaviour
     void deathHandler()
     {
         enemydeathpos = transform.position;
-        int random = Random.Range(1, 101);
-        if (random <= 30) heal.spawn(enemydeathpos);
-        else if(random <= 50) ab.spawn(enemydeathpos);
-        else if(random <= 10)
+        int dropChance = Random.Range(1, 101);
+        if (dropChance <= 30 && !bulletSpawned)
         {
-            Debug.Log("lucky LOOT");
+            Debug.Log("is drin");
+            item.spawn(enemydeathpos);
+            bulletSpawned = true;
+        }
+        else if (dropChance <= 50)
+        {
+            ab.spawn(enemydeathpos);
+        }
+        else if (dropChance <= 70)
+        {
+            heal.spawn(enemydeathpos);
         }
         destroyObj();
 

@@ -9,7 +9,8 @@ public class Bullets : MonoBehaviour
     [HideInInspector] public float maxdamage = 300;
     [HideInInspector] public float mindamageSpell = 450;
     [HideInInspector] public float maxdamageSpell = 750;
-    public float accuracy = 70;
+    public float accuracy = 75;
+    public float accuracySpell = 75;
     public float speed = 4f;
 
     public float damage;
@@ -80,7 +81,7 @@ public class Bullets : MonoBehaviour
     public void UpdateDamageSpell()
     {
         int random = Random.Range(1, 101);
-        if (accuracy >= random)
+        if (accuracySpell >= random)
         {
             damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
         }

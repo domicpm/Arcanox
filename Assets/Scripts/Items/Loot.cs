@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +23,5 @@ public class Loot : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
 }

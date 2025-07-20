@@ -54,6 +54,7 @@ public class LevelSuccess : MonoBehaviour
         gameObject.SetActive(false);
         //continueLevelButtoninRoom.gameObject.SetActive(true);
         teleportButton.gameObject.SetActive(false);
+        levelDoneText = false;
     }
     public void OnShopButtonClicked() {
         shop.gameObject.SetActive(true);

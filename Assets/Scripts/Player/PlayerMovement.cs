@@ -175,6 +175,10 @@ public class PlayerMovement : MonoBehaviour
         {
             increasepot();
         }
+        if (collision.gameObject.CompareTag("Item"))
+        {
+
+        }
 
         if (collision.gameObject.CompareTag("AttackSpeedBuff"))
         {

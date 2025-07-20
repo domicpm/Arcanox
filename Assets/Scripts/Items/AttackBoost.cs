@@ -27,8 +27,8 @@ public class AttackBoost : MonoBehaviour
     {
         GameObject newAttackBoost = Instantiate(Prefab, enemypos, Quaternion.identity);
 
-        AttackBoost newAttckBoostScript = newAttackBoost.GetComponent<AttackBoost>();
-        newAttckBoostScript.Prefab = Prefab;
+        //AttackBoost newAttckBoostScript = newAttackBoost.GetComponent<AttackBoost>();
+        //newAttckBoostScript.Prefab = Prefab;
 
         gameObject.transform.position = enemypos;
 

@@ -774,6 +774,7 @@ MonoBehaviour:
   heal: {fileID: 3355951273185114513, guid: 639bf65dd32813d478e41b95ab278118, type: 3}
   enemydeathpos: {x: 0, y: 0}
   ab: {fileID: -942375497239725935, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
+  loot: {fileID: 4485132288878592289, guid: 994bed58936fd2c48992a19b5be4c548, type: 3}
   p: {fileID: 0}
   randomPosition: {x: 0, y: 0, z: 0}
   isSpawned: 0
