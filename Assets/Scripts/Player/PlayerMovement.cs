@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public static float spellShieldCooldown = 7f;
     public  float maxhp = 200;
     public int damageFromEnemy = 3;
-    private float healamount = 50;
+    public float healamount = 50;
     public float speed = 8f;
     public int potamount = 0;
 
@@ -57,18 +57,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Hp.text = newhp.ToString();
-
-
         if (PauseManager.Instance.IsPaused)
             return;
         //if(Enemy.allCleared == true)
-        //    return;
-        
-        if (!isDead)
-        {
-            if (PauseManager.Instance.IsPaused)
-                return;
-
+        //    return;     
             if (!isDead)
             {
                 if (Input.GetKeyDown(KeyCode.G))
@@ -86,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                     wp.fireCooldown = 0.1f;
                 }
                 if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
-                {
+                { //SpellShield
                     if (onCooldown == false)
                     {
                         cdUI.ResetCooldown("spellshield");
@@ -105,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector2 rightStickDir = new Vector2(rightStickX, rightStickY);
 
-                if (rightStickDir.magnitude > 0.1f) // Wenn Stick bewegt wird
+                if (rightStickDir.magnitude > 0.1f && InputDevice.mouse == false) // Wenn Stick bewegt wird
                 {
                     //Angle mit Stick - Richtung berechnen
                     angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
@@ -145,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(Dash());
                 }
             }
-        }
+        
 
         IEnumerator Dash()
         {

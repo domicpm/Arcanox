@@ -5,7 +5,9 @@ public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set; }
     public Button continueGameButton;
+    public Inventory inventory;
     public Text pauseText;
+    private bool invActive = false;
     public bool IsPaused { get; private set; } = false;
 
     void Awake()
@@ -34,6 +36,10 @@ public class PauseManager : MonoBehaviour
         {
             TogglePause();
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) //Inventory
+        {
+            ToggleInv();
+        }
     }
 
     public void OnContinueButtonClicked()
@@ -42,7 +48,19 @@ public class PauseManager : MonoBehaviour
         pauseText.gameObject.SetActive(false);
         continueGameButton.gameObject.SetActive(false);
     }
- 
+    public void ToggleInv()
+    {
+        if (invActive)
+        {
+            Resume();
+            inventory.gameObject.SetActive(false);
+        }
+        else
+        {
+            Pause();
+            inventory.gameObject.SetActive(true);
+        }
+    }
     public void TogglePause()
     {
         if (IsPaused)
@@ -63,11 +81,14 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         IsPaused = true;
+        invActive = true;
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
-        IsPaused = false;
+        IsPaused = false; 
+        invActive = false;
+
     }
 }
