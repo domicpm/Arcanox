@@ -23,11 +23,11 @@ public class EnemyManager : MonoBehaviour
     public static int fireMultiplier = 1;
     private float spawnInterval = 2f; // alle 2 Sekunden
     private float spawnTimer = 0f;
-    private int maxEnemies = 5;
+    public int maxEnemies = 5;
     private int enemyCount = 0;
     public int counter = 0;
     private int enemiesInScene = 3;
-    private int level = 0;
+    public int level = 0;
     private void Awake()
 {
     if (Instance == null)
@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        Debug.Log("Killed: " + Enemy.killCount);
+      Debug.Log("Level: " + level);
 
         if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
         {
@@ -53,9 +53,9 @@ public class EnemyManager : MonoBehaviour
             enemyCount++;
             spawnTimer = 0f;
         }
-        else if(bossSpawned == false && Enemy.killCount == maxEnemies)
+        
+        else if(bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 == 0)
         {
-            level++;
             SpawnBoss(level);
         }
         if (Enemy.killCount > maxEnemies && enemyCount >= maxEnemies)
@@ -137,10 +137,10 @@ public class EnemyManager : MonoBehaviour
         {
             Enemy.enemyCount = 1;
         }
-        maxEnemies *= 2;
+        maxEnemies += 4;
         if (player.godmode == false)
         {
-            player.damageFromEnemy += 4;
+            player.damageFromEnemy += 6;
         }
         bossSpawned = false;
         Enemy.allCleared = false;

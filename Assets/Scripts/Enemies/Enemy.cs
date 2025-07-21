@@ -186,12 +186,17 @@ public class Enemy : MonoBehaviour
         destroyObj();
 
         if(isBoss) {
-            {
-                bossDead = true;
-                killCount = 0;
-                StartCoroutine(Delay());
-            }
+             bossDead = true;
+             StartCoroutine(Delay());
+                     }
+        else if (EnemyManager.bossSpawned == false){
+                    StartCoroutine(Delay());
         }
+        else
+        {
+            Debug.Log("fail");
+        }
+            
 
     }
     IEnumerator Delay()

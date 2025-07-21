@@ -57,6 +57,8 @@ public class LevelSuccess : MonoBehaviour
         levelDoneText = false;
         Enemy.bossDead = false;
         EnemyManager.bossSpawned = false;
+        Enemy.killCount = 0;
+        enemyManager.level++;
     }
     public void OnShopButtonClicked() {
         shop.gameObject.SetActive(true);
@@ -76,6 +78,9 @@ public class LevelSuccess : MonoBehaviour
         levelDoneText = false;
         Enemy.bossDead = false;
         EnemyManager.bossSpawned = false;
+        Enemy.killCount = 0;
+        enemyManager.level++;
+
 
     }
 
@@ -96,7 +101,8 @@ public class LevelSuccess : MonoBehaviour
 
     public void setAct()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 1 && Enemy.bossDead == true)
+        Debug.Log("Enemies killed" + Enemy.killCount + "Max Enemies: " + enemyManager.maxEnemies);
+        if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
         {
             levelDoneText = true;
             gameObject.SetActive(true);

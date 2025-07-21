@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Player\SpellShield.cs" />
     <Compile Include="Assets\Scripts\Items\AttackBoost.cs" />
     <Compile Include="Assets\Scripts\ObjectPooling\PrefabPooling.cs" />
+    <Compile Include="Assets\Scripts\GameManager\BulletType.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyAttackSpawn.cs" />
     <Compile Include="Assets\Scripts\Player\Spell.cs" />
     <Compile Include="Assets\Scripts\Player\RotatePlayerSprite.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
-    <Compile Include="Assets\Scripts\GameManager\BulletType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />
