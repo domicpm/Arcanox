@@ -6,13 +6,14 @@ public class Fireball : MonoBehaviour
 {
     public Transform player;
     public int ppos = 175;
-    public float moveSpeed = 8f;
+    private float moveSpeed = 8f;
     private float angle;
     Vector3 direction;
     public GameObject Prefab;
     bool hasLaunched = false;
     float timer = 0f;
-    public float interval = 1f;
+    public float interval = 0.5f;
+    public float intervalMelee = 0.2f;
     public EnemyAttackSpawn enemy;
     private Vector3 originalScale;
     public PlayerMovement p;
@@ -21,6 +22,8 @@ public class Fireball : MonoBehaviour
     public AttackRangeCircle arc;
     public Enemy boss;
     public RotateEnemySprite res;
+    public bool isGolem = false;
+    public bool isAttacking = false;
     private void Start()
     {
         originalScale = transform.localScale;
@@ -48,14 +51,24 @@ public class Fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-        if (p.getDead() == false)
+        if (arc != null && !arc.getInRange())
+        {
+            isAttacking = false;
+            res.setAttackAnimation(isAttacking);
+        }
+
+        if (p.getDead() == false && isGolem == false)
         {
             // Original prefab spawns new Fireballs
             if (isOriginal)
             {
                 timer += Time.deltaTime;
-                if (timer >= interval && p != null && !p.getDead())
+                if (timer >= interval && p != null && !p.getDead() && isGolem == false)
+                {
+                    spawn();
+                    timer = 0f;
+                }
+                else if (timer >= intervalMelee && p != null && !p.getDead() && isGolem == true)
                 {
                     spawn();
                     timer = 0f;
@@ -87,7 +100,9 @@ public class Fireball : MonoBehaviour
         if (p != null && p.getDead() == false && enemy != null && arc.getInRange() == true && boss.isDead == false)
             
         {
+            isAttacking = true;
             res.setCastAnimation();
+            res.setAttackAnimation(isAttacking);
             GameObject newFireball = Instantiate(Prefab, enemy.gameObject.transform.position, Quaternion.identity);
             newFireball.transform.localScale *= boss.fireballSizeMultiplier;
             

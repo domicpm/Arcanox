@@ -30,4 +30,8 @@ public class RotateEnemySprite : MonoBehaviour
     {
         animator.SetBool("isWalking" , isWalking);
     }
+    public void setAttackAnimation(bool isAttacking)
+    {
+        animator.SetBool("isAttacking" , isAttacking);
+    }
 }

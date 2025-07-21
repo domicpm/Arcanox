@@ -87,7 +87,16 @@ public class EnemyManager : MonoBehaviour
 
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.maxhp = baseHP + (level * 100);
-        enemy.speed = baseSpeed + (0.2f * level);
+        if (enemy.isGolem)
+        {
+            int randomSpeed = Random.Range(5, 13);
+            enemy.speed = randomSpeed;
+        }
+        else
+        {
+            int randomSpeed = Random.Range(9, 13);
+            enemy.speed = randomSpeed;
+        }
         if (player.godmode == false)
         {
             player.damageFromEnemy = player.damageFromEnemy + level;
@@ -122,8 +131,8 @@ public class EnemyManager : MonoBehaviour
         else
         {
             enemy.fireballSizeMultiplier = 2;
-            enemy.fireballInterval = 0.5f;
-            enemy.fireballSpeed = 10f;
+            //enemy.fireballInterval = 0.8f;
+            //enemy.fireballSpeed = 10f;
         }
     }
     public void InitializeLevel(int level, bool a)

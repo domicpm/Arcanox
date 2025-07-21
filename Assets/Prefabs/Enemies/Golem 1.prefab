@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &363474653412448346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -502,8 +502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363474655047845327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.03, z: 0}
-  m_LocalScale: {x: 2.1595523, y: 1.8738354, z: 1}
+  m_LocalPosition: {x: 0.036, y: 0.055, z: 0}
+  m_LocalScale: {x: 0.42826107, y: 0.39427412, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
   m_RootOrder: 4
@@ -691,8 +691,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363474655076200614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9, y: -1.3, z: 1.6097935}
-  m_LocalScale: {x: 10.705894, y: 11.379495, z: 1}
+  m_LocalPosition: {x: -4.0384, y: -0.9995, z: 1.6097935}
+  m_LocalScale: {x: 11.022789, y: 10.6819315, z: 1}
   m_Children:
   - {fileID: 363474653814712981}
   - {fileID: 8421186532017101562}
@@ -766,10 +766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4525864eabf774a8151b3276523a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 1250
+  maxhp: 1000
   sprite: {fileID: 7747002755688351128}
   healthbar: {fileID: 363474653705077396}
   bullet: {fileID: 0}
+  isBoss: 0
   isHit: 0
   heal: {fileID: 3355951273185114513, guid: 639bf65dd32813d478e41b95ab278118, type: 3}
   enemydeathpos: {x: 0, y: 0}
@@ -782,7 +783,7 @@ MonoBehaviour:
   dmgtextSpawnLocation: {fileID: 363474653599602560}
   spawnAfterKill: 1
   atc: {fileID: 363474655047845331}
-  speed: 7
+  speed: 10
   damageTextPrefab: {fileID: 3399920392444358936, guid: cce2cc47e89e8a14e88886167b141576,
     type: 3}
   enemyprefab: {fileID: 363474655076200614}
@@ -792,6 +793,7 @@ MonoBehaviour:
   fireballSizeMultiplier: 1
   fireballInterval: 0.7
   fireballSpeed: 8
+  isGolem: 1
 --- !u!61 &363474655076200615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -920,8 +922,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8147863217718407434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.054, z: 0}
-  m_LocalScale: {x: 0.039967548, y: 0.041282207, z: 1}
+  m_LocalPosition: {x: 0.033, y: 0.05, z: 0}
+  m_LocalScale: {x: 0.042787958, y: 0.053756528, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
   m_RootOrder: 5
@@ -1080,6 +1082,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: firebullet
       objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265916, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: p
@@ -1109,12 +1116,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefab
       value: 
-      objectReference: {fileID: 4865925145770464058, guid: 89643af294c00994a9a95920881150ad,
+      objectReference: {fileID: 2851780221629772509, guid: 8862d604d669bab43865ebc71115475b,
         type: 3}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: isGolem
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
@@ -1124,7 +1136,7 @@ PrefabInstance:
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: interval
-      value: 0.7
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265919, guid: 847e58598afba1e438137f3359c12811,
         type: 3}

@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
     private Vector3 baseScale;
     private static bool bulletSpawned = false;
     public static int killCount = 0;
+    private Vector3 personalOffset;
+    public bool isGolem = false;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer = sprite.GetComponent<SpriteRenderer>();
         baseScale = sprite.localScale; // Ausgangsskalierung speichern
 
+        personalOffset = new Vector3(Random.Range(-3f, 3f), Random.Range(-2f, 2f), 0);
 
 
 
@@ -86,9 +89,12 @@ public class Enemy : MonoBehaviour
         if (atc.inRange == false)
         {
             res.setWalkingAnimation(true);
-            Vector2 dir = (p.transform.position - transform.position).normalized;
-
+            //Vector2 dir = (p.transform.position - transform.position).normalized;
+            //transform.position += (Vector3)(dir * speed * Time.deltaTime);
+            Vector3 targetPos = p.transform.position + personalOffset;
+            Vector2 dir = (targetPos - transform.position).normalized;
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
+
         }
         else
         {

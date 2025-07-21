@@ -528,7 +528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7372187076893420362
 RectTransform:
   m_ObjectHideFlags: 0
@@ -842,10 +842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4525864eabf774a8151b3276523a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 1250
+  maxhp: 850
   sprite: {fileID: 632463991602558600}
   healthbar: {fileID: 7372187076567495044}
   bullet: {fileID: 0}
+  isBoss: 0
   isHit: 0
   heal: {fileID: 3355951273185114513, guid: 639bf65dd32813d478e41b95ab278118, type: 3}
   enemydeathpos: {x: 0, y: 0}
@@ -868,6 +869,7 @@ MonoBehaviour:
   fireballSizeMultiplier: 1
   fireballInterval: 0.7
   fireballSpeed: 8
+  isGolem: 0
 --- !u!61 &7372187077344510903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1104,7 +1106,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Prefab
       value: 
-      objectReference: {fileID: 4865925145770464058, guid: 89643af294c00994a9a95920881150ad,
+      objectReference: {fileID: 640960449061105312, guid: ccd622931417717418d98b9215e5da17,
         type: 3}
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
@@ -1119,7 +1121,12 @@ PrefabInstance:
     - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
         type: 3}
       propertyPath: interval
-      value: 0.7
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265917, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 847e58598afba1e438137f3359c12811, type: 3}
