@@ -9,7 +9,7 @@ public class Bullets : MonoBehaviour
     [HideInInspector] public float maxdamage = 300;
     [HideInInspector] public float mindamageSpell = 450;
     [HideInInspector] public float maxdamageSpell = 750;
-    public float accuracy = 75;
+    public static float accuracy = 75;
     public float accuracySpell = 75;
     public float speed = 4f;
 

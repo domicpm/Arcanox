@@ -140,7 +140,7 @@ MonoBehaviour:
   maxdamage: 300
   mindamageSpell: 450
   maxdamageSpell: 750
-  accuracy: 70
+  accuracy: 75
   accuracySpell: 75
   speed: 15
   damage: 281

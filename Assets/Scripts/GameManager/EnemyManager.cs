@@ -44,8 +44,6 @@ public class EnemyManager : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-      Debug.Log("Level: " + level);
-
         if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
         {
 
@@ -54,7 +52,7 @@ public class EnemyManager : MonoBehaviour
             spawnTimer = 0f;
         }
         
-        else if(bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 == 0)
+        else if(bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 != 0)
         {
             SpawnBoss(level);
         }
@@ -123,9 +121,9 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            enemy.fireballSizeMultiplier = 1;
-            enemy.fireballInterval = 0.7f;
-            enemy.fireballSpeed = 8f;
+            enemy.fireballSizeMultiplier = 2;
+            enemy.fireballInterval = 0.5f;
+            enemy.fireballSpeed = 10f;
         }
     }
     public void InitializeLevel(int level, bool a)
@@ -153,7 +151,6 @@ public class EnemyManager : MonoBehaviour
         Enemy boss = bossGO.GetComponent<Enemy>();
 
         boss.maxhp = (baseHP + level * 400) * 4f;
-        boss.speed = baseSpeed + (0.2f * level) * 6;
         boss.p = player;
         boss.healthbar.setMaxHealth(boss.maxhp);
         boss.hpEnemy.text = boss.maxhp.ToString();

@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
         ad.text = bullets.maxdamage.ToString(); // bezieht sich aktuell nur auf MaxDmg, evtl Average bilden oder Range anzeigen
         ats.text = bullets.speed.ToString();
         ap.text = bullets.maxdamageSpell.ToString(); // wie oben
-        acc.text = bullets.accuracy.ToString() + "%";
+        acc.text = Bullets.accuracy.ToString() + "%";
         cdr.text = "0" + "%";
         ms.text = player.speed.ToString();
         phEva.text = "0";

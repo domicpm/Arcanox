@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     public static bool bossDead = false;
     public Text hpEnemy;
     public Transform dmgtextSpawnLocation;
-    private int maxEnemies = 3;
     public int spawnAfterKill = 1;
     public static int enemyCount = 0;
     public AttackRangeCircle atc;
@@ -29,12 +28,12 @@ public class Enemy : MonoBehaviour
     public Fireball fb;
     public bool isDead = false;
     public RotateEnemySprite res;
-    public int fireballSizeMultiplier = 1;
-    public float fireballInterval = 0.7f;
-    public float fireballSpeed = 8f;
+    private SpriteRenderer spriteRenderer;
+    [HideInInspector] public int fireballSizeMultiplier = 1;
+    [HideInInspector]public float fireballInterval = 0.7f;
+    [HideInInspector] public float fireballSpeed = 8f;
     public static bool allCleared = false;
     public static bool isDummy = false;
-    private SpriteRenderer spriteRenderer;
     private Vector3 baseScale;
     private static bool bulletSpawned = false;
     public static int killCount = 0;
@@ -170,18 +169,22 @@ public class Enemy : MonoBehaviour
         enemydeathpos = transform.position;
         killCount++;
         int dropChance = Random.Range(1, 101);
-        if (dropChance <= 10 && !bulletSpawned && isBoss)
+        if (dropChance <= 100 && !bulletSpawned && isBoss)
         {
             item.spawn(enemydeathpos);
             bulletSpawned = true;
         }
-        else if (dropChance <= 50)
+        else if (dropChance <= 10)
         {
             ab.spawn(enemydeathpos);
         }
-        else if (dropChance <= 70)
+        else if (dropChance <= 30)
         {
             heal.spawn(enemydeathpos);
+        }
+        else
+        {
+
         }
         destroyObj();
 

@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
         transform.position = movement;
         bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+        Debug.Log("Accuracy: " + Bullets.accuracy);
     }
     void Update()
     {
@@ -81,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
                     s.maxdamageSpell = 1501;
                     speed = 20;
                     damageFromEnemy = 0;
-                    s.accuracy = 100;
+                    Bullets.accuracy = 100;
                     wp.fireCooldown = 0.1f;
                 }
                 if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
@@ -181,7 +182,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Item"))
         {
-
+            Bullets.accuracy += 2;
+            s.mindamage += 220;
+            s.maxdamage += 220;  
         }
 
         if (collision.gameObject.CompareTag("AttackSpeedBuff"))

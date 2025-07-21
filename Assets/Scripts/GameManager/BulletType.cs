@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BulletType : MonoBehaviour
 {
+    // FOR UI
     // Start is called before the first frame update
     public GameObject bullet;
     void Start()

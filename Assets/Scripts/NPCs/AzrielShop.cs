@@ -38,7 +38,7 @@ public class AzrielShop : MonoBehaviour
     {
         bullet.mindamage += 20;
         bullet.maxdamage += 20;
-        bullet.accuracy += 5;
+        Bullets.accuracy += 5;
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
