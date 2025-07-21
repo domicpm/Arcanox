@@ -101,13 +101,14 @@ public class Bullets : MonoBehaviour
         var renderer = bullet.GetComponent<SpriteRenderer>();
         bullet.transform.localScale = originalScale;
 
-        if (Items.looted == true)
+        if (Items.looted == true && Items.type == 1)
         {
-            //renderer.GetComponent<SpriteRenderer>().sprite = newSprite;
             renderer.color = new Color32(0xA2, 0xCF, 0x00, 0xFF);
             bullet.transform.localScale = bullet.transform.localScale * 2f; // skaliert das Bullet um 1.5x
-            Debug.Log("Bullet wurde gefärbt");
 
+        }else if(Items.looted == true && Items.type == 2)
+        {
+            renderer.color = new Color32(0x5C, 0x5F, 0x98, 0xFF);
         }
         UpdateDamage();
         Vector3 bulletDir = player.bp.transform.up;

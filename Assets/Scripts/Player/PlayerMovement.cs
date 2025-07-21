@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public bool godmode = false;
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 60f;
+    private float dashingPower = 50f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
     private bool shield;
@@ -55,12 +55,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
-        transform.position = movement;
-        bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log("Accuracy: " + Bullets.accuracy);
+        if (!isDead)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
+            transform.position = movement;
+            bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+        }
     }
     void Update()
     {
@@ -182,9 +184,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Item"))
         {
-            Bullets.accuracy += 2;
-            s.mindamage += 220;
-            s.maxdamage += 220;  
+            if (Items.type == 1)
+            {
+                Bullets.accuracy += 2;
+                s.mindamage += 220;
+                s.maxdamage += 220;
+            }else if(Items.type == 2)
+            {
+                Bullets.accuracy += 1;
+                s.maxdamage += 120;
+                s.mindamage += 120;
+            }
         }
 
         if (collision.gameObject.CompareTag("AttackSpeedBuff"))

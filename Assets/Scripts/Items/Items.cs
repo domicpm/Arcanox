@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject prefab1;
+    public GameObject prefab2;
     public static bool looted = false;
-  
+    public static int type = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +30,19 @@ public class Items : MonoBehaviour
     }
     public void spawn(Vector3 enemypos)
     {
-        GameObject newBullet = Instantiate(prefab, enemypos, Quaternion.identity);
-
-
-        gameObject.transform.position = enemypos;
-
+        int spawnChance = Random.Range(1, 101);
+        if (spawnChance <= 20)
+        {
+            GameObject newBullet = Instantiate(prefab1, enemypos, Quaternion.identity);
+            gameObject.transform.position = enemypos;
+            type = 1;
+        }else if(spawnChance > 20)
+        {
+            GameObject newBullet = Instantiate(prefab2, enemypos, Quaternion.identity);
+            gameObject.transform.position = enemypos;
+            type = 2;
+        }
+        
     }
 
 }
