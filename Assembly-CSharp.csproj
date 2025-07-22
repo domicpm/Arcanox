@@ -93,7 +93,9 @@
     <Compile Include="Assets\Scripts\Player\Godmode.cs" />
     <Compile Include="Assets\Scripts\Player\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SpellAoE.cs" />
     <Compile Include="Assets\Scripts\Items\Items.cs" />
+    <Compile Include="Assets\Scripts\Enemies\AoeAnimation.cs" />
     <Compile Include="Assets\Scripts\ObjectPooling\ObjectPooling.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageTextSpawnLocation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
