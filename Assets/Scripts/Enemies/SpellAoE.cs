@@ -35,7 +35,7 @@ public class SpellAoE : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= interval && !player.getDead())
+        if (timer >= interval && !player.getDead() && EnemyManager.bossSpawned)
         {
             StartCoroutine(Delay());
             timer = 0f;

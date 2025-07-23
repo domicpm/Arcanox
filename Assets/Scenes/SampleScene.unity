@@ -17824,12 +17824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5be3376042a540e44be11a8345b7435f,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 40878531975709617, guid: ca2867a925441904d80484956e5dc4ce,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 40878532353843981, guid: ca2867a925441904d80484956e5dc4ce,
         type: 3}
@@ -18923,6 +18922,12 @@ PrefabInstance:
       propertyPath: aoe
       value: 
       objectReference: {fileID: -2848390064650631620, guid: c9884210d5a6d734d9f87d27f5713bf7,
+        type: 3}
+    - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 5062452613649619841, guid: 2e55d9c08e72daa498ab8e20791035e4,
         type: 3}
     - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
         type: 3}
