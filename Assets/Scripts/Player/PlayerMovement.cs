@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float angle;
 
     public static float spellShieldCooldown = 7f;
-    public  float maxhp = 200;
+    public float maxhp = 200;
     public int damageFromEnemy = 3;
     public float healamount = 50;
     public float speed = 8f;
@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public CooldownUI cdUI;
     public PlayerAttackSpawn wp;
     public Godmode gm;
+    public SpellAoE aoe;
     void Start()
     {
         newhp = maxhp;
@@ -62,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
             Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
             transform.position = movement;
             bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+            bool isWalking = horizontalInput != 0 || verticalInput != 0;
+            // playerSprite.setWalkingAnimation(isWalking);
         }
     }
     void Update()
@@ -71,80 +74,80 @@ public class PlayerMovement : MonoBehaviour
             return;
         //if(Enemy.allCleared == true)
         //    return;     
-            if (!isDead)
+        if (!isDead)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                if (Input.GetKeyDown(KeyCode.G))
+                //GodMode
+                godmode = true;
+                gm.gameObject.SetActive(true);
+                s.mindamage = 1000;
+                s.maxdamage = 1001;
+                s.mindamageSpell = 1500;
+                s.maxdamageSpell = 1501;
+                speed = 20;
+                damageFromEnemy = 0;
+                Bullets.accuracy = 100;
+                wp.fireCooldown = 0.1f;
+            }
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            { //SpellShield
+                if (onCooldown == false)
                 {
-                    //GodMode
-                    godmode = true;
-                    gm.gameObject.SetActive(true);
-                    s.mindamage = 1000;
-                    s.maxdamage = 1001;
-                    s.mindamageSpell = 1500;
-                    s.maxdamageSpell = 1501;
-                    speed = 20;
-                    damageFromEnemy = 0;
-                    Bullets.accuracy = 100;
-                    wp.fireCooldown = 0.1f;
-                }
-                if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
-                { //SpellShield
-                    if (onCooldown == false)
-                    {
-                        cdUI.ResetCooldown("spellshield");
-                        StartCoroutine(Cooldown());
-                        spellshield.gameObject.SetActive(true);
-                        shield = true;
-                        StartCoroutine(setSpellshieldTimer());
-                    }               
-                }
-                    
-
-                 //Controller rechter Stick auslesen (XY)
-                float rightStickX = Input.GetAxis("RightStickHorizontal");
-                float rightStickY = Input.GetAxis("RightStickVertical");
-
-                Vector2 rightStickDir = new Vector2(rightStickX, rightStickY);
-
-                if (rightStickDir.magnitude > 0.1f && InputDevice.mouse == false) // Wenn Stick bewegt wird
-                {
-                    //Angle mit Stick - Richtung berechnen
-                    angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
-                }
-                else if(InputDevice.mouse == true)
-                {
-                    // Sonst Maus verwenden wie bisher
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-                }
-
-          
-
-                // Heiltrank benutzen (Taste H)
-                if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.JoystickButton0))
-                {
-                    if (potamount > 0 && newhp < maxhp)
-                    {
-                        newhp += healamount;
-                        if (newhp > maxhp) newhp = maxhp;
-
-                        potamount--;
-                        healthbar.setPlayerHealth(newhp);
-                        Hp.text = newhp.ToString();
-                    }
-                    else
-                    {
-                        Debug.Log("Keine Pots");
-                    }
-                }
-
-                // Dash (Leertaste oder Controller)
-                if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space))
-                {
-                    StartCoroutine(Dash());
+                    cdUI.ResetCooldown("spellshield");
+                    StartCoroutine(Cooldown());
+                    spellshield.gameObject.SetActive(true);
+                    shield = true;
+                    StartCoroutine(setSpellshieldTimer());
                 }
             }
-        
+
+
+            //Controller rechter Stick auslesen (XY)
+            float rightStickX = Input.GetAxis("RightStickHorizontal");
+            float rightStickY = Input.GetAxis("RightStickVertical");
+
+            Vector2 rightStickDir = new Vector2(rightStickX, rightStickY);
+
+            if (rightStickDir.magnitude > 0.1f && InputDevice.mouse == false) // Wenn Stick bewegt wird
+            {
+                //Angle mit Stick - Richtung berechnen
+                angle = Mathf.Atan2(rightStickY, rightStickX) * Mathf.Rad2Deg - 90f;
+            }
+            else if (InputDevice.mouse == true)
+            {
+                // Sonst Maus verwenden wie bisher
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+            }
+
+
+
+            // Heiltrank benutzen (Taste H)
+            if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                if (potamount > 0 && newhp < maxhp)
+                {
+                    newhp += healamount;
+                    if (newhp > maxhp) newhp = maxhp;
+
+                    potamount--;
+                    healthbar.setPlayerHealth(newhp);
+                    Hp.text = newhp.ToString();
+                }
+                else
+                {
+                    Debug.Log("Keine Pots");
+                }
+            }
+
+            // Dash (Leertaste oder Controller)
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(Dash());
+            }
+        }
+
 
         IEnumerator Dash()
         {
@@ -189,7 +192,8 @@ public class PlayerMovement : MonoBehaviour
                 Bullets.accuracy += 2;
                 s.mindamage += 220;
                 s.maxdamage += 220;
-            }else if(Items.type == 2)
+            }
+            else if (Items.type == 2)
             {
                 Bullets.accuracy += 1;
                 s.maxdamage += 120;
@@ -219,23 +223,16 @@ public class PlayerMovement : MonoBehaviour
         {
             if (shield == false)
             {
-                playerSprite.setGotHitAnimation();
-                newhp -= damageFromEnemy;
-                healthbar.setPlayerMaxHealth(maxhp);
-                healthbar.setPlayerHealth(newhp);
-                Hp.text = newhp.ToString();
-
+                damageInc(3);
                 if (newhp <= 0 && !isDead)
                 {
-                    Hp.gameObject.SetActive(false);
-                    healthbar.gameObject.SetActive(false);
-                    isDead = true;
-                    playerSprite.setDeadAnimation();
+                    setDead();
                 }
             }
         }
-    }
 
+
+    }
     public void increasepot()
     {
         potamount++;
@@ -261,5 +258,20 @@ public class PlayerMovement : MonoBehaviour
         onCooldown = true;
         yield return new WaitForSeconds(spellShieldCooldown);
         onCooldown = false;
+    }
+    public void damageInc(int damage)  // wenn spieler schaden nimmt
+    {
+        playerSprite.setGotHitAnimation();
+        newhp -= damage;
+        healthbar.setPlayerMaxHealth(maxhp);
+        healthbar.setPlayerHealth(newhp);
+        Hp.text = newhp.ToString();
+    }
+    private void setDead()
+    {
+        Hp.gameObject.SetActive(false);
+        healthbar.gameObject.SetActive(false);
+        isDead = true;
+        playerSprite.setDeadAnimation();
     }
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8461762038474543300}
   - component: {fileID: -554826576783775159}
   - component: {fileID: -2848390064650631620}
+  - component: {fileID: 8587790800682699897}
+  - component: {fileID: 1759115598141372197}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -115,3 +117,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479545e24885bf3458aadeaa567a5062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8587790800682699897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461762038474543302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fc0dd8e2389494da77d804d5f9ba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  damageFromExplosion: 5
+--- !u!58 &1759115598141372197
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461762038474543302}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0095816925}
+  serializedVersion: 2
+  m_Radius: 0.13595997

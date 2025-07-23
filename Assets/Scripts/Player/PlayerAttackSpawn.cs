@@ -7,7 +7,7 @@ public class PlayerAttackSpawn : MonoBehaviour
     public Bullets bullet;
     private float lastFireTime;
     private float lastFireTimeSpell;
-    [SerializeField]public float fireCooldown = 0.7f;
+    [SerializeField]public float fireCooldown = 0.9f;
     public static float fireCooldownSpell = 4f;
     public PlayerMovement player;
     private bool cooldown = false;
@@ -23,7 +23,7 @@ public class PlayerAttackSpawn : MonoBehaviour
             return;
         if (player.isDead == false)
         {
-            if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))
             {
                 if (Time.time - lastFireTime >= fireCooldown)
                 {

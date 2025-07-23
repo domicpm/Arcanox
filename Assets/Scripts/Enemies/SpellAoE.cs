@@ -8,15 +8,16 @@ public class SpellAoE : MonoBehaviour
     public GameObject spawnAreaPrefab;
     public PlayerMovement player;
     Animator animator;
-
+    public bool damage = false;
     Vector2 spawnPosSquare;
     Vector2 spawnPosTest;
+    private float timer { get; set; } = 0f;
+    private float interval { get; set; } = 5f;
 
     List<AoeAnimation> aoeList = new List<AoeAnimation>();
 
     void Start()
     {
-        StartCoroutine(Delay());
         animator = GetComponent<Animator>();
     }
 
@@ -30,7 +31,16 @@ public class SpellAoE : MonoBehaviour
 
         StartCoroutine(Delay2());
     }
+    private void Update()
+    {
+        timer += Time.deltaTime;
 
+        if (timer >= interval && !player.getDead())
+        {
+            StartCoroutine(Delay());
+            timer = 0f;
+        }
+    }
     private void spawn()
     {
         aoeList.Clear();
@@ -51,17 +61,30 @@ public class SpellAoE : MonoBehaviour
     IEnumerator Delay2()
     {
         yield return new WaitForSeconds(2f);
+        damage = true;
 
         if (aoeList.Count > 0)
         {
             foreach (var aoe in aoeList)
             {
                 aoe.startAnimation();
+
+                DamageFromCircle dfc = aoe.GetComponent<DamageFromCircle>();
+                if (dfc != null)
+                    dfc.ExplosionDamage(aoe.transform.position);
             }
         }
-        else
+        StartCoroutine(Destroy());
+
+    }
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(2f);
+        foreach (var aoe in aoeList)
         {
-            Debug.Log("Keine AoeAnimation-Komponenten gefunden.");
+            Destroy(aoe.gameObject);
         }
     }
+
 }
+

@@ -17,7 +17,7 @@ public class RotatePlayerSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void rotate(bool right)
     {
@@ -41,5 +41,13 @@ public class RotatePlayerSprite : MonoBehaviour
     public void setDeadAnimation()
     {
         animator.SetTrigger("IsDead");
+    }
+    public void setWalkingAnimation(bool isWalking)
+    {
+        animator.SetBool("isWalking", isWalking);
+    }
+    public void setAttackAnimation(bool isAttacking)
+    {
+        animator.SetBool("isAttacking", isAttacking);
     }
 }

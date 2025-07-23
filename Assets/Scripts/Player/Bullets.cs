@@ -112,7 +112,13 @@ public class Bullets : MonoBehaviour
         }
         UpdateDamage();
         Vector3 bulletDir = player.bp.transform.up;
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        bullet.transform.localScale = originalScale;
+        bullet.transform.rotation = player.bp.transform.rotation;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
+
     }
     public void shootLeft()
     {

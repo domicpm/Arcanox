@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\GameManager\Stats.cs" />
     <Compile Include="Assets\Scripts\Items\Heal.cs" />
     <Compile Include="Assets\Scripts\NPCs\npcAzriel.cs" />
+    <Compile Include="Assets\Scripts\Enemies\DamageFromCircle.cs" />
     <Compile Include="Assets\Scripts\Player\Shadow.cs" />
     <Compile Include="Assets\Scripts\Player\Interact.cs" />
     <Compile Include="Assets\Scripts\Items\Loot.cs" />

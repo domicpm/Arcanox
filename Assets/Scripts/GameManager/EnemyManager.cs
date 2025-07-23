@@ -47,7 +47,7 @@ public class EnemyManager : MonoBehaviour
         if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
         {
 
-            InitializeLevel(1); //spawnt Gegner
+            //InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
         }
