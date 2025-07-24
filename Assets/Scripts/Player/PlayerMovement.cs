@@ -69,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (newhp <= 0 && !isDead)
+        {
+            setDead();
+        }
         Hp.text = newhp.ToString();
         if (PauseManager.Instance.IsPaused)
             return;
@@ -83,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
                 gm.gameObject.SetActive(true);
                 s.mindamage = 1000;
                 s.maxdamage = 1001;
-                s.mindamageSpell = 1500;
-                s.maxdamageSpell = 1501;
+                s.mindamageSpell = 2000;
+                s.maxdamageSpell = 2001;
                 speed = 20;
                 damageFromEnemy = 0;
                 Bullets.accuracy = 100;
@@ -221,13 +225,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("FireBall"))
         {
-            if (shield == false)
+            if (shield == false && godmode == false)
             {
-                damageInc(3);
-                if (newhp <= 0 && !isDead)
-                {
-                    setDead();
-                }
+                damageInc(10);
             }
         }
 

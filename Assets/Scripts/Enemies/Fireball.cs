@@ -77,7 +77,6 @@ public class Fireball : MonoBehaviour
             // Clones move in their set direction
             else if (hasLaunched)
             {
-                // WICHTIGE ÄNDERUNG: "transform.right" statt "- transform.right"
                 transform.position += transform.right * moveSpeed * Time.deltaTime;
             }
         }

@@ -206,7 +206,13 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("fail");
         }
-            
+        if (CompareTag("Boss"))
+        {
+            bossDead = true;
+        }
+
+        
+           
 
     }
     IEnumerator Delay()

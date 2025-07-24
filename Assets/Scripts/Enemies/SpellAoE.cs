@@ -9,8 +9,8 @@ public class SpellAoE : MonoBehaviour
     public PlayerMovement player;
     Animator animator;
     public bool damage = false;
-    private bool isScaled = false;
-    private bool scaleNext = false;
+    public static bool isScaled = false;
+    public static bool scaleNext = false;
     private int spawnAmount = 20;
     Vector2 spawnPosSquare;
     Vector2 spawnPosTest;
@@ -70,6 +70,11 @@ public class SpellAoE : MonoBehaviour
         {
             areaBorder.gameObject.transform.localScale *= 1.4f;
             spawnAmount = 60;
+        }
+        else
+        {
+            areaBorder.gameObject.transform.localScale /= 1.4f;
+            spawnAmount = 20;
         }
         for (int i = 0; i < spawnAmount; i++)
         {

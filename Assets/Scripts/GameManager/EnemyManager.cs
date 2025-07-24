@@ -158,6 +158,8 @@ public class EnemyManager : MonoBehaviour
     }
     public void SpawnBoss(int level)
     {
+        SpellAoE.scaleNext = false;
+        SpellAoE.isScaled = false;
         Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         GameObject bossGO = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         Enemy boss = bossGO.GetComponent<Enemy>();

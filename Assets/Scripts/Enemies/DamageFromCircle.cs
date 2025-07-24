@@ -6,7 +6,7 @@ using System.Collections;
 public class DamageFromCircle : MonoBehaviour
 {
     public float radius;
-    public int damageFromExplosion = 5;
+    private int damageFromExplosion = 20;
     // Start is called before the first frame update
     void Start()
     {
