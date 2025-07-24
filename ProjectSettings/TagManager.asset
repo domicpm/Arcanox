@@ -15,6 +15,7 @@ TagManager:
   - Npc
   - Dummy
   - Item
+  - Boss
   layers:
   - Default
   - TransparentFX

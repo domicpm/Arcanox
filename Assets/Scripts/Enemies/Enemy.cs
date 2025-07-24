@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public float maxhp;
+    public float hp;
     public Transform sprite;
     public HealthBar healthbar;
     public Bullets bullet;
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         healthbar.setMaxHealth(maxhp);
         hpEnemy.text = maxhp.ToString();
+        hp = maxhp;
         atc.inRange = false;
         spriteRenderer = sprite.GetComponent<SpriteRenderer>();
         baseScale = sprite.localScale; // Ausgangsskalierung speichern
@@ -84,7 +86,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-     
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
         if (atc.inRange == false)
         {
@@ -132,9 +133,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             isHit = true;
-            maxhp -= bullet.getDmg();
-            healthbar.setHealth(maxhp);
-            hpEnemy.text = maxhp.ToString();
+            hp -= bullet.getDmg();
+            healthbar.setHealth(hp);
+            hpEnemy.text = hp.ToString();
 
             Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), 1.5f, 0);
             Vector3 spawnPos = dmgtextSpawnLocation.transform.position + offset; 
@@ -144,7 +145,7 @@ public class Enemy : MonoBehaviour
             dmgText.SetDamage(bullet.getDmg());
 
 
-            if (maxhp <= 0)
+            if (hp <= 0)
             {
                 deathHandler();
             }
@@ -152,9 +153,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Spell"))
         {
             isHit = true;
-            maxhp -= bullet.getDmgSpell();
-            healthbar.setHealth(maxhp);
-            hpEnemy.text = maxhp.ToString();
+            hp -= bullet.getDmgSpell();
+            healthbar.setHealth(hp);
+            hpEnemy.text = hp.ToString();
 
             Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), 1.5f, 0);
             Vector3 spawnPos = dmgtextSpawnLocation.transform.position + offset;
@@ -164,7 +165,7 @@ public class Enemy : MonoBehaviour
             dmgText.SetDamage(bullet.getDmgSpell());
 
 
-            if (maxhp <= 0)
+            if (hp <= 0)
             {
                 deathHandler();
             }

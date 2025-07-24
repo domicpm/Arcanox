@@ -42,6 +42,10 @@ public class EnemyManager : MonoBehaviour
     
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SpawnBoss(level);
+        }
         spawnTimer += Time.deltaTime;
 
         if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
@@ -61,7 +65,6 @@ public class EnemyManager : MonoBehaviour
             //LevelSuccess.Instance.setAct();
         }       
     }
-
     public void InitializeLevel(int level)
     {
 
@@ -103,8 +106,8 @@ public class EnemyManager : MonoBehaviour
         }
         spawnAfterKill += level;
         enemy.p = player;
-        enemy.healthbar.setMaxHealth(enemy.maxhp);
-        enemy.hpEnemy.text = enemy.maxhp.ToString();
+        enemy.healthbar.setMaxHealth(enemy.hp);
+        enemy.hpEnemy.text = enemy.hp.ToString();
         enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
         enemy.fb.player = enemy.p.transform;
         enemy.fb.p = enemy.p;
@@ -160,9 +163,10 @@ public class EnemyManager : MonoBehaviour
         Enemy boss = bossGO.GetComponent<Enemy>();
 
         boss.maxhp = (baseHP + level * 400) * 4f;
+        boss.hp = boss.maxhp;
         boss.p = player;
         boss.healthbar.setMaxHealth(boss.maxhp);
-        boss.hpEnemy.text = boss.maxhp.ToString();
+        boss.hpEnemy.text = boss.hp.ToString();
         boss.fb = bossGO.GetComponentInChildren<Fireball>();
         boss.fb.player = boss.p.transform;
         boss.fb.p = boss.p;

@@ -51,7 +51,7 @@ public class Bullets : MonoBehaviour
             objectPooling.RemoveObject(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
         {
             // dmgtxt.spawnDmg(damage);
             objectPooling.RemoveObject(gameObject);

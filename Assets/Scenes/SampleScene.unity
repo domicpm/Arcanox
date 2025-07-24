@@ -18925,9 +18925,21 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
         type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 5062452613649619841, guid: 2e55d9c08e72daa498ab8e20791035e4,
+        type: 3}
+    - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
+        type: 3}
       propertyPath: enemy
       value: 
       objectReference: {fileID: 5062452613649619841, guid: 2e55d9c08e72daa498ab8e20791035e4,
+        type: 3}
+    - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
+        type: 3}
+      propertyPath: border
+      value: 
+      objectReference: {fileID: 2784657548281237722, guid: 61416ce402f71714ca60068b3c4ab98b,
         type: 3}
     - target: {fileID: 7066044440867408748, guid: 2e7f55bd56e409347b25c8bc5d207f7e,
         type: 3}

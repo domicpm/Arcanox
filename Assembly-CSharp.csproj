@@ -111,6 +111,7 @@
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
+    <Compile Include="Assets\SpellSquareBorder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\TextMesh Pro\Shaders\TMPro.cginc" />
