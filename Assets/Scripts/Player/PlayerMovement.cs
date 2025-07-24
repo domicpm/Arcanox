@@ -224,11 +224,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("FireBall"))
-        {
-            if (shield == false && godmode == false)
-            {
-                damageInc(10);
-            }
+        {          
+                damageInc(10);          
         }
 
 
@@ -261,11 +258,14 @@ public class PlayerMovement : MonoBehaviour
     }
     public void damageInc(int damage)  // wenn spieler schaden nimmt
     {
-        playerSprite.setGotHitAnimation();
-        newhp -= damage;
-        healthbar.setPlayerMaxHealth(maxhp);
-        healthbar.setPlayerHealth(newhp);
-        Hp.text = newhp.ToString();
+        if (shield == false && godmode == false)
+        {
+            playerSprite.setGotHitAnimation();
+            newhp -= damage;
+            healthbar.setPlayerMaxHealth(maxhp);
+            healthbar.setPlayerHealth(newhp);
+            Hp.text = newhp.ToString();
+        }
     }
     private void setDead()
     {
