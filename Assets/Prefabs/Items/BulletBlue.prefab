@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: prefab2
       value: 
       objectReference: {fileID: 3445876457150602855}
+    - target: {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: prefabBlue
+      value: 
+      objectReference: {fileID: 3445876457150602855}
     - target: {fileID: 9125011487636493100, guid: 248414fd385043e408f459091f799bae,
         type: 3}
       propertyPath: m_Color.b
@@ -35,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 9125011487636493101, guid: 248414fd385043e408f459091f799bae,
         type: 3}
       propertyPath: m_Name
-      value: Item2
+      value: BulletBlue
       objectReference: {fileID: 0}
     - target: {fileID: 9125011487636493103, guid: 248414fd385043e408f459091f799bae,
         type: 3}

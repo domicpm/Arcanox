@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d79d9c9c14420459f4c0aab73ab47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab1: {fileID: 9125011487636493101}
-  prefab2: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516, type: 3}
+  prefabGreen: {fileID: 9125011487636493101}
+  prefabBlue: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516,
+    type: 3}
 --- !u!1001 &5757687878155527546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 3550497888350434903, guid: ade59a37a01dc524ba68aefbb7089fc8,
         type: 3}
       propertyPath: m_Name
-      value: Item
+      value: BulletGreen
       objectReference: {fileID: 0}
     - target: {fileID: 3550497888350434903, guid: ade59a37a01dc524ba68aefbb7089fc8,
         type: 3}

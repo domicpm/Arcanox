@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerAttackSpawn wp;
     public Godmode gm;
     public SpellAoE aoe;
+    private List<Chronobreak> log = new List<Chronobreak>();
+
     void Start()
     {
         newhp = maxhp;
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+       // log.Add(new Chronobreak(Time.time, transform.position));
         if (newhp <= 0 && !isDead)
         {
             setDead();
@@ -143,6 +146,9 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Keine Pots");
                 }
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
             }
 
             // Dash (Leertaste oder Controller)

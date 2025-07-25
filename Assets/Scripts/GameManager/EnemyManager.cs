@@ -6,16 +6,14 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject bossPrefab;
-    public GameObject deathEyePrefab;
-    public GameObject wraithPrefab;
-    public GameObject golemPrefab;
+    
     public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
     public PlayerHealthBar hpBar;
-    public Fireball deathEyeBulletPrefab;
-    public Fireball wraithBulletPrefab;
-    private float baseHP = 1500;
+
+    public EnemyTier et;
+    public float baseHP = 1500;
     public static bool bossSpawned = false;
     private float baseSpeed = 7f;
     private int damageBoost = 1;
@@ -67,76 +65,14 @@ public class EnemyManager : MonoBehaviour
     }
     public void InitializeLevel(int level)
     {
-
-        Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
-        int spawnType = Random.Range(1, 101);
-        GameObject enemyGO;
-        int enemyType;
-        if (spawnType < 30)
-        {
-             enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
-            enemyType = 1;
-        }
-        else if(spawnType >= 30 && spawnType <= 66)
-        {
-             enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
-            enemyType = 2;
-        }
-        else 
-        {
-            enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
-            enemyType = 2;
-        }
-
-        Enemy enemy = enemyGO.GetComponent<Enemy>();
-        enemy.maxhp = baseHP + (level * 100);
-        if (enemy.isGolem)
-        {
-            int randomSpeed = Random.Range(5, 13);
-            enemy.speed = randomSpeed;
-        }
-        else
-        {
-            int randomSpeed = Random.Range(9, 13);
-            enemy.speed = randomSpeed;
-        }
+        int enemyType = Random.Range(1, 4);
+        et.enemyType(enemyType);
+        spawnAfterKill += level;
         if (player.godmode == false)
         {
             player.damageFromEnemy = player.damageFromEnemy + level;
         }
-        spawnAfterKill += level;
-        enemy.p = player;
-        enemy.healthbar.setMaxHealth(enemy.hp);
-        enemy.hpEnemy.text = enemy.hp.ToString();
-        enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
-        enemy.fb.player = enemy.p.transform;
-        enemy.fb.p = enemy.p;
-        enemy.bullet = bulletPrefab;
-        enemy.fb.gameObject.SetActive(true);
-        if (enemyType == 1)
-        {
-            enemy.fb = deathEyeBulletPrefab;
-        }else if (enemyType == 2)
-        {
-           enemy.fb = wraithBulletPrefab;
-        }
-        if (Enemy.killCount > 11 && bossSpawned == false)
-        {
-            //enemyGO.transform.localScale *= 1.5f;
 
-            //enemy.maxhp *= 2f;
-            //enemyGO.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.red;
-            //enemy.fireballSizeMultiplier = 2;
-            //player.damageFromEnemy *= 5;
-            //enemy.fireballInterval = 0.2f;
-            //enemy.fireballSpeed = 12f;
-        }
-        else
-        {
-            enemy.fireballSizeMultiplier = 2;
-            //enemy.fireballInterval = 0.8f;
-            //enemy.fireballSpeed = 10f;
-        }
     }
     public void InitializeLevel(int level, bool a)
     {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    public GameObject prefab1;
-    public GameObject prefab2;
+    public GameObject prefabGreen;
+    public GameObject prefabBlue;
     public static bool looted = false;
     public static int type = 0;
     // Start is called before the first frame update
@@ -33,12 +33,12 @@ public class Items : MonoBehaviour
         int spawnChance = Random.Range(1, 101);
         if (spawnChance <= 20)
         {
-            GameObject newBullet = Instantiate(prefab1, enemypos, Quaternion.identity);
+            GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 1;
         }else if(spawnChance > 20)
         {
-            GameObject newBullet = Instantiate(prefab2, enemypos, Quaternion.identity);
+            GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 2;
         }

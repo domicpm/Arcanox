@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float hp;
     public Transform sprite;
     public HealthBar healthbar;
+    public char tierTag;
     public Bullets bullet;
     public  bool isBoss = false;
     public bool isHit = false;
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
     public RotateEnemySprite res;
     private SpriteRenderer spriteRenderer;
+    public EnemyTier et;
     [HideInInspector] public int fireballSizeMultiplier = 1;
     [HideInInspector]public float fireballInterval = 0.7f;
     [HideInInspector] public float fireballSpeed = 8f;
@@ -50,8 +52,6 @@ public class Enemy : MonoBehaviour
         baseScale = sprite.localScale; // Ausgangsskalierung speichern
 
         personalOffset = new Vector3(Random.Range(-3f, 3f), Random.Range(-2f, 2f), 0);
-
-
 
     }
     public void Awake()
@@ -102,7 +102,6 @@ public class Enemy : MonoBehaviour
             res.setWalkingAnimation(false);
         }
         FlipSprite();
-
         //if(gameObject.transform.position.x > p.transform.position.x)
         //{
         //    sprite.localScale = new Vector3(-1, 1, 1); // Rechts
@@ -189,9 +188,9 @@ public class Enemy : MonoBehaviour
         {
             heal.spawn(enemydeathpos);
         }
-        else
+        else if(tierTag == 'S')
         {
-
+            Debug.Log("Big Loot awaits");
         }
         destroyObj();
 
