@@ -770,6 +770,7 @@ MonoBehaviour:
   hp: 0
   sprite: {fileID: 7747002755688351128}
   healthbar: {fileID: 363474653705077396}
+  tierTag: 0
   bullet: {fileID: 0}
   isBoss: 0
   isHit: 0
@@ -791,6 +792,7 @@ MonoBehaviour:
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   isDead: 0
   res: {fileID: 31860192647335778}
+  et: {fileID: 4904633909713121431, guid: ecc99d081db25544387804c76e0bf756, type: 3}
   fireballSizeMultiplier: 1
   fireballInterval: 0.7
   fireballSpeed: 8

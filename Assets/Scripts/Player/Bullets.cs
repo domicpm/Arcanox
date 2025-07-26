@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Bullets : MonoBehaviour
 {
-    [HideInInspector] public float mindamage = 100;
-    [HideInInspector] public float maxdamage = 300;
-    [HideInInspector] public float mindamageSpell = 450;
-    [HideInInspector] public float maxdamageSpell = 750;
+    [HideInInspector] public static float mindamage = 100;
+    [HideInInspector] public static float maxdamage = 300;
+    [HideInInspector] public static float mindamageSpell = 450;
+    [HideInInspector] public static float maxdamageSpell = 750;
     public static float accuracy = 75;
     public float accuracySpell = 75;
     public float speed = 4f;
@@ -85,6 +85,7 @@ public class Bullets : MonoBehaviour
         if (accuracySpell >= random)
         {
             damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
+
         }
         else
         {
@@ -93,35 +94,40 @@ public class Bullets : MonoBehaviour
     }
     public void shoot()
     {
-        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true || LevelSuccess.levelDoneText == true) // wenn Pause gedrückt oder in loot room, werden keine weiteren Bullets gespawnt
+        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
             return;
 
-        // var bullet = Instantiate(b, player.bp.transform.position, Quaternion.identity); // <-- p.transform raus
         GameObject bullet = objectPooling.ActivateObject(objectPooling.leftClick, player.bp.transform.position, Quaternion.identity);
+        if (bullet == null) return;
+
+        var bulletScript = bullet.GetComponent<Bullets>();
+        bulletScript.speed = speed;
+        bulletScript.UpdateDamage();  
+
         var renderer = bullet.GetComponent<SpriteRenderer>();
         bullet.transform.localScale = originalScale;
 
-        if (Items.looted == true && Items.type == 1)
+        if (Items.looted && Items.type == 1)
         {
             renderer.color = new Color32(0xA2, 0xCF, 0x00, 0xFF);
-            bullet.transform.localScale = bullet.transform.localScale * 2f; // skaliert das Bullet um 1.5x
-
-        }else if(Items.looted == true && Items.type == 2)
+            bullet.transform.localScale = bullet.transform.localScale * 2f;
+        }
+        else if (Items.looted && Items.type == 2)
         {
             renderer.color = new Color32(0x5C, 0x5F, 0x98, 0xFF);
         }
-        UpdateDamage();
+
         Vector3 bulletDir = player.bp.transform.up;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        bullet.transform.localScale = originalScale;
         bullet.transform.rotation = player.bp.transform.rotation;
-        bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
-
+        rb.AddForce(bulletDir * speed, ForceMode2D.Impulse);
     }
+
     public void shootLeft()
     {
+
         cdUI.ResetCooldown("spell");
         if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
@@ -133,5 +139,6 @@ public class Bullets : MonoBehaviour
         Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
+
     }
 }

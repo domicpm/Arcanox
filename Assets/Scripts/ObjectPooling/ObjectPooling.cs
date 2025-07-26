@@ -60,4 +60,15 @@ public class ObjectPooling : MonoBehaviour
         obj.SetActive(false);
         pool[obj.GetComponent<PrefabPooling>().prefab].Enqueue(obj);
     }
+    public IEnumerator ReturnToPoolDelayed(GameObject go, float delay, Vector3 resetScale)
+    {
+        if (go == null) yield break;
+
+        go.transform.localScale = resetScale * 5.5f;
+        yield return new WaitForSeconds(delay);
+
+        go.transform.localScale = resetScale;
+        RemoveObject(go); // Entfernt oder deaktiviert das Objekt
+    }
+
 }

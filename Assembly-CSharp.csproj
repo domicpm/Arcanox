@@ -92,12 +92,13 @@
     <Compile Include="Assets\Scripts\Enemies\BossAttributes.cs" />
     <Compile Include="Assets\Scripts\Enemies\AttackRangeCircle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealthBar.cs" />
-    <Compile Include="Assets\SkillTree.cs" />
+    <Compile Include="Assets\Scripts\GameManager\PlayerLevel.cs" />
     <Compile Include="Assets\Scripts\Player\Godmode.cs" />
     <Compile Include="Assets\Scripts\Player\CooldownUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTier.cs" />
     <Compile Include="Assets\Scripts\Enemies\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpellAoE.cs" />
+    <Compile Include="Assets\Scripts\Player\SkillTree.cs" />
     <Compile Include="Assets\Scripts\Items\Items.cs" />
     <Compile Include="Assets\Scripts\Enemies\AoeAnimation.cs" />
     <Compile Include="Assets\Scripts\ObjectPooling\ObjectPooling.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\StairsLayerTrigger.cs" />
     <Compile Include="Assets\Scripts\GameManager\newGame.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameOver.cs" />
-    <Compile Include="Assets\Scripts\SpellSquareBorder.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SpellSquareBorder.cs" />
     <Compile Include="Assets\Scripts\Player\Bullets.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameLogic.cs" />
     <Compile Include="Assets\Scripts\GameManager\InputDevice.cs" />

@@ -6,11 +6,18 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject bossPrefab;
-    
+
     public static EnemyManager Instance;
     public PlayerMovement player;
     public Bullets bulletPrefab;
     public PlayerHealthBar hpBar;
+
+    public GameObject deathEyePrefab;
+    public GameObject wraithPrefab;
+    public GameObject golemPrefab;
+
+    public Fireball deathEyeBulletPrefab;
+    public Fireball wraithBulletPrefab;
 
     public EnemyTier et;
     public float baseHP = 1500;
@@ -27,17 +34,17 @@ public class EnemyManager : MonoBehaviour
     private int enemiesInScene = 3;
     public int level = 0;
     private void Awake()
-{
-    if (Instance == null)
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Singleton
+        }
     }
-    else
-    {
-        Destroy(gameObject); // Singleton
-    }
-}
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
@@ -53,31 +60,80 @@ public class EnemyManager : MonoBehaviour
             enemyCount++;
             spawnTimer = 0f;
         }
-        
-        else if(bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 != 0)
+
+        else if (bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 != 0)
         {
             SpawnBoss(level);
         }
         if (Enemy.killCount > maxEnemies && enemyCount >= maxEnemies)
         {
             //LevelSuccess.Instance.setAct();
-        }       
+        }
     }
     public void InitializeLevel(int level)
     {
         int enemyType = Random.Range(1, 4);
-        et.enemyType(enemyType);
+        Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
+        int spawnType = Random.Range(1, 101);
+        GameObject enemyGO;
+        switch (enemyType)
+        {
+            case 1:
+                enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
+                enemyType = 1;
+                break;
+
+            case 2:
+                enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
+                enemyType = 2;
+                break;
+
+            case 3:
+                enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
+                enemyType = 2;
+                break;
+
+            default:
+                enemyGO = null;
+
+                enemyType = 0;
+                break;
+        }
+
+
+        Enemy enemy = enemyGO.GetComponent<Enemy>();
+        int randomTier = Random.Range(1, 101);
+        char tier = et.tierDecider(randomTier);
+        EnemyTierStats stats = et.enemyChanger(tier);
+
+        enemy.maxhp = baseHP + (level * 100) + stats.hpBonus;
+        enemy.speed = stats.speed;
+        enemy.p = player;
+        enemy.healthbar.setMaxHealth(enemy.hp);
+        enemy.hpEnemy.text = enemy.hp.ToString();
+        enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
+        enemy.fb.player = enemy.p.transform;
+        enemy.fb.p = enemy.p;
+        enemy.bullet = bulletPrefab;
+        enemy.fb.gameObject.SetActive(true);
+        enemy.fireballSizeMultiplier = stats.fireballSize;
+        enemy.fb = setEnemyBullet(enemyType);
+        enemy.tierTag = tier;
+
         spawnAfterKill += level;
         if (player.godmode == false)
         {
             player.damageFromEnemy = player.damageFromEnemy + level;
         }
-
     }
+
+
     public void InitializeLevel(int level, bool a)
     {
         enemyCount = 0;
-        if(a == false) {        Enemy.enemyCount = 0;
+        if (a == false)
+        {
+            Enemy.enemyCount = 0;
         }
         else
         {
@@ -91,6 +147,19 @@ public class EnemyManager : MonoBehaviour
         bossSpawned = false;
         Enemy.allCleared = false;
         //Enemy.isBoss = false;
+    }
+
+    public Fireball setEnemyBullet(int enemyType)
+    {
+        if (enemyType == 1)
+        {
+            return deathEyeBulletPrefab;
+        }
+        else if (enemyType == 2)
+        {
+            return wraithBulletPrefab;
+        }
+        return null;
     }
     public void SpawnBoss(int level)
     {
@@ -117,5 +186,4 @@ public class EnemyManager : MonoBehaviour
         //Enemy.isBoss = true; 
         bossSpawned = true;
     }
-
 }

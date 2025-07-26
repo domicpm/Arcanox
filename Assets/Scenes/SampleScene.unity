@@ -1083,7 +1083,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1907204718}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SkillTree, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
@@ -2972,88 +2972,18 @@ Transform:
   m_Father: {fileID: 506128720}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &407886983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 407886985}
-  - component: {fileID: 407886984}
-  - component: {fileID: 407886986}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &407886984
+--- !u!114 &407886984 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+    type: 3}
+  m_PrefabInstance: {fileID: 4904633909574560797}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407886983}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c2a1ca86a95f2479b4d9e2633697b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 5062452613649619855, guid: 2e55d9c08e72daa498ab8e20791035e4,
-    type: 3}
-  player: {fileID: 1402766097}
-  bulletPrefab: {fileID: 715943271}
-  hpBar: {fileID: 1682183659}
-  et: {fileID: 407886986}
-  baseHP: 1500
-  maxEnemies: 5
-  counter: 0
-  level: 0
---- !u!4 &407886985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407886983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -83.8, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &407886986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407886983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7c4e37e25fd9c46a6a3737416d4e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  em: {fileID: 407886984}
-  deathEyePrefab: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
-    type: 3}
-  wraithPrefab: {fileID: 7372187077344510902, guid: a23c393fa39d24445991f4f71a2498a7,
-    type: 3}
-  golemPrefab: {fileID: 363474655076200614, guid: 3083960b1ab87fd48b370d0f1a461440,
-    type: 3}
-  player: {fileID: 1402766097}
-  bulletPrefab: {fileID: 4054668344869567375, guid: b16ed860b2cc7b144a9e2e597fb7a3b1,
-    type: 3}
-  deathEyeBulletPrefab: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91,
-    type: 3}
-  wraithBulletPrefab: {fileID: 6812046802516297889, guid: 89643af294c00994a9a95920881150ad,
-    type: 3}
-  tierHpBonus: 0
-  tierScaleBonus: 1
 --- !u!1 &415052398
 GameObject:
   m_ObjectHideFlags: 0
@@ -16411,9 +16341,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1907204714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99e18d5f8ce93940a7f8da05260955b, type: 3}
+  m_Script: {fileID: 11500000, guid: d54483f6f55ce9e4ab0cc51e76c080fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redPathButton: {fileID: 141564311}
+  bluePathButton: {fileID: 2069380848}
+  greenPathButton: {fileID: 642352134}
 --- !u!1 &1913958586
 GameObject:
   m_ObjectHideFlags: 0
@@ -19212,8 +19145,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spell
       value: 
-      objectReference: {fileID: -3826364735981635567, guid: f2933215a308c674fb581975d92014d3,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4054668344869567375, guid: b16ed860b2cc7b144a9e2e597fb7a3b1,
         type: 3}
       propertyPath: player
@@ -19722,6 +19654,125 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23c393fa39d24445991f4f71a2498a7, type: 3}
+--- !u!1001 &4904633909574560797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -83.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121428, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 1682183659}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1402766097}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: golemPrefab
+      value: 
+      objectReference: {fileID: 363474655076200614, guid: 3083960b1ab87fd48b370d0f1a461440,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 715943271}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: wraithPrefab
+      value: 
+      objectReference: {fileID: 7372187077344510902, guid: a23c393fa39d24445991f4f71a2498a7,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: deathEyePrefab
+      value: 
+      objectReference: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: wraithBulletPrefab
+      value: 
+      objectReference: {fileID: 1579456681942152507, guid: ccd622931417717418d98b9215e5da17,
+        type: 3}
+    - target: {fileID: 4904633909713121429, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: deathEyeBulletPrefab
+      value: 
+      objectReference: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91,
+        type: 3}
+    - target: {fileID: 4904633909713121431, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1402766097}
+    - target: {fileID: 4904633909713121434, guid: ecc99d081db25544387804c76e0bf756,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecc99d081db25544387804c76e0bf756, type: 3}
 --- !u!1001 &7066044440158241080
 PrefabInstance:
   m_ObjectHideFlags: 0

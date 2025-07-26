@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1041024688995812298}
   - component: {fileID: 29220982836704201}
-  - component: {fileID: -3826364735981635567}
   - component: {fileID: -3161600152199654240}
   - component: {fileID: 1421795060047549918}
   - component: {fileID: 7713045168715831292}
   - component: {fileID: 5098625935536293490}
+  - component: {fileID: 4845651930061631072}
   m_Layer: 0
   m_Name: bullet 1
   m_TagString: Spell
@@ -87,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3826364735981635567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314655000645390656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07542113fdec0cb4483550162cc3feca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-3161600152199654240
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +149,15 @@ Halo:
     serializedVersion: 2
     rgba: 4294457392
   m_Size: 2
+--- !u!114 &4845651930061631072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314655000645390656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07542113fdec0cb4483550162cc3feca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

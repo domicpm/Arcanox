@@ -36,16 +36,16 @@ public class AzrielShop : MonoBehaviour
     }
     public void onUpgrade2clicked()
     {
-        bullet.mindamage += 20;
-        bullet.maxdamage += 20;
+        Bullets.mindamage += 20;
+        Bullets.maxdamage += 20;
         Bullets.accuracy += 5;
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
     public void onUpgrade3clicked()
     {
-        bullet.mindamageSpell += 50;
-        bullet.maxdamageSpell += 50;
+        Bullets.mindamageSpell += 50;
+        Bullets.maxdamageSpell += 50;
         PlayerAttackSpawn.fireCooldownSpell *= 0.90f; // problematisch bei Mehrfachaufruf
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);

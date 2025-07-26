@@ -88,10 +88,10 @@ public class PlayerMovement : MonoBehaviour
                 //GodMode
                 godmode = true;
                 gm.gameObject.SetActive(true);
-                s.mindamage = 1000;
-                s.maxdamage = 1001;
-                s.mindamageSpell = 2000;
-                s.maxdamageSpell = 2001;
+                Bullets.mindamage = 1000;
+                Bullets.maxdamage = 1001;
+                Bullets.mindamageSpell = 2000;
+                Bullets.maxdamageSpell = 2001;
                 speed = 20;
                 damageFromEnemy = 0;
                 Bullets.accuracy = 100;
@@ -197,17 +197,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Item"))
         {
-            if (Items.type == 1)
+            if (Items.type == 1 && !godmode)
             {
                 Bullets.accuracy += 2;
-                s.mindamage += 220;
-                s.maxdamage += 220;
+                Bullets.mindamage += 220;
+                Bullets.maxdamage += 220;
             }
-            else if (Items.type == 2)
+            else if (Items.type == 2 && !godmode)
             {
                 Bullets.accuracy += 1;
-                s.maxdamage += 120;
-                s.mindamage += 120;
+                Bullets.maxdamage += 120;
+                Bullets.mindamage += 120;
             }
         }
 

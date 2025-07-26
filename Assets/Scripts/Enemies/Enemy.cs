@@ -129,26 +129,29 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;  // keine Collision , wenn tot
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet"))
         {
-            isHit = true;
-            hp -= bullet.getDmg();
-            healthbar.setHealth(hp);
-            hpEnemy.text = hp.ToString();
-
-            Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), 1.5f, 0);
-            Vector3 spawnPos = dmgtextSpawnLocation.transform.position + offset; 
-
-             DamageText dmgText = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
-           
-            dmgText.SetDamage(bullet.getDmg());
-
-
-            if (hp <= 0)
+            var bulletComponent = collision.GetComponent<Bullets>();
+            if (bulletComponent != null)
             {
-                deathHandler();
+                isHit = true;
+                hp -= bulletComponent.getDmg();
+                healthbar.setHealth(hp);
+                hpEnemy.text = hp.ToString();
+
+                Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), 1.5f, 0);
+                Vector3 spawnPos = dmgtextSpawnLocation.position + offset;
+
+                DamageText dmgText = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
+                dmgText.SetDamage(bulletComponent.getDmg());
+
+                if (hp <= 0)
+                {
+                    deathHandler();
+                }
             }
         }
+
         if (collision.gameObject.CompareTag("Spell"))
         {
             isHit = true;

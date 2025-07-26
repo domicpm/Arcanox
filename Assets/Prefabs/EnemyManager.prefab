@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4904633909713121434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4904633909713121428}
+  - component: {fileID: 4904633909713121429}
+  - component: {fileID: 4904633909713121431}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4904633909713121428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904633909713121434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -83.8, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4904633909713121429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904633909713121434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c2a1ca86a95f2479b4d9e2633697b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 5062452613649619855, guid: 2e55d9c08e72daa498ab8e20791035e4,
+    type: 3}
+  player: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  hpBar: {fileID: 0}
+  et: {fileID: 4904633909713121431}
+  baseHP: 1500
+  maxEnemies: 5
+  counter: 0
+  level: 0
+--- !u!114 &4904633909713121431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4904633909713121434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c4e37e25fd9c46a6a3737416d4e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  em: {fileID: 4904633909713121429}
+  deathEyePrefab: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
+    type: 3}
+  wraithPrefab: {fileID: 7372187077344510902, guid: a23c393fa39d24445991f4f71a2498a7,
+    type: 3}
+  golemPrefab: {fileID: 363474655076200614, guid: 3083960b1ab87fd48b370d0f1a461440,
+    type: 3}
+  player: {fileID: 0}
+  bulletPrefab: {fileID: 4054668344869567375, guid: b16ed860b2cc7b144a9e2e597fb7a3b1,
+    type: 3}
+  deathEyeBulletPrefab: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91,
+    type: 3}
+  wraithBulletPrefab: {fileID: 6812046802516297889, guid: 89643af294c00994a9a95920881150ad,
+    type: 3}
+  tierHpBonus: 0
+  tierScaleBonus: 1

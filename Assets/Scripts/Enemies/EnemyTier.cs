@@ -6,8 +6,7 @@ public class EnemyTier : MonoBehaviour
 {
     public EnemyManager em;
     public GameObject deathEyePrefab;
-    public GameObject wraithPrefab;
-    public GameObject golemPrefab;
+
     public PlayerMovement player;
     public Bullets bulletPrefab;
     public Fireball deathEyeBulletPrefab;
@@ -27,68 +26,8 @@ public class EnemyTier : MonoBehaviour
     {
         
     }
-    public void enemyType(int type)
-    {
-        Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
-        int spawnType = Random.Range(1, 101);
-        GameObject enemyGO;
-        int enemyType;
-        switch (type)
-        {
-            case 1:
-                enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
-                enemyType = 1;
-                break;
 
-            case 2:
-                enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
-                enemyType = 2;
-                break;
-
-            case 3:
-                enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
-                enemyType = 2;  
-                break;
-
-            default:
-                enemyGO = null;
-
-                enemyType = 0;
-                break;
-        }
-
-
-        Enemy enemy = enemyGO.GetComponent<Enemy>();
-        int randomTier = Random.Range(1, 101);
-        char tier = tierDecider(randomTier);
-        EnemyTierStats stats = enemyChanger(tier);
-
-        enemy.maxhp = em.baseHP + (em.level * 100) + stats.hpBonus;
-        enemy.speed = stats.speed;
-        enemy.p = player;
-        enemy.healthbar.setMaxHealth(enemy.hp);
-        enemy.hpEnemy.text = enemy.hp.ToString();
-        enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
-        enemy.fb.player = enemy.p.transform;
-        enemy.fb.p = enemy.p;
-        enemy.bullet = bulletPrefab;
-        enemy.fb.gameObject.SetActive(true);
-        enemy.fireballSizeMultiplier = stats.fireballSize;
-        enemy.fb = setEnemyBullet(enemyType);
-        enemy.tierTag = tier;
-    }
-    public Fireball setEnemyBullet(int enemyType)
-    {
-        if (enemyType == 1)
-        {
-            return deathEyeBulletPrefab;
-        }
-        else if (enemyType == 2)
-        {
-            return wraithBulletPrefab;
-        }
-        return null;
-    }
+ 
     public void golemType(int type)
     {
         switch (type)
@@ -139,7 +78,7 @@ public class EnemyTier : MonoBehaviour
         return tier;
     }
    
-    private EnemyTierStats enemyChanger(char tier)
+    public EnemyTierStats enemyChanger(char tier)
     {
         switch (tier)
         {
@@ -157,21 +96,19 @@ public class EnemyTier : MonoBehaviour
                 return new EnemyTierStats(10, 1f, 0f, 2);
         }
     }
+}
+public struct EnemyTierStats
+{
+    public int speed;
+    public float scale;
+    public float hpBonus;
+    public int fireballSize;
 
-    private struct EnemyTierStats
+    public EnemyTierStats(int speed, float scale, float hpBonus, int fbSize)
     {
-        public int speed;
-        public float scale;
-        public float hpBonus;
-        public int fireballSize;
-
-        public EnemyTierStats(int speed, float scale, float hpBonus, int fbSize)
-        {
-            this.speed = speed;
-            this.scale = scale;
-            this.hpBonus = hpBonus;
-            this.fireballSize = fbSize;
-        }
+        this.speed = speed;
+        this.scale = scale;
+        this.hpBonus = hpBonus;
+        this.fireballSize = fbSize;
     }
-
 }
