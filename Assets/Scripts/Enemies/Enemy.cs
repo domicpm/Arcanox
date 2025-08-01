@@ -205,7 +205,6 @@ public class Enemy : MonoBehaviour
         }
         if (CompareTag("S-Tier-Enemy"))
         {
-            Debug.Log("S tier killed");
             p.experience += 50;   // if rare, gain additional xp
         }
         destroyObj();
@@ -227,8 +226,6 @@ public class Enemy : MonoBehaviour
             if(p.experience <= p.maxExperience)
             p.experience += 10;
         }
-        Debug.Log("Exp: " + p.experience);
-
     }
     IEnumerator Delay()
     {

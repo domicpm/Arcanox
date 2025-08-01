@@ -10,7 +10,6 @@ public class Experience : MonoBehaviour
     public SkillTree st;
     public PlayerExpBar exp;
     private int expPerLevel = 40;
-    private int expBeforeLvlUp;
 
     public Text playerLevelText;
     private int playerLevel = 1;
@@ -27,19 +26,12 @@ public class Experience : MonoBehaviour
         exp.setPlayerExp(player.experience);
         if (player.experience >= player.maxExperience)
         {
-            Debug.Log("xp before:" + expBeforeLvlUp);
-            Debug.Log("xp current:" + player.experience);
             SkillTree.skillPoints++;
             playerLevel++;
             playerLevelText.text = playerLevel.ToString();
             player.experience = player.experience - player.maxExperience;
             player.maxExperience += expPerLevel;
             exp.setPlayerMaxExp(player.maxExperience);
-            //st.gameObject.SetActive(true);      
-        }
-        else
-        {
-            expBeforeLvlUp = player.experience;
-        }
+        }                 
     }
 }
