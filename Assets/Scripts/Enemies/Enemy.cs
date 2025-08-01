@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     public static int killCount = 0;
     private Vector3 personalOffset;
     public bool isGolem = false;
+    private Color originalColor;
     private void Start()
     {
         healthbar.setMaxHealth(maxhp);
@@ -55,8 +56,11 @@ public class Enemy : MonoBehaviour
 
     }
     public void Awake()
-    {
-        //Instance = this;
+    {      
+
+            Transform sr = transform.Find("SpriteWraith") ?? transform.Find("SpriteGolem") ?? transform.Find("SpriteEnemy");
+            if (sr != null)
+                originalColor = sr.GetComponent<SpriteRenderer>().color;       
     }
     public void destroyObj()
     {
@@ -87,6 +91,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
+        if (et.isShiny) FlashShiny();
         if (atc.inRange == false)
         {
             res.setWalkingAnimation(true);
@@ -131,6 +136,13 @@ public class Enemy : MonoBehaviour
         if (isDead) return;  // keine Collision , wenn tot
         if (collision.CompareTag("Bullet"))
         {
+            if (SkillTree.isHeal)
+            {
+                int randomLifesteal = Random.Range(1, 101);
+                if (randomLifesteal <= p.lifesteal) p.newhp += 1;
+                else if (randomLifesteal <= 5) p.newhp += 5;
+                else;
+            }
             var bulletComponent = collision.GetComponent<Bullets>();
             if (bulletComponent != null)
             {
@@ -191,9 +203,10 @@ public class Enemy : MonoBehaviour
         {
             heal.spawn(enemydeathpos);
         }
-        else if(tierTag == 'S')
+        if (CompareTag("S-Tier-Enemy"))
         {
-            Debug.Log("Big Loot awaits");
+            Debug.Log("S tier killed");
+            p.experience += 50;   // if rare, gain additional xp
         }
         destroyObj();
 
@@ -204,17 +217,17 @@ public class Enemy : MonoBehaviour
         else if (EnemyManager.bossSpawned == false){
                     StartCoroutine(Delay());
         }
-        else
-        {
-            Debug.Log("fail");
-        }
         if (CompareTag("Boss"))
         {
+            p.experience += 30;
             bossDead = true;
         }
-
-        
-           
+        else if(!CompareTag("S-Tier-Enemy"))
+        {
+            if(p.experience <= p.maxExperience)
+            p.experience += 10;
+        }
+        Debug.Log("Exp: " + p.experience);
 
     }
     IEnumerator Delay()
@@ -222,6 +235,18 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2f);
         LevelSuccess.Instance.setAct();
         //allCleared = true;
+    }
+    void FlashShiny()
+    {
+        Transform shinyChild = transform.Find("SpriteWraith") ?? transform.Find("SpriteGolem") ?? transform.Find("SpriteEnemy");
+        Debug.Log("Shiny Enemy Spawned");
+        SpriteRenderer sr = shinyChild.GetComponent<SpriteRenderer>();
+
+        if (shinyChild == null)
+        {
+            Debug.LogWarning("Kein passendes Child gefunden!");      
+        }
+        sr.color = new Color(1f, 1f, 0.3f); // shiny
     }
 
 }

@@ -32,7 +32,6 @@ public class CooldownUI : MonoBehaviour
         }
     }
 
-    // Optional: Cooldown neu starten
     public void ResetCooldown(string type)
     {
         if (type == "spell")

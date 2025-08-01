@@ -8,15 +8,14 @@ public class SkillTree : MonoBehaviour
     public Button redPathButton;
     public Button bluePathButton;
     public Button greenPathButton;
-
+    public GameManager gm;
     public static bool isBurn = false;
     public static bool isSlow = false;
     public static bool isHeal = false;
+    public static int skillPoints = 0;
 
     void Start()
     {
-        gameObject.SetActive(false);
-
         redPathButton.onClick.AddListener(OnRedButtonClick);
         bluePathButton.onClick.AddListener(OnBlueButtonClick);
         greenPathButton.onClick.AddListener(OnGreenButtonClick);
@@ -24,7 +23,6 @@ public class SkillTree : MonoBehaviour
 
     void Update()
     {
-        // Optional: Logic during runtime
     }
 
     public void OnPointerEnter()
@@ -34,16 +32,25 @@ public class SkillTree : MonoBehaviour
 
     void OnRedButtonClick()
     {
+        gm.onButtonClick = true;
+        gm.setSkillTreeActive();
         isBurn = true;
+        gameObject.SetActive(false);
     }
 
     void OnBlueButtonClick()
     {
+        gm.onButtonClick = true;
+        gm.setSkillTreeActive();
         isSlow = true;
+        gameObject.SetActive(false);
     }
 
     void OnGreenButtonClick()
     {
+        gm.onButtonClick = true;
+        gm.setSkillTreeActive();
         isHeal = true;
+        gameObject.SetActive(false);
     }
 }

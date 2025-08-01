@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SkillTree st;
+    public PauseManager pm;
+    public bool onButtonClick = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            st.gameObject.SetActive(true);
-        }
         
+           
+        
+    }
+    public void setSkillTreeActive()
+    {
+        st.gameObject.SetActive(true);
+        //if(onButtonClick == true) pm.ToggleSkillTree(false);
+        //else pm.ToggleSkillTree(false);
+        //onButtonClick = false;
     }
 }

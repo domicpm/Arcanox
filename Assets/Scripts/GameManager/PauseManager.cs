@@ -7,8 +7,11 @@ public class PauseManager : MonoBehaviour
     public Button continueGameButton;
     public Inventory inventory;
     public Text pauseText;
+    public SkillTree skilltree;
     private bool invActive = false;
-    public bool IsPaused { get; private set; } = false;
+    private bool isPausedSkillTree = false;
+    private bool isPaused = false;
+    public bool gameFreezed = false;
 
     void Awake()
     {
@@ -63,7 +66,7 @@ public class PauseManager : MonoBehaviour
     }
     public void TogglePause()
     {
-        if (IsPaused)
+        if (isPaused)
         {
             Resume();
             pauseText.gameObject.SetActive(false);
@@ -76,19 +79,34 @@ public class PauseManager : MonoBehaviour
             continueGameButton.gameObject.SetActive(true);
         }
     }
-
+    public void ToggleSkillTree(bool isPausedSkilltree)
+    {
+        if (isPausedSkillTree)
+        {
+            Resume();
+            skilltree.gameObject.SetActive(false);
+        }
+        else
+        {
+            skilltree.gameObject.SetActive(true);
+            Pause();
+        }
+    }
     public void Pause()
     {
         Time.timeScale = 0f;
-        IsPaused = true;
+        isPaused = true;
         invActive = true;
+        isPausedSkillTree = true;
+        gameFreezed = true;
     }
 
     public void Resume()
     {
         Time.timeScale = 1f;
-        IsPaused = false; 
+        isPaused = false; 
         invActive = false;
-
+        isPausedSkillTree = false;
+        gameFreezed = false;
     }
 }

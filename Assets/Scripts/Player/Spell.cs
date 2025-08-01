@@ -20,31 +20,26 @@ public class Spell : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Dummy"))
         {
-            // Direkte Rückgabe ohne Animation
             objectPooling.RemoveObject(gameObject);
             transform.localScale = originalScale;
         }
-        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
+        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy"))
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
-            // Coroutine startet, und erst am Ende wird das Objekt deaktiviert!
             StartCoroutine(MySequence());
         }
     }
 
     IEnumerator MySequence()
     {
-        Debug.Log("Scaling up!");
         transform.localScale = originalScale * 5.5f;
 
         yield return new WaitForSeconds(0.05f);
 
-        Debug.Log("Scaling back down");
         transform.localScale = originalScale;
 
-        // Jetzt erst zurück in den Pool (deaktiviert das GameObject)
         objectPooling.RemoveObject(gameObject);
     }
 

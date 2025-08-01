@@ -6,11 +6,12 @@ public class EnemyTier : MonoBehaviour
 {
     public EnemyManager em;
     public GameObject deathEyePrefab;
-
     public PlayerMovement player;
     public Bullets bulletPrefab;
     public Fireball deathEyeBulletPrefab;
     public Fireball wraithBulletPrefab;
+
+    public bool isShiny = false;
     private int fbsize = 2;
     public float tierHpBonus = 0;
     public float tierScaleBonus = 1f;
@@ -52,37 +53,21 @@ public class EnemyTier : MonoBehaviour
         }
 
     }
-    public char tierDecider(int type)
+    public char tierDecider()
     {
-        char tier;
-       if(type <= 3)
-        {
-            tier = 'S';
-        }
-       else if(type <= 15)
-        {
-            tier = 'A';
-        }
-        else if(type <= 30)
-        {
-            tier = 'B';
-        }
-        else if(type <= 60)
-        {
-            tier = 'C';
-        }
-        else
-        {
-            tier = 'D';
-        }
-        return tier;
-    }
-   
-    public EnemyTierStats enemyChanger(char tier)
+        int randomTier = Random.Range(1, 101);
+        if(randomTier <= 5)        return 'S';
+        else if(randomTier <= 15)   return 'A';
+        else if(randomTier <= 30)   return 'B';
+        else if(randomTier <= 60)   return 'C';
+        else                        return 'D';
+    }     
+    public EnemyTierStats enemyChanger(char tier)        
     {
         switch (tier)
         {
             case 'S':
+                isShiny = true;
                 return new EnemyTierStats(Random.Range(13, 18), 3f, 4000f, 4);
             case 'A':
                 return new EnemyTierStats(Random.Range(10, 13), 1.5f, 800, 2);

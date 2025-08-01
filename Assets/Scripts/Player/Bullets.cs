@@ -10,7 +10,7 @@ public class Bullets : MonoBehaviour
     [HideInInspector] public static float mindamageSpell = 450;
     [HideInInspector] public static float maxdamageSpell = 750;
     public static float accuracy = 75;
-    public float accuracySpell = 75;
+    public static float accuracySpell = 75;
     public float speed = 4f;
 
     public float damage;
@@ -51,7 +51,7 @@ public class Bullets : MonoBehaviour
             objectPooling.RemoveObject(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy"))
         {
             // dmgtxt.spawnDmg(damage);
             objectPooling.RemoveObject(gameObject);
@@ -70,7 +70,7 @@ public class Bullets : MonoBehaviour
     public void UpdateDamage()
     {
         int random = Random.Range(1, 101);
-        if (accuracy >= random)
+        if (random <= accuracy)
         {
             damage = Mathf.RoundToInt(Random.Range(mindamage, maxdamage));
         }
@@ -82,10 +82,9 @@ public class Bullets : MonoBehaviour
     public void UpdateDamageSpell()
     {
         int random = Random.Range(1, 101);
-        if (accuracySpell >= random)
+        if (random <= accuracySpell)
         {
             damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
-
         }
         else
         {
@@ -94,7 +93,7 @@ public class Bullets : MonoBehaviour
     }
     public void shoot()
     {
-        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
+        if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
             return;
 
         GameObject bullet = objectPooling.ActivateObject(objectPooling.leftClick, player.bp.transform.position, Quaternion.identity);
@@ -127,11 +126,9 @@ public class Bullets : MonoBehaviour
 
     public void shootLeft()
     {
-
-        cdUI.ResetCooldown("spell");
-        if (PauseManager.Instance.IsPaused || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
+               if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
-
+        cdUI.ResetCooldown("spell");
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
         GameObject bullet = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
         if (bullet == null) return;

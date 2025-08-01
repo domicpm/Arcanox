@@ -16,6 +16,7 @@ TagManager:
   - Dummy
   - Item
   - Boss
+  - S-Tier-Enemy
   layers:
   - Default
   - TransparentFX

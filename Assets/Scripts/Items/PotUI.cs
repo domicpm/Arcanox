@@ -7,6 +7,8 @@ public class PotUI : MonoBehaviour
 {
     public Text potText;
     public PlayerMovement pl;
+    public Text xpText;
+    
     // public Transform DamagePopUp;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,9 @@ public class PotUI : MonoBehaviour
     void Update()
     {
         potText.text = pl.potamount.ToString();
+       
+            xpText.text = pl.experience.ToString() + "/" + pl.maxExperience;
+        
         
     }
 }

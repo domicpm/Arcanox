@@ -16,12 +16,17 @@ public class PlayerMovement : MonoBehaviour
     public float healamount = 50;
     public float speed = 8f;
     public int potamount = 0;
-
+    public int lifesteal = 20;
+    public int experience = 0;
+    public int maxExperience = 100;
+    private float dashingPower = 50f;
+    private float dashingTime = 0.1f;
+    private float dashingCooldown = 1f;
+    
     public PlayerHealthBar healthbar;
     public Text Hp;
     public Heal heal;
     public float newhp;
-
     public bool PlayerGotDamage;
     public PotImageUI potui;
     public Bullets s;
@@ -29,9 +34,6 @@ public class PlayerMovement : MonoBehaviour
     public bool godmode = false;
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 50f;
-    private float dashingTime = 0.1f;
-    private float dashingCooldown = 1f;
     private bool shield;
     private bool onCooldown = false;
     public Enemy enemy;
@@ -42,10 +44,11 @@ public class PlayerMovement : MonoBehaviour
     public SpellShield spellshield;
     public CooldownUI cdUI;
     public PlayerAttackSpawn wp;
+    public GameManager gameManager;
     public Godmode gm;
     public SpellAoE aoe;
+    public SkillTree st;
     private List<Chronobreak> log = new List<Chronobreak>();
-
     void Start()
     {
         newhp = maxhp;
@@ -55,20 +58,6 @@ public class PlayerMovement : MonoBehaviour
         potamount = 0;
         cdUI = FindObjectOfType<CooldownUI>();
     }
-
-    private void FixedUpdate()
-    {
-        if (!isDead)
-        {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
-            transform.position = movement;
-            bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
-            bool isWalking = horizontalInput != 0 || verticalInput != 0;
-            // playerSprite.setWalkingAnimation(isWalking);
-        }
-    }
     void Update()
     {
        // log.Add(new Chronobreak(Time.time, transform.position));
@@ -77,12 +66,20 @@ public class PlayerMovement : MonoBehaviour
             setDead();
         }
         Hp.text = newhp.ToString();
-        if (PauseManager.Instance.IsPaused)
+        if (PauseManager.Instance.gameFreezed)
             return;
         //if(Enemy.allCleared == true)
         //    return;     
         if (!isDead)
         {
+
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
+            transform.position = movement;
+            bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
+            bool isWalking = horizontalInput != 0 || verticalInput != 0;
+            // playerSprite.setWalkingAnimation(isWalking);
             if (Input.GetKeyDown(KeyCode.G))
             {
                 //GodMode
@@ -95,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 speed = 20;
                 damageFromEnemy = 0;
                 Bullets.accuracy = 100;
+                Bullets.accuracySpell = 100;
                 wp.fireCooldown = 0.1f;
             }
             if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton3))
@@ -108,8 +106,6 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(setSpellshieldTimer());
                 }
             }
-
-
             //Controller rechter Stick auslesen (XY)
             float rightStickX = Input.GetAxis("RightStickHorizontal");
             float rightStickY = Input.GetAxis("RightStickVertical");
@@ -127,9 +123,6 @@ public class PlayerMovement : MonoBehaviour
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg - 90f;
             }
-
-
-
             // Heiltrank benutzen (Taste H)
             if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
@@ -240,12 +233,6 @@ public class PlayerMovement : MonoBehaviour
     {
         potamount++;
     }
-
-    public void destroyObj()
-    {
-        gameObject.SetActive(false);
-    }
-
     public bool getDead()
     {
         return isDead;

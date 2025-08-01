@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public Text ats;
     public Text ap;
     public Text acc;
+    public Text accSpell;
     public Text cdr;
     public Text ms;
     public Text phEva;
@@ -32,6 +33,7 @@ public class Inventory : MonoBehaviour
         ats.text = bullets.speed.ToString();
         ap.text = Bullets.maxdamageSpell.ToString(); // wie oben
         acc.text = Bullets.accuracy.ToString() + "%";
+        accSpell.text = Bullets.accuracySpell.ToString() + "%";
         cdr.text = "0" + "%";
         ms.text = player.speed.ToString();
         phEva.text = "0";

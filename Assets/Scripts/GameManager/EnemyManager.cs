@@ -20,6 +20,8 @@ public class EnemyManager : MonoBehaviour
     public Fireball wraithBulletPrefab;
 
     public EnemyTier et;
+
+    public Rarity rarity;
     public float baseHP = 1500;
     public static bool bossSpawned = false;
     private float baseSpeed = 7f;
@@ -76,6 +78,8 @@ public class EnemyManager : MonoBehaviour
         Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
         int spawnType = Random.Range(1, 101);
         GameObject enemyGO;
+
+
         switch (enemyType)
         {
             case 1:
@@ -99,13 +103,17 @@ public class EnemyManager : MonoBehaviour
                 enemyType = 0;
                 break;
         }
-
-
         Enemy enemy = enemyGO.GetComponent<Enemy>();
-        int randomTier = Random.Range(1, 101);
-        char tier = et.tierDecider(randomTier);
+        char tier = et.tierDecider();
         EnemyTierStats stats = et.enemyChanger(tier);
+        Transform rarityTransform = enemyGO.transform.Find("RarityParticles");
+        Rarity rarityComponent = rarityTransform.GetComponent<Rarity>();
 
+        if (tier == 'S')
+        {
+            rarityComponent.setRarity();
+            enemy.tag = "S-Tier-Enemy";
+        } 
         enemy.maxhp = baseHP + (level * 100) + stats.hpBonus;
         enemy.speed = stats.speed;
         enemy.p = player;
