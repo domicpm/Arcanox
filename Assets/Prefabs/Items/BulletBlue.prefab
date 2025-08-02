@@ -18,6 +18,51 @@ PrefabInstance:
       propertyPath: m_Color.rgba
       value: 4294177779
       objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255790, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.204
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255790, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449883523181255791, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae,
         type: 3}
       propertyPath: prefab2
