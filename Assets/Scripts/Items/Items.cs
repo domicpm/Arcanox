@@ -6,8 +6,15 @@ public class Items : MonoBehaviour
 {
     public GameObject prefabGreen;
     public GameObject prefabBlue;
+
+
+    public ItemData greenBullet;
+    public ItemData blueBullet;
+
     public static bool looted = false;
     public static int type = 0;
+    public static Items Instance { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +26,14 @@ public class Items : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Awake()
     {
-
-        if (collision.gameObject.CompareTag("Player"))
+        if (Instance != null && Instance != this)
         {
-            looted = true;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            return;
         }
+        Instance = this;
     }
     public void spawn(Vector3 enemypos)
     {
@@ -43,6 +50,23 @@ public class Items : MonoBehaviour
             type = 2;
         }
         
+    }
+    public void addToInventory(int type)
+    {
+
+        switch (type)
+        {
+            case 1:
+                Inventory.Instance.addItemToInventory(greenBullet);
+                break;
+            case 2:
+                Inventory.Instance.addItemToInventory(blueBullet);
+                break;
+            case 3:
+            case 4:
+            case 5:
+            default:break;      
+        }
     }
 
 }

@@ -5,7 +5,7 @@ public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set; }
     public Button continueGameButton;
-    public Inventory inventory;
+    public Stats stats;
     public Text pauseText;
     public SkillTree skilltree;
     private bool invActive = false;
@@ -56,12 +56,12 @@ public class PauseManager : MonoBehaviour
         if (invActive)
         {
             Resume();
-            inventory.gameObject.SetActive(false);
+            stats.gameObject.SetActive(false);
         }
         else
         {
             Pause();
-            inventory.gameObject.SetActive(true);
+            stats.gameObject.SetActive(true);
         }
     }
     public void TogglePause()

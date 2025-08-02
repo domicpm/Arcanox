@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6235853582599643419
+--- !u!114 &-2382247634856130295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9125011487636493101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d79d9c9c14420459f4c0aab73ab47d, type: 3}
+  m_Script: {fileID: 11500000, guid: 20e404734575c7143b09b1509688c7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabGreen: {fileID: 9125011487636493101}
-  prefabBlue: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516,
-    type: 3}
+  itemData: {fileID: 11400000, guid: 9cb86cf4f8428664b942093abf61309b, type: 2}
 --- !u!1001 &5757687878155527546
 PrefabInstance:
   m_ObjectHideFlags: 0

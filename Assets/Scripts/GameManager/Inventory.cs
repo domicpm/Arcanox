@@ -1,43 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Inventory : MonoBehaviour
 {
-    public PlayerMovement player;
-    public Bullets bullets;
-    public Text hp;
-    public Text ad;
-    public Text ats;
-    public Text ap;
-    public Text acc;
-    public Text accSpell;
-    public Text cdr;
-    public Text ms;
-    public Text phEva;
-    public Text magEva;
-    public Text heal;
+    public static Inventory Instance { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+    public Transform inventoryPanel; 
+    public GameObject itemPrefab;
+    //Skills:
+    public ItemData BlackBullet;
+    public ItemData BlueSpell;
+    public ItemData SpellShield;
+
+    private void Awake()
     {
-        gameObject.SetActive(false);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        addItemToInventory(BlackBullet);
+        addItemToInventory(BlueSpell);
+        addItemToInventory(SpellShield);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void addItemToInventory(ItemData itemData)
     {
-        hp.text = player.maxhp.ToString();
-        ad.text = Bullets.maxdamage.ToString(); // bezieht sich aktuell nur auf MaxDmg, evtl Average bilden oder Range anzeigen
-        ats.text = bullets.speed.ToString();
-        ap.text = Bullets.maxdamageSpell.ToString(); // wie oben
-        acc.text = Bullets.accuracy.ToString() + "%";
-        accSpell.text = Bullets.accuracySpell.ToString() + "%";
-        cdr.text = "0" + "%";
-        ms.text = player.speed.ToString();
-        phEva.text = "0";
-        magEva.text = "0";
-        heal.text = player.healamount.ToString();
+        GameObject newItem = Instantiate(itemPrefab, inventoryPanel);
+        Image image = newItem.GetComponent<Image>();
+        if (image != null && itemData != null)
+        {
+            image.sprite = itemData.icon;
+            image.color = itemData.color;
+        }
+        
     }
 }

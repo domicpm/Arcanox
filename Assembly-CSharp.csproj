@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\GameManager\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\Player\BulletPosition.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Items\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\Player\projectile.cs" />
     <Compile Include="Assets\Scripts\Player\SpellShield.cs" />
     <Compile Include="Assets\Scripts\Items\AttackBoost.cs" />
@@ -72,11 +73,11 @@
     <Compile Include="Assets\Scripts\Player\RotatePlayerSprite.cs" />
     <Compile Include="Assets\Scripts\GameManager\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttackSpawn.cs" />
-    <Compile Include="Assets\Scripts\GameManager\Inventory.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Stats.cs" />
     <Compile Include="Assets\Scripts\GameManager\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GameManager\ExitGame.cs" />
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
-    <Compile Include="Assets\Scripts\GameManager\Stats.cs" />
+    <Compile Include="Assets\Scripts\Player\Interfaces\IHealthSlider.cs" />
     <Compile Include="Assets\Scripts\Items\Heal.cs" />
     <Compile Include="Assets\Scripts\NPCs\npcAzriel.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageFromCircle.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\GameManager\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\RetryGame.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\ItemData.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageText.cs" />
     <Compile Include="Assets\Scripts\Enemies\BossAttributes.cs" />
     <Compile Include="Assets\Scripts\Enemies\AttackRangeCircle.cs" />
@@ -98,8 +100,11 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyTier.cs" />
     <Compile Include="Assets\Scripts\Enemies\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpellAoE.cs" />
+    <Compile Include="Assets\Scripts\Player\Interfaces\IExpSlider.cs" />
+    <Compile Include="Assets\Scripts\Player\Experience.cs" />
     <Compile Include="Assets\Scripts\Player\SkillTree.cs" />
     <Compile Include="Assets\Scripts\Items\Items.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Inventory.cs" />
     <Compile Include="Assets\Scripts\Enemies\AoeAnimation.cs" />
     <Compile Include="Assets\Scripts\ObjectPooling\ObjectPooling.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageTextSpawnLocation.cs" />
@@ -111,17 +116,14 @@
     <Compile Include="Assets\Scripts\GameManager\GameOver.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpellSquareBorder.cs" />
     <Compile Include="Assets\Scripts\Player\Bullets.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerExpBar.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameLogic.cs" />
     <Compile Include="Assets\Scripts\GameManager\InputDevice.cs" />
     <Compile Include="Assets\Graphics\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\GameManager\LevelSuccess.cs" />
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chronobreak.cs" />
-    <Compile Include="Assets\Scripts\Player\Experience.cs" />
-    <Compile Include="Assets\Scripts\Player\Interfaces\IHealthSlider.cs" />
-    <Compile Include="Assets\Scripts\Player\Interfaces\IExpSlider.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerExpBar.cs" />
-    <Compile Include="Assets\Rarity.cs" />
+    <Compile Include="Assets\Scripts\Rarity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\license.txt" />

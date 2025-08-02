@@ -195,12 +195,14 @@ public class PlayerMovement : MonoBehaviour
                 Bullets.accuracy += 2;
                 Bullets.mindamage += 220;
                 Bullets.maxdamage += 220;
+                // Items.Instance.addToInventory(1);
             }
             else if (Items.type == 2 && !godmode)
             {
                 Bullets.accuracy += 1;
                 Bullets.maxdamage += 120;
                 Bullets.mindamage += 120;
+               // Items.Instance.addToInventory(2);
             }
         }
 
