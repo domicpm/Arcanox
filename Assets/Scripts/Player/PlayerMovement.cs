@@ -23,14 +23,10 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
     
-    public PlayerHealthBar healthbar;
-    public Text Hp;
-    public Text HpBig;
-    public ItemDrops heal;
+ 
     public float newhp;
     public bool PlayerGotDamage;
-    public PotImageUI potui;
-    public Bullets s;
+   
     public bool isDead = false;
     public bool godmode = false;
     private bool canDash = true;
@@ -38,8 +34,17 @@ public class PlayerMovement : MonoBehaviour
     private bool shield;
     private bool onCooldown = false;
     public Enemy enemy;
+
+    private float horizontalInput;
+    private float verticalInput;
+
     [SerializeField] private TrailRenderer tr;
-    public GameObject player;
+    public PotImageUI potui;
+    public Bullets s;
+    public PlayerHealthBar healthbar;
+    public Text Hp;
+    public Text HpBig;
+    public ItemDrops heal;
     public RotatePlayerSprite playerSprite;
     public BulletPosition bp;
     public SpellShield spellshield;
@@ -60,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
         potamount = 0;
         cdUI = FindObjectOfType<CooldownUI>();
     }
+    private void FixedUpdate()
+    {
+        Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
+        transform.position = movement;
+    }
     void Update()
     {
        // log.Add(new Chronobreak(Time.time, transform.position));
@@ -77,10 +87,9 @@ public class PlayerMovement : MonoBehaviour
         if (!isDead)
         {
 
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            Vector3 movement = transform.position + new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
-            transform.position = movement;
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
+          
             bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
             bool isWalking = horizontalInput != 0 || verticalInput != 0;
             // playerSprite.setWalkingAnimation(isWalking);
@@ -103,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             { //SpellShield
                 if (onCooldown == false)
                 {
+                    cdUI.spellshieldCooldownImage.gameObject.SetActive(true);
                     cdUI.ResetCooldown("spellshield");
                     StartCoroutine(Cooldown());
                     spellshield.gameObject.SetActive(true);

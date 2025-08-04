@@ -30,7 +30,7 @@ public class Experience : MonoBehaviour
         {
             SkillTree.skillPoints++;
             playerLevel++;
-            playerLevelText.text = playerLevel.ToString();
+            playerLevelText.text = "LVL." + playerLevel.ToString();
             player.experience = player.experience - player.maxExperience;
             player.maxExperience += expPerLevel;
             exp.setPlayerMaxExp(player.maxExperience);

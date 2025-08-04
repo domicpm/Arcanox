@@ -12,6 +12,8 @@ public class CooldownUI : MonoBehaviour
 
     void Start()
     {
+        spellCooldownImage.gameObject.SetActive(false);
+        spellshieldCooldownImage.gameObject.SetActive(false);
         spellCooldownTimer = PlayerAttackSpawn.fireCooldownSpell;
         spellCooldownImage.fillAmount = 1f; // Anfang leer
         spellshieldCooldownTimer = PlayerMovement.spellShieldCooldown;
@@ -25,10 +27,18 @@ public class CooldownUI : MonoBehaviour
             spellCooldownTimer += Time.deltaTime;
             spellCooldownImage.fillAmount = spellCooldownTimer / PlayerAttackSpawn.fireCooldownSpell;
         }
+        else 
+        { 
+            spellCooldownImage.gameObject.SetActive(false);
+        }
         if (spellshieldCooldownTimer < PlayerMovement.spellShieldCooldown)
         {
             spellshieldCooldownTimer += Time.deltaTime;
             spellshieldCooldownImage.fillAmount = spellshieldCooldownTimer / PlayerMovement.spellShieldCooldown;
+        }
+        else
+        {
+            spellshieldCooldownImage.gameObject.SetActive(false);
         }
     }
 

@@ -128,6 +128,7 @@ public class Bullets : MonoBehaviour
     {
                if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
+        cdUI.spellCooldownImage.gameObject.SetActive(true);
         cdUI.ResetCooldown("spell");
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
         GameObject bullet = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
@@ -136,6 +137,5 @@ public class Bullets : MonoBehaviour
         Vector3 bulletDir = player.bp.transform.up;
         bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
-
     }
 }

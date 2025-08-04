@@ -19,7 +19,6 @@ public class LevelSuccess : MonoBehaviour
     public static Vector2 nextSpawnPosition;
     public static bool isInLootRoom = false;
     public static bool levelDoneText = false;
-    public PlayerHealthBar healthbar;
     private bool isTeleported = false;
     public npcAzriel azriel;
     public Interact interactRange;
@@ -80,14 +79,12 @@ public class LevelSuccess : MonoBehaviour
         EnemyManager.bossSpawned = false;
         Enemy.killCount = 0;
         enemyManager.level++;
-
-
     }
 
     public void OnTeleportClicked()
     {
         isTeleported = true;
-        nextSpawnPosition = new Vector2(82f, -87f); 
+        nextSpawnPosition = new Vector2(82.75f, -86.44f); 
         player.transform.position = nextSpawnPosition;
         //player.Hp.gameObject.SetActive(false);
         //healthbar.gameObject.SetActive(false);
