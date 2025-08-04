@@ -10,6 +10,7 @@ public class Experience : MonoBehaviour
     public SkillTree st;
     public PlayerExpBar exp;
     private int expPerLevel = 40;
+    public Text xpText;
 
     public Text playerLevelText;
     private int playerLevel = 1;
@@ -18,6 +19,7 @@ public class Experience : MonoBehaviour
     {
         st.gameObject.SetActive(false);
         exp.setPlayerMaxExp(player.maxExperience);
+        xpText.text = "LVL." + playerLevel.ToString();
     }
 
     // Update is called once per frame

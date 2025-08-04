@@ -6,10 +6,11 @@ public class Inventory : MonoBehaviour
 
     public Transform inventoryPanel; 
     public GameObject itemPrefab;
-    //Skills:
+    //Spells:
     public ItemData BlackBullet;
     public ItemData BlueSpell;
     public ItemData SpellShield;
+    public ItemData Chest;
 
     private void Awake()
     {

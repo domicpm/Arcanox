@@ -13,6 +13,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 04abdc11bfcea5045878a252118a6bff,
         type: 2}
+    - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: isInventory
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2447300313679124069, guid: 248414fd385043e408f459091f799bae,
         type: 3}
       propertyPath: m_Color.rgba
@@ -156,6 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae, type: 3}
+    - {fileID: 57826612441821770, guid: 248414fd385043e408f459091f799bae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 248414fd385043e408f459091f799bae, type: 3}
 --- !u!1 &3445876457150602855 stripped
 GameObject:

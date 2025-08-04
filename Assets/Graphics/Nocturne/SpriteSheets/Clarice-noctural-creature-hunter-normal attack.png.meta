@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: aa3db9d026d55a94cb4cd0668338f0cc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8016566159203224719
+    second: Clarice-noctural-creature-hunter-normal attack_0
+  - first:
+      213: -3395352744990232167
+    second: Clarice-noctural-creature-hunter-normal attack_1
+  - first:
+      213: 1457385854547375520
+    second: Clarice-noctural-creature-hunter-normal attack_2
+  - first:
+      213: 5719717453286956015
+    second: Clarice-noctural-creature-hunter-normal attack_3
+  - first:
+      213: -3408975664329833623
+    second: Clarice-noctural-creature-hunter-normal attack_4
+  - first:
+      213: -2278390512399089845
+    second: Clarice-noctural-creature-hunter-normal attack_5
+  - first:
+      213: 3102692941348828215
+    second: Clarice-noctural-creature-hunter-normal attack_6
+  - first:
+      213: -5333031510159541270
+    second: Clarice-noctural-creature-hunter-normal attack_8
+  - first:
+      213: -6434619524808599731
+    second: Clarice-noctural-creature-hunter-normal attack_9
+  - first:
+      213: -7646512901876893671
+    second: Clarice-noctural-creature-hunter-normal attack_10
+  - first:
+      213: 8815627875257108872
+    second: Clarice-noctural-creature-hunter-normal attack_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 16
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cc9bdb270904f60800000000000000
+      internalID: 8016566159203224719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 16
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991b5b3faa841e0d0800000000000000
+      internalID: -3395352744990232167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 16
+        width: 67
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5b9f096bca93410800000000000000
+      internalID: 1457385854547375520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 16
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb55ca28b4806f40800000000000000
+      internalID: 5719717453286956015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_4
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 16
+        width: 47
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9634bafd1b2e0b0d0800000000000000
+      internalID: -3408975664329833623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 16
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ff4d086e78160e0800000000000000
+      internalID: -2278390512399089845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_6
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 16
+        width: 57
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 20, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73475389acafe0b20800000000000000
+      internalID: 3102692941348828215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_8
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 16
+        width: 69
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 23, y: 0, z: 25, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebb9fcd8144df5b0800000000000000
+      internalID: -5333031510159541270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_9
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 16
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d479dfe52a3a3b6a0800000000000000
+      internalID: -6434619524808599731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_10
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 16
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918bf29570122e590800000000000000
+      internalID: -7646512901876893671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clarice-noctural-creature-hunter-normal attack_11
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 16
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8894bb868d6675a70800000000000000
+      internalID: 8815627875257108872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

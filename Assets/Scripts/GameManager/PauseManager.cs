@@ -8,11 +8,12 @@ public class PauseManager : MonoBehaviour
     public Stats stats;
     public Text pauseText;
     public SkillTree skilltree;
+    public PlayerExpBar peb;
+    public PlayerHealthBar phb;
     private bool invActive = false;
     private bool isPausedSkillTree = false;
     private bool isPaused = false;
     public bool gameFreezed = false;
-
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,7 +30,6 @@ public class PauseManager : MonoBehaviour
         pauseText.gameObject.SetActive(false);
         continueGameButton.gameObject.SetActive(false);
         continueGameButton.onClick.AddListener(OnContinueButtonClicked);
-
     }
 
 
@@ -55,11 +55,15 @@ public class PauseManager : MonoBehaviour
     {
         if (invActive)
         {
+            peb.gameObject.SetActive(true); // setzt XP bar aktiv wenn Inv inaktiv
+            phb.gameObject.SetActive(true); // setzt HP bar inaktiv wenn Inv aktiv
             Resume();
             stats.gameObject.SetActive(false);
         }
         else
         {
+            peb.gameObject.SetActive(false); // setzt XP bar inaktiv wenn Inv aktiv
+            phb.gameObject.SetActive(false); // setzt HP bar inaktiv wenn Inv aktiv
             Pause();
             stats.gameObject.SetActive(true);
         }

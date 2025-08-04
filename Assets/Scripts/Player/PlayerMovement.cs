@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     
     public PlayerHealthBar healthbar;
     public Text Hp;
-    public Heal heal;
+    public Text HpBig;
+    public ItemDrops heal;
     public float newhp;
     public bool PlayerGotDamage;
     public PotImageUI potui;
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         healthbar.setPlayerMaxHealth(maxhp);
         rb = GetComponent<Rigidbody2D>();
         Hp.text = healthbar.getPlayerHealth().ToString();
+        HpBig.text = healthbar.getPlayerHealth().ToString();
         potamount = 0;
         cdUI = FindObjectOfType<CooldownUI>();
     }
@@ -66,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
             setDead();
         }
         Hp.text = newhp.ToString();
+        HpBig.text = healthbar.getPlayerHealth().ToString();
+
         if (PauseManager.Instance.gameFreezed)
             return;
         //if(Enemy.allCleared == true)
@@ -134,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
                     potamount--;
                     healthbar.setPlayerHealth(newhp);
                     Hp.text = newhp.ToString();
+                    HpBig.text = newhp.ToString();
                 }
                 else
                 {
@@ -195,14 +200,12 @@ public class PlayerMovement : MonoBehaviour
                 Bullets.accuracy += 2;
                 Bullets.mindamage += 220;
                 Bullets.maxdamage += 220;
-                // Items.Instance.addToInventory(1);
             }
             else if (Items.type == 2 && !godmode)
             {
                 Bullets.accuracy += 1;
                 Bullets.maxdamage += 120;
                 Bullets.mindamage += 120;
-               // Items.Instance.addToInventory(2);
             }
         }
 
@@ -213,7 +216,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Damage durch Enemy – deaktiviert im Code, kann bei Bedarf aktiviert werden
             // newhp -= damageFromEnemy;
             // hp.setPlayerHealth(newhp);
             // Hp.text = newhp.ToString();
@@ -260,6 +262,7 @@ public class PlayerMovement : MonoBehaviour
             healthbar.setPlayerMaxHealth(maxhp);
             healthbar.setPlayerHealth(newhp);
             Hp.text = newhp.ToString();
+            HpBig.text = newhp.ToString();
         }
     }
     private void setDead()

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2247099668041412907}
   - component: {fileID: 2247099668041412904}
   - component: {fileID: 2247099668041412917}
-  - component: {fileID: 2247099668041412906}
   - component: {fileID: -9083399957482955234}
   m_Layer: 0
   m_Name: Sprite-0002
@@ -111,19 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2443218, y: 1.3627021}
   m_EdgeRadius: 0
---- !u!114 &2247099668041412906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2247099668041412905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4b06adbcc348e4f909d83d620ff427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
 --- !u!122 &-9083399957482955234
 Halo:
   m_ObjectHideFlags: 0

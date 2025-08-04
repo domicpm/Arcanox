@@ -7,10 +7,8 @@ public class Items : MonoBehaviour
     public GameObject prefabGreen;
     public GameObject prefabBlue;
 
-
     public ItemData greenBullet;
     public ItemData blueBullet;
-
     public static bool looted = false;
     public static int type = 0;
     public static Items Instance { get; private set; }
@@ -49,7 +47,6 @@ public class Items : MonoBehaviour
             gameObject.transform.position = enemypos;
             type = 2;
         }
-        
     }
     public void addToInventory(int type)
     {

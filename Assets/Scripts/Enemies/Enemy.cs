@@ -11,9 +11,8 @@ public class Enemy : MonoBehaviour
     public Bullets bullet;
     public  bool isBoss = false;
     public bool isHit = false;
-    public Heal heal;
     public Vector2 enemydeathpos;
-    public AttackBoost ab;
+    public ItemDrops itemType;
     public Items item;
     public PlayerMovement p;
     public Vector3 randomPosition;
@@ -197,11 +196,15 @@ public class Enemy : MonoBehaviour
         }
         else if (dropChance <= 10)
         {
-            ab.spawn(enemydeathpos);
+            itemType.spawn(enemydeathpos, 1);
         }
         else if (dropChance <= 30)
         {
-            heal.spawn(enemydeathpos);
+            itemType.spawn(enemydeathpos, 2);
+        }
+        else if(dropChance <= 70)
+        {
+            itemType.spawn(enemydeathpos, 3);
         }
         if (CompareTag("S-Tier-Enemy"))
         {

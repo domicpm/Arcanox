@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3550497888350434901}
   - component: {fileID: 3550497888350434902}
   - component: {fileID: 3550497888350434891}
-  - component: {fileID: -942375497239725935}
   - component: {fileID: -1292000699134790881}
+  - component: {fileID: 5704400885222790960}
   m_Layer: 0
   m_Name: AttackSpeedBuff
   m_TagString: AttackSpeedBuff
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550497888350434903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2357635, y: 13.608473, z: 0}
+  m_LocalPosition: {x: -13.459388, y: 11.390596, z: 0}
   m_LocalScale: {x: 1.6673818, y: 2.7570546, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,19 +111,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5705051, y: 1.3218858}
   m_EdgeRadius: 0
---- !u!114 &-942375497239725935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3550497888350434903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675919442ace4744e9682fa457dad739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 3550497888350434903}
 --- !u!122 &-1292000699134790881
 Halo:
   m_ObjectHideFlags: 0
@@ -136,3 +123,16 @@ Halo:
     serializedVersion: 2
     rgba: 4289391084
   m_Size: 1
+--- !u!114 &5704400885222790960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550497888350434903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e404734575c7143b09b1509688c7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 0}

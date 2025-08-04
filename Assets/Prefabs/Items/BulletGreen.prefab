@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 9cb86cf4f8428664b942093abf61309b, type: 2}
+  isInventory: 1
 --- !u!1001 &1272712709040984079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,8 +226,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 5704400885222790960, guid: ade59a37a01dc524ba68aefbb7089fc8,
+        type: 3}
+      propertyPath: isInventory
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -942375497239725935, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
+    - {fileID: -6402305984384041648, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
+    - {fileID: 5704400885222790960, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
 --- !u!1 &9125011487636493101 stripped
 GameObject:

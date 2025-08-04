@@ -723,10 +723,10 @@ MonoBehaviour:
   bullet: {fileID: 0}
   isBoss: 0
   isHit: 0
-  heal: {fileID: 3355951273185114513, guid: 639bf65dd32813d478e41b95ab278118, type: 3}
   enemydeathpos: {x: 0, y: 0}
-  ab: {fileID: -942375497239725935, guid: ade59a37a01dc524ba68aefbb7089fc8, type: 3}
-  item: {fileID: 6235853582599643419, guid: 248414fd385043e408f459091f799bae, type: 3}
+  itemType: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
+    type: 3}
+  item: {fileID: -1330258437012500365, guid: 622e40a2e7246b24595b9e6d926bf58a, type: 3}
   p: {fileID: 0}
   randomPosition: {x: 0, y: 0, z: 0}
   isSpawned: 0

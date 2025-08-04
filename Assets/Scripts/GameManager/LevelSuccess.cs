@@ -101,13 +101,12 @@ public class LevelSuccess : MonoBehaviour
 
     public void setAct()
     {
-        Debug.Log("Enemies killed" + Enemy.killCount + "Max Enemies: " + enemyManager.maxEnemies);
         if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
         {
             levelDoneText = true;
             gameObject.SetActive(true);
             teleportButton.gameObject.SetActive(true);
-            continueLevelText.text = "Level " + (level) + " done!";
+            continueLevelText.text = "Wave " + (level) + " completed!";
         }
     }
     

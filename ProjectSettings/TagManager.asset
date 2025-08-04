@@ -17,6 +17,7 @@ TagManager:
   - Item
   - Boss
   - S-Tier-Enemy
+  - Chest
   layers:
   - Default
   - TransparentFX

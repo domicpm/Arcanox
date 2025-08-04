@@ -96,7 +96,6 @@ public class EnemyManager : MonoBehaviour
                 enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
                 enemyType = 2;
                 break;
-
             default:
                 enemyGO = null;
 

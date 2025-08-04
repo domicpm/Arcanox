@@ -20,8 +20,7 @@ public class PotUI : MonoBehaviour
     {
         potText.text = pl.potamount.ToString();
        
-            xpText.text = pl.experience.ToString() + "/" + pl.maxExperience;
-        
+       // xpText.text = pl.experience.ToString() + "/" + pl.maxExperience;
         
     }
 }
