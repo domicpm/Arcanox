@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 269869bffeec04048a1108b15f152f85, type: 3}
-  m_Name: BlueSpell
+  m_Name: PurpleItem
   m_EditorClassIdentifier: 
   itemName: 
-  icon: {fileID: 21300000, guid: 7500818016134b24d96be58f10f8fcd8, type: 3}
+  icon: {fileID: 21300000, guid: dbc021c87f35c8d45bf98ac669d91952, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}

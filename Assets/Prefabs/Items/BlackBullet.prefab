@@ -9,6 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce,
+        type: 3}
+    - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: adf08ec2faa033949b191c2b7187035b,
@@ -16,7 +22,7 @@ PrefabInstance:
     - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
         type: 3}
       propertyPath: isInventory
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9125011487636493100, guid: 248414fd385043e408f459091f799bae,
         type: 3}

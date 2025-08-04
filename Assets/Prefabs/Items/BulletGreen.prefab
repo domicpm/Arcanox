@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 9cb86cf4f8428664b942093abf61309b, type: 2}
+  id: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a, type: 3}
   isInventory: 1
+  isSpell: 1
 --- !u!1001 &1272712709040984079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 3550497888350434903, guid: ade59a37a01dc524ba68aefbb7089fc8,
         type: 3}
       propertyPath: m_TagString
-      value: Item
+      value: ItemWithEffect
       objectReference: {fileID: 0}
     - target: {fileID: 5704400885222790960, guid: ade59a37a01dc524ba68aefbb7089fc8,
         type: 3}

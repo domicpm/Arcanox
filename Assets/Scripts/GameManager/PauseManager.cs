@@ -83,7 +83,7 @@ public class PauseManager : MonoBehaviour
             continueGameButton.gameObject.SetActive(true);
         }
     }
-    public void ToggleSkillTree(bool isPausedSkilltree)
+    public void ToggleSkillTree()
     {
         if (isPausedSkillTree)
         {

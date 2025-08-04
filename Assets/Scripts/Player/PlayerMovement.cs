@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             setDead();
         }
         Hp.text = newhp.ToString();
-        HpBig.text = healthbar.getPlayerHealth().ToString();
+        HpBig.text = newhp.ToString();
 
         if (PauseManager.Instance.gameFreezed)
             return;
@@ -203,22 +203,6 @@ public class PlayerMovement : MonoBehaviour
         {
             increasepot();
         }
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            if (Items.type == 1 && !godmode)
-            {
-                Bullets.accuracy += 2;
-                Bullets.mindamage += 220;
-                Bullets.maxdamage += 220;
-            }
-            else if (Items.type == 2 && !godmode)
-            {
-                Bullets.accuracy += 1;
-                Bullets.maxdamage += 120;
-                Bullets.mindamage += 120;
-            }
-        }
-
         if (collision.gameObject.CompareTag("AttackSpeedBuff"))
         {
             s.speed += 1;

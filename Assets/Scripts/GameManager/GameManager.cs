@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public void setSkillTreeActive()
     {
-        st.gameObject.SetActive(true);
+        //st.gameObject.SetActive(true);
         //if(onButtonClick == true) pm.ToggleSkillTree(false);
         //else pm.ToggleSkillTree(false);
         //onButtonClick = false;

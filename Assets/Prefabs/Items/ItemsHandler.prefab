@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067973567964476036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.128254, y: 23.551874, z: 0}
+  m_LocalPosition: {x: -7.5932736, y: 13.797333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d79d9c9c14420459f4c0aab73ab47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabGreen: {fileID: 9125011487636493101, guid: 248414fd385043e408f459091f799bae,
-    type: 3}
-  prefabBlue: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516,
-    type: 3}
   greenBullet: {fileID: 11400000, guid: 9cb86cf4f8428664b942093abf61309b, type: 2}
   blueBullet: {fileID: 11400000, guid: 04abdc11bfcea5045878a252118a6bff, type: 2}
 --- !u!114 &-3837769607044853715
@@ -66,3 +62,8 @@ MonoBehaviour:
   attackBoost: {fileID: 3550497888350434903, guid: ade59a37a01dc524ba68aefbb7089fc8,
     type: 3}
   chest: {fileID: 339614194173346072, guid: 5cbdb0daf051740419165513d67d6f7b, type: 3}
+  player: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce, type: 3}
+  prefabGreen: {fileID: 9125011487636493101, guid: 248414fd385043e408f459091f799bae,
+    type: 3}
+  prefabBlue: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516,
+    type: 3}

@@ -56,7 +56,7 @@ public class EnemyTier : MonoBehaviour
     public char tierDecider()
     {
         int randomTier = Random.Range(1, 101);
-        if(randomTier <= 5)        return 'S';
+        if(randomTier <= 25)        return 'S';
         else if(randomTier <= 15)   return 'A';
         else if(randomTier <= 30)   return 'B';
         else if(randomTier <= 60)   return 'C';

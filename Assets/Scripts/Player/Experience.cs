@@ -11,7 +11,7 @@ public class Experience : MonoBehaviour
     public PlayerExpBar exp;
     private int expPerLevel = 40;
     public Text xpText;
-
+    private bool first = false;
     public Text playerLevelText;
     private int playerLevel = 1;
     // Start is called before the first frame update
@@ -34,6 +34,15 @@ public class Experience : MonoBehaviour
             player.experience = player.experience - player.maxExperience;
             player.maxExperience += expPerLevel;
             exp.setPlayerMaxExp(player.maxExperience);
-        }                 
+        }
+        if(playerLevel == 3 && !first)
+        {
+            PauseManager.Instance.ToggleSkillTree();
+            first = true;
+        }
+        //if(SkillTree.isBurn || SkillTree.isHeal || SkillTree.isSlow)
+        //{
+        //    st.gameObject.SetActive(false);
+        //}
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: a2d78598895864f40bc53fa958feebdc, type: 2}
+  id: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a, type: 3}
   isInventory: 1
 --- !u!1001 &3036612145779701898
 PrefabInstance:

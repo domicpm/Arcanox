@@ -11,7 +11,10 @@ public class AzrielShop : MonoBehaviour
     public Button Upgrade2;
     public Button Upgrade3;
     public LevelSuccess ls;
+    public Inventory item;
     public float hpboost = 150;
+    public float cooldown = 0f;
+    public static int type;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class AzrielShop : MonoBehaviour
         player.newhp += hpboost;
         player.maxhp += hpboost;
         player.speed += 2;
+        type = 1;
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
@@ -38,18 +42,21 @@ public class AzrielShop : MonoBehaviour
     {
         Bullets.mindamage += 20;
         Bullets.maxdamage += 20;
-        Bullets.accuracy += 5;
+        Bullets.accuracy += 5; 
+        type = 2;
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
     public void onUpgrade3clicked()
     {
+        cooldown = 0.2f;
         Bullets.mindamageSpell += 50;
         Bullets.maxdamageSpell += 50;
-        PlayerAttackSpawn.fireCooldownSpell *= 0.90f; // problematisch bei Mehrfachaufruf
+        PlayerAttackSpawn.fireCooldownSpell *= cooldown; // problematisch bei Mehrfachaufruf
+        type = 3;
+        item.addSpellToInventory(item.blueItem);
         gameObject.SetActive(false);
         ls.continueLevelButtoninRoom.gameObject.SetActive(true);
-
     }
 
 

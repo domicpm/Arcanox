@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    public GameObject prefabGreen;
-    public GameObject prefabBlue;
-
+    
     public ItemData greenBullet;
     public ItemData blueBullet;
     public static bool looted = false;
-    public static int type = 0;
     public static Items Instance { get; private set; }
 
     // Start is called before the first frame update
@@ -33,31 +30,17 @@ public class Items : MonoBehaviour
         }
         Instance = this;
     }
-    public void spawn(Vector3 enemypos)
-    {
-        int spawnChance = Random.Range(1, 101);
-        if (spawnChance <= 20)
-        {
-            GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
-            gameObject.transform.position = enemypos;
-            type = 1;
-        }else if(spawnChance > 20)
-        {
-            GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
-            gameObject.transform.position = enemypos;
-            type = 2;
-        }
-    }
+   
     public void addToInventory(int type)
     {
 
         switch (type)
         {
             case 1:
-                Inventory.Instance.addItemToInventory(greenBullet);
+                Inventory.Instance.addSpellToInventory(greenBullet);
                 break;
             case 2:
-                Inventory.Instance.addItemToInventory(blueBullet);
+                Inventory.Instance.addSpellToInventory(blueBullet);
                 break;
             case 3:
             case 4:

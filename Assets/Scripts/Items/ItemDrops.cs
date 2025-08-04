@@ -7,7 +7,10 @@ public class ItemDrops : MonoBehaviour
     public GameObject heal;
     public GameObject attackBoost;
     public GameObject chest;
-
+    public PlayerMovement player;
+    public GameObject prefabGreen;
+    public GameObject prefabBlue;
+    public static int type = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class ItemDrops : MonoBehaviour
 
        
     }
-    public void spawn(Vector3 enemypos, int type)
+    public void spawnItems(Vector3 enemypos, int type)
     {
         GameObject newHeal;
         switch (type)
@@ -43,6 +46,40 @@ public class ItemDrops : MonoBehaviour
                 break;
         }
     }
-   
-    
+    public void applyItemWithEffects()
+    {
+        if (type == 1 && !player.godmode)
+        {
+            Bullets.accuracy += 2;
+            Bullets.mindamage += 220;
+            Bullets.maxdamage += 220;
+        }
+        else if (type == 2 && !player.godmode)
+        {
+            Bullets.accuracy += 1;
+            Bullets.maxdamage += 120;
+            Bullets.mindamage += 120;
+        }
+        else
+        {
+            Debug.Log("No item with effect collected");
+        }
+    }
+    public void spawnItemsWithEffects(Vector3 enemypos)
+    {
+        int spawnChance = Random.Range(1, 101);
+        if (spawnChance <= 20)
+        {
+            GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
+            gameObject.transform.position = enemypos;
+            type = 1;
+        }
+        else if (spawnChance > 20)
+        {
+            GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
+            gameObject.transform.position = enemypos;
+            type = 2;
+        }
+    }
+
 }

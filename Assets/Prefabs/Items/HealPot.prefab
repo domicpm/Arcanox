@@ -136,3 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
+  player: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce, type: 3}
+  isInventory: 0

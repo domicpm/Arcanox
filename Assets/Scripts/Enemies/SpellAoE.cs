@@ -52,8 +52,6 @@ public class SpellAoE : MonoBehaviour
             Enemy bossHp = boss.GetComponent<Enemy>();
             if (bossHp.hp < bossHp.maxhp / 2f)
             {
-                Debug.Log("Boss max Hp:" + bossHp.maxhp);
-                Debug.Log("Boss Hp:" + bossHp.hp);
                 if (!isScaled)
                 {
                     scaleNext = true;

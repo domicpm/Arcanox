@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public bool isHit = false;
     public Vector2 enemydeathpos;
     public ItemDrops itemType;
-    public Items item;
+    public ItemDrops item;
     public PlayerMovement p;
     public Vector3 randomPosition;
     public bool isSpawned = false;
@@ -140,7 +140,6 @@ public class Enemy : MonoBehaviour
                 int randomLifesteal = Random.Range(1, 101);
                 if (randomLifesteal <= p.lifesteal) p.newhp += 1;
                 else if (randomLifesteal <= 5) p.newhp += 5;
-                else;
             }
             var bulletComponent = collision.GetComponent<Bullets>();
             if (bulletComponent != null)
@@ -191,24 +190,24 @@ public class Enemy : MonoBehaviour
         int dropChance = Random.Range(1, 101);
         if (dropChance <= 100 && !bulletSpawned && isBoss)
         {
-            item.spawn(enemydeathpos);
+            item.spawnItemsWithEffects(enemydeathpos);
             bulletSpawned = true;
         }
-        else if (dropChance <= 10)
+        else if (dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
         {
-            itemType.spawn(enemydeathpos, 1);
+            itemType.spawnItems(enemydeathpos, 1);
         }
-        else if (dropChance <= 30)
+        else if (dropChance <= 30 && !CompareTag("S-Tier-Enemy"))
         {
-            itemType.spawn(enemydeathpos, 2);
+            itemType.spawnItems(enemydeathpos, 2);
         }
-        else if(dropChance <= 70)
+        else if(dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
         {
-            itemType.spawn(enemydeathpos, 3);
         }
         if (CompareTag("S-Tier-Enemy"))
         {
-            p.experience += 50;   // if rare, gain additional xp
+            itemType.spawnItems(enemydeathpos, 3);
+            p.experience += 50;   // if enemy S Tier, gain additional xp
         }
         destroyObj();
 
@@ -239,7 +238,6 @@ public class Enemy : MonoBehaviour
     void FlashShiny()
     {
         Transform shinyChild = transform.Find("SpriteWraith") ?? transform.Find("SpriteGolem") ?? transform.Find("SpriteEnemy");
-        Debug.Log("Shiny Enemy Spawned");
         SpriteRenderer sr = shinyChild.GetComponent<SpriteRenderer>();
 
         if (shinyChild == null)

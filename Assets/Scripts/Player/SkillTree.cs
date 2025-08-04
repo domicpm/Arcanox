@@ -34,6 +34,7 @@ public class SkillTree : MonoBehaviour
     {
         gm.onButtonClick = true;
         gm.setSkillTreeActive();
+        PauseManager.Instance.Resume();
         isBurn = true;
         gameObject.SetActive(false);
     }
@@ -42,6 +43,7 @@ public class SkillTree : MonoBehaviour
     {
         gm.onButtonClick = true;
         gm.setSkillTreeActive();
+        PauseManager.Instance.Resume();
         isSlow = true;
         gameObject.SetActive(false);
     }
@@ -50,6 +52,7 @@ public class SkillTree : MonoBehaviour
     {
         gm.onButtonClick = true;
         gm.setSkillTreeActive();
+        PauseManager.Instance.Resume();
         isHeal = true;
         gameObject.SetActive(false);
     }

@@ -9,6 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
         type: 3}
+      propertyPath: id
+      value: 
+      objectReference: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
+        type: 3}
+    - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 40878531078091013, guid: ca2867a925441904d80484956e5dc4ce,
+        type: 3}
+    - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: isSpell
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2382247634856130295, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 04abdc11bfcea5045878a252118a6bff,
@@ -103,6 +120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BulletBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125011487636493101, guid: 248414fd385043e408f459091f799bae,
+        type: 3}
+      propertyPath: m_TagString
+      value: ItemWithEffect
       objectReference: {fileID: 0}
     - target: {fileID: 9125011487636493103, guid: 248414fd385043e408f459091f799bae,
         type: 3}

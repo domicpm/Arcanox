@@ -16,12 +16,12 @@ public class BulletType : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Items.looted == true && Items.type == 1)
+        if (Items.looted == true && ItemDrops.type == 1)
         {
             var renderer = bullet.GetComponent<Image>();
             renderer.color = new Color32(0xA2, 0xCF, 0x00, 0xFF);
         }
-        else if(Items.looted == true && Items.type == 2)
+        else if(Items.looted == true && ItemDrops.type == 2)
         {
             var renderer = bullet.GetComponent<Image>();
             renderer.color = new Color32(0x5C, 0x5F, 0x98, 0xFF);

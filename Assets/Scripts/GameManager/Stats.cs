@@ -7,6 +7,8 @@ public class Stats : MonoBehaviour
 {
     public PlayerMovement player;
     public Bullets bullets;
+    public AzrielShop azs;
+
     public Text hp;
     public Text ad;
     public Text ats;
@@ -34,7 +36,7 @@ public class Stats : MonoBehaviour
         ap.text = Bullets.maxdamageSpell.ToString(); // wie oben
         acc.text = Bullets.accuracy.ToString() + "%";
         accSpell.text = Bullets.accuracySpell.ToString() + "%";
-        cdr.text = "0" + "%";
+        cdr.text = ((1 - azs.cooldown) * 100).ToString() + "%";
         ms.text = player.speed.ToString();
         phEva.text = "0";
         magEva.text = "0";

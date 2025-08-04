@@ -106,12 +106,12 @@ public class Bullets : MonoBehaviour
         var renderer = bullet.GetComponent<SpriteRenderer>();
         bullet.transform.localScale = originalScale;
 
-        if (Items.looted && Items.type == 1)
+        if (Items.looted && ItemDrops.type == 1)
         {
             renderer.color = new Color32(0xA2, 0xCF, 0x00, 0xFF);
             bullet.transform.localScale = bullet.transform.localScale * 2f;
         }
-        else if (Items.looted && Items.type == 2)
+        else if (Items.looted && ItemDrops.type == 2)
         {
             renderer.color = new Color32(0x5C, 0x5F, 0x98, 0xFF);
         }
