@@ -114,6 +114,10 @@ public class Bullets : MonoBehaviour
         else if (Items.looted && ItemDrops.type == 2)
         {
             renderer.color = new Color32(0x5C, 0x5F, 0x98, 0xFF);
+            bullet.transform.localScale = bullet.transform.localScale * 2f;
+        }
+        {
+
         }
 
         Vector3 bulletDir = player.bp.transform.up;
@@ -131,11 +135,17 @@ public class Bullets : MonoBehaviour
         cdUI.spellCooldownImage.gameObject.SetActive(true);
         cdUI.ResetCooldown("spell");
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
-        GameObject bullet = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
-        if (bullet == null) return;
+        GameObject spell = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
+        var renderer = spell.GetComponent<SpriteRenderer>();
+        if (Items.looted && ItemDrops.type == 3)
+        {
+            renderer.color = new Color32(0xD1, 0x15, 0x15, 0xFF);
+        }
+
+        if (spell == null) return;
         UpdateDamageSpell();
         Vector3 bulletDir = player.bp.transform.up;
-        bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
+        spell.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
     }
 }

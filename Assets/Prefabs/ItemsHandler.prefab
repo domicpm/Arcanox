@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067973567964476036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5932736, y: 13.797333, z: 0}
+  m_LocalPosition: {x: -27.930107, y: 2.8549204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,3 +67,6 @@ MonoBehaviour:
     type: 3}
   prefabBlue: {fileID: 3445876457150602855, guid: 6a72330902fc5ac44a4f243c6008d516,
     type: 3}
+  prefabSpellRed: {fileID: 7094130305840474856, guid: 9a9ac9742153de8468c1d8f7817d9833,
+    type: 3}
+  spellCooldown: 0.9

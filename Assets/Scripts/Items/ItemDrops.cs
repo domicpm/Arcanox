@@ -10,7 +10,9 @@ public class ItemDrops : MonoBehaviour
     public PlayerMovement player;
     public GameObject prefabGreen;
     public GameObject prefabBlue;
+    public GameObject prefabSpellRed;
     public static int type = 0;
+    public float spellCooldown = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +35,15 @@ public class ItemDrops : MonoBehaviour
         switch (type)
         {
             case 1:
-              newHeal = Instantiate(attackBoost, enemypos, Quaternion.identity);
-        gameObject.transform.position = enemypos;
+                newHeal = Instantiate(attackBoost, enemypos, Quaternion.identity);
+                gameObject.transform.position = enemypos;
                 break;
             case 2:
-                 newHeal = Instantiate(heal, enemypos, Quaternion.identity);
+                newHeal = Instantiate(heal, enemypos, Quaternion.identity);
                 gameObject.transform.position = enemypos;
                 break;
             case 3:
-                 newHeal = Instantiate(chest, enemypos, Quaternion.identity);
+                newHeal = Instantiate(chest, enemypos, Quaternion.identity);
                 gameObject.transform.position = enemypos;
                 break;
         }
@@ -60,25 +62,39 @@ public class ItemDrops : MonoBehaviour
             Bullets.maxdamage += 120;
             Bullets.mindamage += 120;
         }
-        else
+        else if (type == 3 && !player.godmode)
         {
-            Debug.Log("No item with effect collected");
+            spellCooldown = 0.9f;
+            Bullets.accuracySpell += 5;
+            Bullets.mindamageSpell += 220;
+            Bullets.maxdamageSpell += 220;
+            PlayerAttackSpawn.fireCooldownSpell *= spellCooldown;
         }
     }
     public void spawnItemsWithEffects(Vector3 enemypos)
     {
         int spawnChance = Random.Range(1, 101);
-        if (spawnChance <= 20)
+        if (spawnChance <= 15)
         {
             GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 1;
         }
-        else if (spawnChance > 20)
+        else if (spawnChance > 40)
         {
             GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 2;
+        }
+        else if(spawnChance > 75)
+        {
+            GameObject newSpell = Instantiate(prefabSpellRed, enemypos, Quaternion.identity);
+            gameObject.transform.position = enemypos;
+            type = 3;
+        }
+        else
+        {
+
         }
     }
 

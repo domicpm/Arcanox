@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SpellShield
   m_EditorClassIdentifier: 
   itemName: SpellShield
+  description: a
   icon: {fileID: 21300000, guid: 3dafe1ef5e1653744ace3ea147c6dfd0, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}

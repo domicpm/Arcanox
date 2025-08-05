@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5098625935536293490}
   - component: {fileID: 4845651930061631072}
   m_Layer: 0
-  m_Name: bullet 1
+  m_Name: SpellBasic
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

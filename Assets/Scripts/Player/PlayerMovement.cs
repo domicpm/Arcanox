@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float angle;
 
     public static float spellShieldCooldown = 7f;
-    public float maxhp = 200;
+    public float maxhp = 1;
     public int damageFromEnemy = 3;
     public float healamount = 50;
     public float speed = 8f;

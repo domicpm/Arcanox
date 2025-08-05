@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269869bffeec04048a1108b15f152f85, type: 3}
   m_Name: BlackBullet
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: BasicBullet
+  description: a
   icon: {fileID: 21300000, guid: 5be3376042a540e44be11a8345b7435f, type: 3}
-  color: {r: 0.5294118, g: 0.2627451, b: 0.2627451, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}

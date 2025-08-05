@@ -122,6 +122,8 @@
     <Compile Include="Assets\Scripts\Items\PotImageUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chronobreak.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rarity.cs" />
+    <Compile Include="Assets\Scripts\UI\InventoryItemUI.cs" />
+    <Compile Include="Assets\Scripts\UI\Tooltip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\license.txt" />

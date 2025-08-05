@@ -188,8 +188,8 @@ public class EnemyManager : MonoBehaviour
 
         // BOSS SETUP
         boss.fireballSizeMultiplier = 2;
-        boss.fireballInterval = 0.1f;
-        boss.fireballSpeed = 25f;
+        boss.fireballInterval = 0.07f;
+        boss.fireballSpeed = 40f;
         //Enemy.isBoss = true; 
         bossSpawned = true;
     }

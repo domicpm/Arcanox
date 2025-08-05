@@ -35,6 +35,14 @@ public class Inventory : MonoBehaviour
     {
         GameObject newItem = Instantiate(itemPrefab, spellsPanel);
         Image image = newItem.GetComponent<Image>();
+        var itemUI = newItem.GetComponent<InventoryItemUI>();
+        if (itemUI != null)
+        {
+            itemUI.itemData = itemData;
+        }
+        
+        
+        
         if (image != null && itemData != null)
         {
             image.sprite = itemData.icon;
@@ -46,6 +54,13 @@ public class Inventory : MonoBehaviour
     {
         GameObject newItem = Instantiate(itemPrefab, inventoryPanel);
         Image image = newItem.GetComponent<Image>();
+        var itemUI = newItem.GetComponent<InventoryItemUI>();
+        if (itemUI != null)
+        {
+            itemUI.itemData = itemData;
+        }
+        
+
         if (image != null && itemData != null)
         {
             image.sprite = itemData.icon;

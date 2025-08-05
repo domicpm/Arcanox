@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Chest
   m_EditorClassIdentifier: 
   itemName: Chest
+  description: a
   icon: {fileID: 21300000, guid: 771d3bd29228b974cb2336dd32c506d1, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}

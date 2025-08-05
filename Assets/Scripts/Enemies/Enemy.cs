@@ -138,8 +138,8 @@ public class Enemy : MonoBehaviour
             if (SkillTree.isHeal)
             {
                 int randomLifesteal = Random.Range(1, 101);
-                if (randomLifesteal <= p.lifesteal) p.newhp += 1;
-                else if (randomLifesteal <= 5) p.newhp += 5;
+                if (randomLifesteal <= p.lifesteal && p.newhp < p.maxhp) p.newhp += 1;
+                else if (randomLifesteal <= 5 && p.newhp < p.maxhp) p.newhp += 5;
             }
             var bulletComponent = collision.GetComponent<Bullets>();
             if (bulletComponent != null)

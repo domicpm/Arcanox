@@ -8,6 +8,7 @@ public class Spell : MonoBehaviour
     // Start is called before the first frame update
     private ObjectPooling objectPooling;
     private Vector3 originalScale;
+    public bool isConsumable;
     private void Awake()
     {
         objectPooling = FindObjectOfType<ObjectPooling>();
@@ -18,12 +19,12 @@ public class Spell : MonoBehaviour
     {
         if (objectPooling == null) return;
 
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Dummy"))
+        if ((collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Dummy")) && !isConsumable)
         {
             objectPooling.RemoveObject(gameObject);
             transform.localScale = originalScale;
         }
-        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy"))
+        else if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy")) && !isConsumable)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().angularVelocity = 0f;
