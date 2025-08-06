@@ -74,19 +74,19 @@ public class ItemDrops : MonoBehaviour
     public void spawnItemsWithEffects(Vector3 enemypos)
     {
         int spawnChance = Random.Range(1, 101);
-        if (spawnChance <= 15)
+        if (spawnChance <= 20)
         {
             GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 1;
         }
-        else if (spawnChance > 40)
+        else if (spawnChance > 80)
         {
             GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 2;
         }
-        else if(spawnChance > 75)
+        else if(spawnChance > 20)
         {
             GameObject newSpell = Instantiate(prefabSpellRed, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;

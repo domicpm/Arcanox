@@ -75,7 +75,7 @@ public class EnemyManager : MonoBehaviour
     public void InitializeLevel(int level)
     {
         int enemyType = Random.Range(1, 4);
-        Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
+        Vector3 spawnPos = new Vector3(Random.Range(-100f, -36f), Random.Range(-5f, 30f));
         int spawnType = Random.Range(1, 101);
         GameObject enemyGO;
 
@@ -172,7 +172,7 @@ public class EnemyManager : MonoBehaviour
     {
         SpellAoE.scaleNext = false;
         SpellAoE.isScaled = false;
-        Vector3 spawnPos = new Vector3(Random.Range(-36f, 30f), Random.Range(-10f, 30f));
+        Vector3 spawnPos = new Vector3(Random.Range(-75f, -50f), Random.Range(3f, 22f));
         GameObject bossGO = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         Enemy boss = bossGO.GetComponent<Enemy>();
 

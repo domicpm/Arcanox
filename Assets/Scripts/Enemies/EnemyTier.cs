@@ -56,7 +56,7 @@ public class EnemyTier : MonoBehaviour
     public char tierDecider()
     {
         int randomTier = Random.Range(1, 101);
-        if(randomTier <= 50)        return 'S';
+        if(randomTier <= 2)        return 'S';
         else if(randomTier <= 15)   return 'A';
         else if(randomTier <= 30)   return 'B';
         else if(randomTier <= 60)   return 'C';
@@ -68,7 +68,7 @@ public class EnemyTier : MonoBehaviour
         {
             case 'S':
                 isShiny = true;
-                return new EnemyTierStats(Random.Range(13, 18), 3f, 4000f, 4);
+                return new EnemyTierStats(Random.Range(13, 15), 3f, 4000f, 4);
             case 'A':
                 return new EnemyTierStats(Random.Range(10, 13), 1.5f, 800, 2);
             case 'B':
