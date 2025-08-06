@@ -122,15 +122,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8308259192265607000, guid: a6491852fdca62141b728ec1aad07d68, type: 3}
   ppos: 175
-  moveSpeed: 15
   Prefab: {fileID: 4865925145770464058}
   interval: 1
+  intervalMelee: 0.2
   enemy: {fileID: 0}
   p: {fileID: 6062591081660094899, guid: 9405e07986ba5dd469e29d11078a4c3a, type: 3}
   animator: {fileID: 0}
   arc: {fileID: 0}
   boss: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c, type: 3}
   res: {fileID: 0}
+  isGolem: 0
+  isAttacking: 0
 --- !u!95 &8077766515308833731
 Animator:
   serializedVersion: 3
@@ -163,6 +165,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026839985, y: -0.0008235776}
-  m_Size: {x: 2.5868733, y: 1.4782294}
+  m_Offset: {x: 0.26576284, y: 0.010682842}
+  m_Size: {x: 1.2522169, y: 0.7188367}
   m_Direction: 1

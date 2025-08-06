@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\NPCs\npcAzriel.cs" />
     <Compile Include="Assets\Scripts\Enemies\DamageFromCircle.cs" />
     <Compile Include="Assets\Scripts\Player\Shadow.cs" />
+    <Compile Include="Assets\Scripts\EnvironmentSpawn.cs" />
     <Compile Include="Assets\Scripts\Player\Interact.cs" />
     <Compile Include="Assets\Scripts\UI\InventoryItemUI.cs" />
     <Compile Include="Assets\Scripts\UI\PotUI.cs" />
@@ -121,7 +122,6 @@
     <Compile Include="Assets\Scripts\UI\PotImageUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chronobreak.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rarity.cs" />
-    <Compile Include="Assets\Scripts\EnvironmentSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\license.txt" />

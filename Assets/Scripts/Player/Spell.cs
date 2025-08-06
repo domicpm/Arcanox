@@ -21,8 +21,8 @@ public class Spell : MonoBehaviour
 
         if ((collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Dummy")) && !isConsumable)
         {
-            objectPooling.RemoveObject(gameObject);
-            transform.localScale = originalScale;
+            StartCoroutine(ReturnAfterDelay());
+            
         }
         else if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss") || collision.gameObject.CompareTag("S-Tier-Enemy")) && !isConsumable)
         {
@@ -43,5 +43,10 @@ public class Spell : MonoBehaviour
 
         objectPooling.RemoveObject(gameObject);
     }
-
+    IEnumerator ReturnAfterDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        objectPooling.RemoveObject(gameObject);
+        transform.localScale = originalScale;
+    }
 }

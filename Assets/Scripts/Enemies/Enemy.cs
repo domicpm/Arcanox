@@ -187,6 +187,17 @@ public class Enemy : MonoBehaviour
     {
         enemydeathpos = transform.position;
         killCount++;
+        Transform circle = transform.Find("SpriteWraith/Circle");
+
+        if (circle == null)
+            circle = transform.Find("SpriteEnemy/Circle");
+
+        if (circle == null)
+            circle = transform.Find("SpriteWraith/MagicCircle");
+        if (circle != null)
+        {
+            circle.gameObject.SetActive(false);
+        }
         int dropChance = Random.Range(1, 101);
         if (dropChance <= 100 && !bulletSpawned && isBoss)
         {

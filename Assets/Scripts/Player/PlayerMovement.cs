@@ -164,39 +164,36 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(Dash());
             }
-        }
-
-
-        IEnumerator Dash()
-        {
-            Vector2 originalVelocity = rb.velocity;
-            float originalGravity = rb.gravityScale;
-            rb.gravityScale = 0f;
-            tr.emitting = true;
-
-            float dashDirectionX = Input.GetAxisRaw("Horizontal");
-            float dashDirectionY = Input.GetAxisRaw("Vertical");
-
-            if (dashDirectionX != 0)
-            {
-                rb.velocity = new Vector2(dashDirectionX * dashingPower, rb.velocity.y);
-            }
-            else if (dashDirectionY != 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, dashDirectionY * dashingPower);
-            }
-            else
-            {
-                Debug.Log("No dash input detected");
-            }
-
-            yield return new WaitForSeconds(dashingTime);
-            tr.emitting = false;
-            rb.velocity = originalVelocity;
-            rb.gravityScale = originalGravity;
-        }
+        } 
     }
+    IEnumerator Dash()
+    {
+        Vector2 originalVelocity = rb.velocity;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        tr.emitting = true;
 
+        float dashDirectionX = Input.GetAxisRaw("Horizontal");
+        float dashDirectionY = Input.GetAxisRaw("Vertical");
+
+        if (dashDirectionX != 0)
+        {
+            rb.velocity = new Vector2(dashDirectionX * dashingPower, rb.velocity.y);
+        }
+        else if (dashDirectionY != 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, dashDirectionY * dashingPower);
+        }
+        else
+        {
+            Debug.Log("No dash input detected");
+        }
+
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.velocity = originalVelocity;
+        rb.gravityScale = originalGravity;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("HealPot"))

@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
     private int damageBoost = 1;
     private int spawnAfterKill = 2;
     public static int fireMultiplier = 1;
-    private float spawnInterval = 2f; // alle 2 Sekunden
+    private float spawnInterval = 0.9f; // alle 2 Sekunden
     private float spawnTimer = 0f;
     public int maxEnemies = 5;
     private int enemyCount = 0;
@@ -57,13 +57,12 @@ public class EnemyManager : MonoBehaviour
 
         if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
         {
-
             InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
         }
 
-        else if (bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 != 0)
+        else if (bossSpawned == false && Enemy.killCount == maxEnemies && level % 2 == 0)
         {
             SpawnBoss(level);
         }
@@ -123,7 +122,6 @@ public class EnemyManager : MonoBehaviour
         enemy.fb.p = enemy.p;
         enemy.bullet = bulletPrefab;
         enemy.fb.gameObject.SetActive(true);
-        enemy.fireballSizeMultiplier = stats.fireballSize;
         enemy.fb = setEnemyBullet(enemyType);
         enemy.tierTag = tier;
 

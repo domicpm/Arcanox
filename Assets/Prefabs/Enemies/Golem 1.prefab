@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4525864eabf774a8151b3276523a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 1000
+  maxhp: 400
   hp: 0
   sprite: {fileID: 7747002755688351128}
   healthbar: {fileID: 363474653705077396}
@@ -726,7 +726,7 @@ MonoBehaviour:
   enemydeathpos: {x: 0, y: 0}
   itemType: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
     type: 3}
-  item: {fileID: -1330258437012500365, guid: 622e40a2e7246b24595b9e6d926bf58a, type: 3}
+  item: {fileID: 0}
   p: {fileID: 0}
   randomPosition: {x: 0, y: 0, z: 0}
   isSpawned: 0
