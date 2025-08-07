@@ -8,13 +8,13 @@ public class PlayerAttackSpawn : MonoBehaviour
     private float lastFireTime;
     private float lastFireTimeSpell;
     [SerializeField]public float fireCooldown = 0.9f;
-    public static float fireCooldownSpell = 4f;
+    public static float fireCooldownSpell = 8f;
     public PlayerMovement player;
     private bool cooldown = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -23,14 +23,15 @@ public class PlayerAttackSpawn : MonoBehaviour
             return;
         if (player.isDead == false)
         {
+            if (Time.time - lastFireTime >= fireCooldown)
+            {
+                bullet.shoot();
+                lastFireTime = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
+
+            }
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))
             {
-                if (Time.time - lastFireTime >= fireCooldown)
-                {
-                    bullet.shoot();
-                    lastFireTime = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
-
-                }
+                
             }
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse1))
             {

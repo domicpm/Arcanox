@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public int potamount = 0;
     public int lifesteal = 20;
     public int experience = 0;
-    public int maxExperience = 100;
+    public int maxExperience = 500;
     private float dashingPower = 50f;
     private float dashingTime = 0.1f;
     private float dashingCooldown = 1f;
@@ -164,7 +164,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(Dash());
             }
-        } 
+        }
+        else
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
     }
     IEnumerator Dash()
     {

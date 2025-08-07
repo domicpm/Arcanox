@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public  bool isBoss = false;
     public bool isHit = false;
     public Vector2 enemydeathpos;
+    public Vector3 targetPos;
     public ItemDrops itemType;
     public ItemDrops item;
     public PlayerMovement p;
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer = sprite.GetComponent<SpriteRenderer>();
         baseScale = sprite.localScale; // Ausgangsskalierung speichern
 
-        personalOffset = new Vector3(Random.Range(-3f, 3f), Random.Range(-2f, 2f), 0);
+        personalOffset = Random.insideUnitCircle * 2f;
 
     }
     public void Awake()
@@ -92,16 +93,19 @@ public class Enemy : MonoBehaviour
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
         if (et.isShiny) FlashShiny();
         if (atc.inRange == false)
-        {
-            res.setWalkingAnimation(true);
+        {            res.setWalkingAnimation(true);
             //Vector2 dir = (p.transform.position - transform.position).normalized;
             //transform.position += (Vector3)(dir * speed * Time.deltaTime);
-            Vector3 targetPos = p.transform.position + personalOffset;
+            
+                targetPos = p.transform.position + personalOffset;
+            
+
             Vector2 dir = (targetPos - transform.position).normalized;
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
 
         }
         else
+
         {
             res.setWalkingAnimation(false);
         }
@@ -208,16 +212,21 @@ public class Enemy : MonoBehaviour
         {
             itemType.spawnItems(enemydeathpos, 1);
         }
-        else if (dropChance <= 30 && !CompareTag("S-Tier-Enemy"))
+        else if (dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
         {
             itemType.spawnItems(enemydeathpos, 2);
         }
-        else if(dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
-        {
-        }
-        if (CompareTag("S-Tier-Enemy"))
+        else if(!CompareTag("S-Tier-Enemy") && dropChance <= 1)
         {
             itemType.spawnItems(enemydeathpos, 3);
+        }
+        if (CompareTag("S-Tier-Enemy") && dropChance >= 50)
+        {
+            itemType.spawnItems(enemydeathpos, 3);
+            p.experience += 50;   // if enemy S Tier, gain additional xp
+        }
+        else
+        {
             p.experience += 50;   // if enemy S Tier, gain additional xp
         }
         destroyObj();

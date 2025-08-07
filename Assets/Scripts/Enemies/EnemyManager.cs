@@ -124,6 +124,9 @@ public class EnemyManager : MonoBehaviour
         enemy.fb.gameObject.SetActive(true);
         enemy.fb = setEnemyBullet(enemyType);
         enemy.tierTag = tier;
+        float scaleVariance = Random.Range(0.8f, 1.2f);
+        //enemy.atc.transform.localScale *= scaleVariance;
+
 
         spawnAfterKill += level;
         if (player.godmode == false)

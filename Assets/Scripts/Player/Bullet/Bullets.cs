@@ -7,8 +7,8 @@ public class Bullets : MonoBehaviour
 {
     [HideInInspector] public static float mindamage = 100;
     [HideInInspector] public static float maxdamage = 300;
-    [HideInInspector] public static float mindamageSpell = 450;
-    [HideInInspector] public static float maxdamageSpell = 750;
+    [HideInInspector] public static float mindamageSpell = 350;
+    [HideInInspector] public static float maxdamageSpell = 500;
     public static float accuracy = 75;
     public static float accuracySpell = 75;
     public float speed = 4f;

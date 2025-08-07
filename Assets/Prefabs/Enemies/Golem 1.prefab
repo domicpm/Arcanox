@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 363474653412448346}
   - component: {fileID: 363474653412448345}
   - component: {fileID: 363474653412448344}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: hpEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 363474653599602560}
   - component: {fileID: 363474653599602562}
   - component: {fileID: 363474653599602561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fireSpawn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363474653599602623}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.054, y: -0.01, z: 0}
+  m_LocalPosition: {x: -0.002, y: 0.052, z: 0}
   m_LocalScale: {x: 0.20997176, y: 0.21608858, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
@@ -186,13 +186,13 @@ GameObject:
   - component: {fileID: 363474653705077395}
   - component: {fileID: 363474653705077397}
   - component: {fileID: 363474653705077396}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &363474653705077395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 363474653814712984}
   - component: {fileID: 363474653814712983}
   - component: {fileID: 363474653814712982}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 363474654215963447}
   - component: {fileID: 363474654215963446}
   - component: {fileID: 363474654215963448}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 363474655047845329}
   - component: {fileID: 363474655047845330}
   - component: {fileID: 363474655047845331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackRangeCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363474655047845327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02743, y: 0.055, z: 0}
+  m_LocalPosition: {x: 0.005, y: 0.086, z: 0}
   m_LocalScale: {x: 0.5482629, y: 0.47682709, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 363474655075874075}
   - component: {fileID: 363474655075874077}
   - component: {fileID: 363474655075874076}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.72, y: 2.9499998}
   m_SizeDelta: {x: -10.18, y: -9.88}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 363474655076200618}
   - component: {fileID: 363474655076200616}
   - component: {fileID: 363474655076200615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Golem 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -724,6 +724,7 @@ MonoBehaviour:
   isBoss: 0
   isHit: 0
   enemydeathpos: {x: 0, y: 0}
+  targetPos: {x: 0, y: 0, z: 0}
   itemType: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
     type: 3}
   item: {fileID: 0}
@@ -783,7 +784,7 @@ GameObject:
   - component: {fileID: 363474655166712406}
   - component: {fileID: 363474655166712408}
   - component: {fileID: 363474655166712407}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +860,7 @@ GameObject:
   - component: {fileID: 5204785129555936193}
   - component: {fileID: 3375589562298052217}
   - component: {fileID: 31860192647335778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpriteGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,8 +875,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8147863217718407434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.033, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.042787958, y: 0.053756528, z: 1}
+  m_LocalPosition: {x: -0.0006, y: 0.10586, z: 0}
+  m_LocalScale: {x: 0.03532103, y: 0.04134307, z: 1}
   m_Children: []
   m_Father: {fileID: 363474655076200618}
   m_RootOrder: 5
@@ -1011,6 +1012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4488373306884508774, guid: 8c734159b9b2bb943b8c370483d7e40f,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488373306884508774, guid: 8c734159b9b2bb943b8c370483d7e40f,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1093,6 +1099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: firebullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153538198351265916, guid: 847e58598afba1e438137f3359c12811,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6153538198351265916, guid: 847e58598afba1e438137f3359c12811,
         type: 3}

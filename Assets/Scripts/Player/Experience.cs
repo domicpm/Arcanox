@@ -9,7 +9,7 @@ public class Experience : MonoBehaviour
     public PlayerMovement player;
     public SkillTree st;
     public PlayerExpBar exp;
-    private int expPerLevel = 40;
+    private int expPerLevel = 200;
     public Text xpText;
     private bool first = false;
     public Text playerLevelText;
@@ -37,12 +37,19 @@ public class Experience : MonoBehaviour
         }
         if(playerLevel == 3 && !first)
         {
-            PauseManager.Instance.ToggleSkillTree();
-            first = true;
+            //StartCoroutine(DelayLvlUP());
+                PauseManager.Instance.ToggleSkillTree();
+                first = true;
         }
         //if(SkillTree.isBurn || SkillTree.isHeal || SkillTree.isSlow)
         //{
         //    st.gameObject.SetActive(false);
         //}
     }
+    //IEnumerator DelayLvlUP()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    PauseManager.Instance.ToggleSkillTree();
+    //    first = true;
+    //}
 }

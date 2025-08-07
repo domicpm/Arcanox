@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!122 &4107391885377797251
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627972739201653283}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4280427126
+  m_Size: 7
 --- !u!1 &3701575491138293089
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,18 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!122 &4107391885377797251
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627972739201653283}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4280427126
-  m_Size: 7
 --- !u!1001 &2141282164958871688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,6 +364,11 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.14022219
       objectReference: {fileID: 0}
+    - target: {fileID: 2715785419217849712, guid: ae91d19543c336b4eb42c32bad93e09c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2715785419217849713, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_Name
@@ -555,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 2715785419927453508, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -58.17
+      value: 74.331
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419927453508, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
@@ -565,12 +570,17 @@ PrefabInstance:
     - target: {fileID: 2715785419927453508, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -42.9
+      value: -35.22
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419927453508, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -245.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715785419927453509, guid: ae91d19543c336b4eb42c32bad93e09c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2715785420504858336, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
