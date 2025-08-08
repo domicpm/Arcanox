@@ -177,7 +177,7 @@ public class EnemyManager : MonoBehaviour
         GameObject bossGO = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         Enemy boss = bossGO.GetComponent<Enemy>();
 
-        boss.maxhp = (baseHP + level * 400) * 4f;
+        //boss.maxhp = (baseHP + level * 1500) * 4f;
         boss.hp = boss.maxhp;
         boss.p = player;
         boss.healthbar.setMaxHealth(boss.maxhp);

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Bullets : MonoBehaviour
 {
-    [HideInInspector] public static float mindamage = 100;
-    [HideInInspector] public static float maxdamage = 300;
+    [HideInInspector] public static float mindamage = 200;
+    [HideInInspector] public static float maxdamage = 400;
     [HideInInspector] public static float mindamageSpell = 350;
-    [HideInInspector] public static float maxdamageSpell = 500;
+    [HideInInspector] public static float maxdamageSpell = 550;
     public static float accuracy = 75;
     public static float accuracySpell = 75;
     public float speed = 4f;
@@ -79,18 +79,6 @@ public class Bullets : MonoBehaviour
             damage = 0;
         }
     }
-    //public void UpdateDamageSpell()
-    //{
-    //    int random = Random.Range(1, 101);
-    //    if (random <= accuracySpell)
-    //    {
-    //        damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
-    //    }
-    //    else
-    //    {
-    //        damageSpell = 0;
-    //    }
-    //}
     public void shoot()
     {
         if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
@@ -143,13 +131,11 @@ public class Bullets : MonoBehaviour
         {
             thunder.gameObject.SetActive(true);
             isComboConfirmed = true;
-            Debug.Log("war ne Kombo");
         }
         else
         {
             thunder.gameObject.SetActive(false);
             isComboConfirmed = false;
-            Debug.Log("keine Kombo");
         }
         var renderer = spell.GetComponent<SpriteRenderer>();
         if (Items.looted && ItemDrops.type == 3)

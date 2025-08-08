@@ -79,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
             setDead();
         }
         Hp.text = newhp.ToString();
-        HpBig.text = newhp.ToString();
-
+        HpBig.text = Mathf.Max(newhp, 0).ToString(); // sorgt dafür, dass hp in der healthbar nie unter 0 wird
         if (PauseManager.Instance.gameFreezed)
             return;
         //if(Enemy.allCleared == true)
@@ -150,10 +149,6 @@ public class PlayerMovement : MonoBehaviour
                     healthbar.setPlayerHealth(newhp);
                     Hp.text = newhp.ToString();
                     HpBig.text = newhp.ToString();
-                }
-                else
-                {
-                    Debug.Log("Keine Pots");
                 }
             }
             // Dash (Leertaste oder Controller)
@@ -252,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void damageInc(int damage)  // wenn spieler schaden nimmt
     {
-        if (shield == false && godmode == false)
+        if (shield == false && godmode == false && !getDead())
         {
             playerSprite.setGotHitAnimation();
             newhp -= damage;

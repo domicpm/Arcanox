@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!122 &4107391885377797251
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627972739201653283}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4280427126
-  m_Size: 7
 --- !u!1 &3701575491138293089
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +82,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!122 &4107391885377797251
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627972739201653283}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4280427126
+  m_Size: 7
 --- !u!1001 &2141282164958871688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}
       propertyPath: maxhp
-      value: 45000
+      value: 7500
       objectReference: {fileID: 0}
     - target: {fileID: 2715785419217849727, guid: ae91d19543c336b4eb42c32bad93e09c,
         type: 3}

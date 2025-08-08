@@ -243,7 +243,7 @@ public class Enemy : MonoBehaviour
         }else if(Bullets.isComboConfirmed)
         {
             //wenn combo (dash und gleich danach spell) erfolgreich, wird schaden erhöht
-            bullet.damageSpell = Mathf.RoundToInt(Random.Range(Bullets.mindamageSpell * 3f, Bullets.maxdamageSpell * 3f));
+            bullet.damageSpell = Mathf.RoundToInt(Random.Range(Bullets.mindamageSpell * 3f, Bullets.maxdamageSpell * 2f));
         }
     }
 
