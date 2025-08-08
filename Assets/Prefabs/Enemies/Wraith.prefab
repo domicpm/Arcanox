@@ -902,6 +902,7 @@ MonoBehaviour:
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   isDead: 0
   res: {fileID: 7148663957934095474}
+  thunder: {fileID: 0}
   et: {fileID: 4904633909713121431, guid: ecc99d081db25544387804c76e0bf756, type: 3}
   fireballSizeMultiplier: 1
   fireballInterval: 0.7
@@ -920,7 +921,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06130688, y: -0.024719782}
+  m_Offset: {x: 0.022405349, y: -0.013321102}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -931,7 +932,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.26121947, y: 0.34161955}
+  m_Size: {x: 0.16420008, y: 0.22067997}
   m_EdgeRadius: 0
 --- !u!1 &7372187077372868319
 GameObject:

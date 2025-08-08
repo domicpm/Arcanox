@@ -121,9 +121,10 @@ public class Enemy : MonoBehaviour
                 else if (randomLifesteal <= 5 && p.newhp < p.maxhp) p.newhp += 5;
             }
             var bulletComponent = collision.GetComponent<Bullets>();
-            if (bulletComponent != null)
+            if (bulletComponent != null && !bulletComponent.dmgApplied)
             {
                 isHit = true;
+                bulletComponent.dmgApplied = true;
                 hp -= bulletComponent.getDmg();
                 healthbar.setHealth(hp);
                 hpEnemy.text = hp.ToString();

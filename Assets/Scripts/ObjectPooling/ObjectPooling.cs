@@ -39,9 +39,14 @@ public class ObjectPooling : MonoBehaviour
         if (pool.Count > 0)
         {
             GameObject obj = newPool.Dequeue();
+            var bullet = obj.GetComponent<Bullets>();
             obj.SetActive(true);
             obj.transform.position = position;
             obj.transform.rotation = rotation;
+            if (bullet != null)
+            {
+                bullet.dmgApplied = false; // sorgt dafür, dass dmg applied bei jedem bullet im pool false ist, und somit wieder neu schaden machen kann
+            }
             return obj;
         }
         else

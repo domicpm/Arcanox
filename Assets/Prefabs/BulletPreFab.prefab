@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.003898663}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.14546804
 --- !u!50 &4054668345405907841
 Rigidbody2D:
   serializedVersion: 4
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 281
-  thunder: {fileID: 2938374219876327912, guid: b35748345a98a504187d4d00a316de55, type: 3}
   damageSpell: 0
   objectPooling: {fileID: 0}
   player: {fileID: 7098630828924542664, guid: cf28d9fddefd83a4e8dcce19d7c82551, type: 3}

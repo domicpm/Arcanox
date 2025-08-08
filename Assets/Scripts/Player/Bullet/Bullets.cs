@@ -12,6 +12,7 @@ public class Bullets : MonoBehaviour
     public static float accuracy = 75;
     public static float accuracySpell = 75;
     public float speed = 4f;
+    public bool dmgApplied = false;
     public static bool isComboConfirmed = false;
     public float damage;
     public float damageSpell;
