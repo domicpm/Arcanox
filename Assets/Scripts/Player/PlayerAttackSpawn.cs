@@ -8,7 +8,7 @@ public class PlayerAttackSpawn : MonoBehaviour
     private float lastFireTime;
     private float lastFireTimeSpell;
     [SerializeField]public float fireCooldown = 0.9f;
-    public static float fireCooldownSpell = 8f;
+    public static float fireCooldownSpell = 0f;
     public PlayerMovement player;
     private bool cooldown = false;
     // Start is called before the first frame update
@@ -35,16 +35,16 @@ public class PlayerAttackSpawn : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse1))
             {
-                if(cooldown == false)
-                {
-                    bullet.shootLeft();
-                    cooldown = true;
-                }
+                //if(cooldown == false)
+                //{
+                //    bullet.shootLeft();
+                //    cooldown = true;
+                //}
                 if (Time.time - lastFireTimeSpell >= fireCooldownSpell)
                 {
                     bullet.shootLeft();
                     lastFireTimeSpell = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
-
+                    fireCooldownSpell = 8f;
                 }
             }
         }

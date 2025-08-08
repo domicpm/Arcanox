@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public int maxExperience = 500;
     private float dashingPower = 50f;
     private float dashingTime = 0.1f;
-    private float dashingCooldown = 1f;
-    
+    private bool dashOnCooldown = false;
+    public static float dashCooldown = 5f;
  
     public float newhp;
     public bool PlayerGotDamage;
@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public Godmode gm;
     public SpellAoE aoe;
     public SkillTree st;
+    public static bool isCombo = false;
     private List<Chronobreak> log = new List<Chronobreak>();
     void Start()
     {
@@ -160,9 +161,15 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Dash (Leertaste oder Controller)
-            if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space))
+            if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space)) && !dashOnCooldown)
             {
+                cdUI.dashCooldownImage.gameObject.SetActive(true);
+                cdUI.ResetCooldown("dash");
                 StartCoroutine(Dash());
+                isCombo = true;
+                StartCoroutine(Combo());
+                dashOnCooldown = true;
+                StartCoroutine(Delay());
             }
         }
         else
@@ -171,6 +178,17 @@ public class PlayerMovement : MonoBehaviour
             verticalInput = 0;
         }
     }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        dashOnCooldown = false;
+    }
+    IEnumerator Combo()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isCombo = false;
+    }
+
     IEnumerator Dash()
     {
         Vector2 originalVelocity = rb.velocity;

@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 281
+  thunder: {fileID: 2938374219876327912, guid: b35748345a98a504187d4d00a316de55, type: 3}
   damageSpell: 0
   objectPooling: {fileID: 0}
   player: {fileID: 7098630828924542664, guid: cf28d9fddefd83a4e8dcce19d7c82551, type: 3}

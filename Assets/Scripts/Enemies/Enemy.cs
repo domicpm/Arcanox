@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
     public RotateEnemySprite res;
     private SpriteRenderer spriteRenderer;
+    public Thunder thunder;
     public EnemyTier et;
     [HideInInspector] public int fireballSizeMultiplier = 1;
     [HideInInspector]public float fireballInterval = 0.7f;
@@ -168,6 +169,7 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Spell"))
         {
+            UpdateDamageSpell();
             isHit = true;
             hp -= bullet.getDmgSpell();
             healthbar.setHealth(hp);
@@ -265,6 +267,21 @@ public class Enemy : MonoBehaviour
             Debug.LogWarning("Kein passendes Child gefunden!");      
         }
         sr.color = new Color(1f, 1f, 0.3f); // shiny
+    }
+    public void UpdateDamageSpell()
+    {
+        int random = Random.Range(1, 101);
+        if (random <= Bullets.accuracySpell && !Bullets.isComboConfirmed)
+        {
+            bullet.damageSpell = Mathf.RoundToInt(Random.Range(Bullets.mindamageSpell, Bullets.maxdamageSpell));
+        }
+        else if(!Bullets.isComboConfirmed)
+        {
+            bullet.damageSpell = 0;
+        }else if(Bullets.isComboConfirmed)
+        {
+            bullet.damageSpell = Mathf.RoundToInt(Random.Range(Bullets.mindamageSpell * 3f, Bullets.maxdamageSpell * 3f));
+        }
     }
 
 }

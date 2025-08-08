@@ -5,19 +5,24 @@ public class CooldownUI : MonoBehaviour
 {
     public Image spellCooldownImage; // das UI Image mit Fill Type = Filled
     public Image spellshieldCooldownImage;
+    public Image dashCooldownImage;
 
 
     private float spellCooldownTimer;
     private float spellshieldCooldownTimer;
+    private float dashCooldownTimer;
 
     void Start()
     {
         spellCooldownImage.gameObject.SetActive(false);
         spellshieldCooldownImage.gameObject.SetActive(false);
+        dashCooldownImage.gameObject.SetActive(false);
         spellCooldownTimer = PlayerAttackSpawn.fireCooldownSpell;
-        spellCooldownImage.fillAmount = 1f; // Anfang leer
         spellshieldCooldownTimer = PlayerMovement.spellShieldCooldown;
+        dashCooldownTimer = PlayerMovement.dashCooldown;
         spellshieldCooldownImage.fillAmount = 1f;
+        dashCooldownImage.fillAmount = 1f;
+        spellCooldownImage.fillAmount = 1f; 
     }
 
     void Update()
@@ -40,6 +45,15 @@ public class CooldownUI : MonoBehaviour
         {
             spellshieldCooldownImage.gameObject.SetActive(false);
         }
+        if (dashCooldownTimer < PlayerMovement.dashCooldown)
+        {
+            dashCooldownTimer += Time.deltaTime;
+            dashCooldownImage.fillAmount = dashCooldownTimer / PlayerMovement.dashCooldown;
+        }
+        else
+        {
+            dashCooldownImage.gameObject.SetActive(false);
+        }
     }
 
     public void ResetCooldown(string type)
@@ -53,6 +67,11 @@ public class CooldownUI : MonoBehaviour
         {
             spellshieldCooldownTimer = 0f;
             spellshieldCooldownImage.fillAmount = 0f;
+        }
+        else if(type == "dash")
+        {
+            dashCooldownTimer = 0f;
+            dashCooldownImage.fillAmount = 0f;
         }
     }
 }

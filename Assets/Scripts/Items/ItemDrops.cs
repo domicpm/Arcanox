@@ -55,12 +55,15 @@ public class ItemDrops : MonoBehaviour
             Bullets.accuracy += 2;
             Bullets.mindamage += 220;
             Bullets.maxdamage += 220;
+            Debug.Log("ja1");
         }
         else if (type == 2 && !player.godmode)
         {
             Bullets.accuracy += 1;
             Bullets.maxdamage += 120;
             Bullets.mindamage += 120;
+            Debug.Log("ja2");
+
         }
         else if (type == 3 && !player.godmode)
         {
@@ -69,6 +72,8 @@ public class ItemDrops : MonoBehaviour
             Bullets.mindamageSpell += 220;
             Bullets.maxdamageSpell += 220;
             PlayerAttackSpawn.fireCooldownSpell *= spellCooldown;
+            Debug.Log("ja3");
+
         }
     }
     public void spawnItemsWithEffects(Vector3 enemypos)

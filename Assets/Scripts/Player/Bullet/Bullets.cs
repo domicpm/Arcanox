@@ -12,7 +12,7 @@ public class Bullets : MonoBehaviour
     public static float accuracy = 75;
     public static float accuracySpell = 75;
     public float speed = 4f;
-
+    public static bool isComboConfirmed = false;
     public float damage;
     public float damageSpell;
     public ObjectPooling objectPooling;
@@ -79,18 +79,18 @@ public class Bullets : MonoBehaviour
             damage = 0;
         }
     }
-    public void UpdateDamageSpell()
-    {
-        int random = Random.Range(1, 101);
-        if (random <= accuracySpell)
-        {
-            damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
-        }
-        else
-        {
-            damageSpell = 0;
-        }
-    }
+    //public void UpdateDamageSpell()
+    //{
+    //    int random = Random.Range(1, 101);
+    //    if (random <= accuracySpell)
+    //    {
+    //        damageSpell = Mathf.RoundToInt(Random.Range(mindamageSpell, maxdamageSpell));
+    //    }
+    //    else
+    //    {
+    //        damageSpell = 0;
+    //    }
+    //}
     public void shoot()
     {
         if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom || LevelSuccess.levelDoneText)
@@ -132,10 +132,25 @@ public class Bullets : MonoBehaviour
     {
                if (PauseManager.Instance.gameFreezed || LevelSuccess.isInLootRoom == true) // wenn Pause gedrückt, werden keine weiteren Bullets gespawnt
             return;
+        
         cdUI.spellCooldownImage.gameObject.SetActive(true);
         cdUI.ResetCooldown("spell");
         //var bullet = Instantiate(spell, player.bp.transform.position, Quaternion.identity);
         GameObject spell = objectPooling.ActivateObject(objectPooling.rightClick, player.bp.transform.position, Quaternion.identity);
+        Transform thunder = spell.transform.Find("Thunder");
+
+        if (PlayerMovement.isCombo)
+        {
+            thunder.gameObject.SetActive(true);
+            isComboConfirmed = true;
+            Debug.Log("war ne Kombo");
+        }
+        else
+        {
+            thunder.gameObject.SetActive(false);
+            isComboConfirmed = false;
+            Debug.Log("keine Kombo");
+        }
         var renderer = spell.GetComponent<SpriteRenderer>();
         if (Items.looted && ItemDrops.type == 3)
         {
@@ -143,7 +158,7 @@ public class Bullets : MonoBehaviour
         }
 
         if (spell == null) return;
-        UpdateDamageSpell();
+        //UpdateDamageSpell();
         Vector3 bulletDir = player.bp.transform.up;
         spell.GetComponent<Rigidbody2D>().AddForce(bulletDir * speed, ForceMode2D.Impulse);
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;

@@ -23,11 +23,11 @@ public class DamageText : MonoBehaviour
 
             if (dmg > 750)
             {
-                ShowDamage(dmg, 14f, FontStyles.Bold | FontStyles.Italic, Color.red, 1.1f);
+                ShowDamage(dmg, 12f, FontStyles.Bold | FontStyles.Italic, Color.red, 1f);
             }
             else if (dmg > 290)
             {
-                ShowDamage(dmg, 13f, FontStyles.Bold | FontStyles.Italic, new Color(1f, 0.5f, 0f), 1.1f);
+                ShowDamage(dmg, 11f, FontStyles.Bold | FontStyles.Italic, new Color(1f, 0.5f, 0f), 1f);
             }
             else
             {
