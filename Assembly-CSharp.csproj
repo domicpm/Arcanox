@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Enemies\SpellAoE.cs" />
     <Compile Include="Assets\Scripts\Player\Interfaces\IExpSlider.cs" />
     <Compile Include="Assets\Scripts\Player\Experience.cs" />
+    <Compile Include="Assets\Scripts\Player\Thunder.cs" />
     <Compile Include="Assets\Scripts\Player\SkillTree.cs" />
     <Compile Include="Assets\Scripts\Items\Items.cs" />
     <Compile Include="Assets\Scripts\GameManager\Inventory.cs" />
@@ -122,7 +123,6 @@
     <Compile Include="Assets\Scripts\UI\PotImageUI.cs" />
     <Compile Include="Assets\Scripts\Enemies\Chronobreak.cs" />
     <Compile Include="Assets\Scripts\Enemies\Rarity.cs" />
-    <Compile Include="Assets\Scripts\Player\Thunder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\license.txt" />

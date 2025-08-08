@@ -55,14 +55,12 @@ public class ItemDrops : MonoBehaviour
             Bullets.accuracy += 2;
             Bullets.mindamage += 220;
             Bullets.maxdamage += 220;
-            Debug.Log("ja1");
         }
         else if (type == 2 && !player.godmode)
         {
             Bullets.accuracy += 1;
             Bullets.maxdamage += 120;
             Bullets.mindamage += 120;
-            Debug.Log("ja2");
 
         }
         else if (type == 3 && !player.godmode)
@@ -72,26 +70,24 @@ public class ItemDrops : MonoBehaviour
             Bullets.mindamageSpell += 220;
             Bullets.maxdamageSpell += 220;
             PlayerAttackSpawn.fireCooldownSpell *= spellCooldown;
-            Debug.Log("ja3");
-
         }
     }
     public void spawnItemsWithEffects(Vector3 enemypos)
     {
         int spawnChance = Random.Range(1, 101);
-        if (spawnChance <= 20)
+        if (spawnChance < 20)
         {
             GameObject newBullet = Instantiate(prefabGreen, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 1;
         }
-        else if (spawnChance > 80)
+        else if (spawnChance < 60)
         {
             GameObject newBullet = Instantiate(prefabBlue, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;
             type = 2;
         }
-        else if(spawnChance > 20)
+        else if(spawnChance < 15)
         {
             GameObject newSpell = Instantiate(prefabSpellRed, enemypos, Quaternion.identity);
             gameObject.transform.position = enemypos;

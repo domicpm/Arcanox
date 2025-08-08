@@ -67,7 +67,7 @@ public class SpellAoE : MonoBehaviour
         if (scaleNext)
         {
             areaBorder.gameObject.transform.localScale *= 1.4f;
-            spawnAmount = 60;
+            spawnAmount = 42;
         }
         else
         {
@@ -76,8 +76,18 @@ public class SpellAoE : MonoBehaviour
         }
         for (int i = 0; i < spawnAmount; i++)
         {
-            float x = Random.Range(areaBorder.left.position.x, areaBorder.right.position.x);
-            float y = Random.Range(areaBorder.bottom.position.y, areaBorder.top.position.y);
+            float x = Random.Range(
+            Mathf.Max(areaBorder.left.position.x  , -95.5f),
+            Mathf.Min(areaBorder.right.position.x , -30f)
+            );
+
+            float y = Random.Range(
+                Mathf.Max(areaBorder.bottom.position.y , -7f),
+                Mathf.Min(areaBorder.top.position.y , 32f)
+            );
+
+
+
             spawnPosSquare = new Vector3(x, y, 0f);
             GameObject enemyGO = Instantiate(prefab, spawnPosSquare, Quaternion.identity);
 

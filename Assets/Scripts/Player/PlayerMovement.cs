@@ -156,10 +156,6 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("Keine Pots");
                 }
             }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-            }
-
             // Dash (Leertaste oder Controller)
             if ((Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Space)) && !dashOnCooldown)
             {
@@ -185,7 +181,8 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Combo()
     {
-        yield return new WaitForSeconds(0.5f);
+        //combo zeitraum
+        yield return new WaitForSeconds(0.2f);
         isCombo = false;
     }
 
@@ -228,24 +225,10 @@ public class PlayerMovement : MonoBehaviour
             s.speed += 1;
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            // newhp -= damageFromEnemy;
-            // hp.setPlayerHealth(newhp);
-            // Hp.text = newhp.ToString();
-            // if (newhp <= 0 && !isDead)
-            // {
-            //     isDead = true;
-            //     playerSprite.setDeadAnimation();
-            // }
-        }
-
         if (collision.gameObject.CompareTag("FireBall"))
         {          
                 damageInc(10);          
         }
-
-
     }
     public void increasepot()
     {

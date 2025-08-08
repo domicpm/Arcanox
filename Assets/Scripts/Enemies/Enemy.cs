@@ -56,13 +56,6 @@ public class Enemy : MonoBehaviour
         personalOffset = Random.insideUnitCircle * 2f;
 
     }
-    public void Awake()
-    {      
-
-            Transform sr = transform.Find("SpriteWraith") ?? transform.Find("SpriteGolem") ?? transform.Find("SpriteEnemy");
-            if (sr != null)
-                originalColor = sr.GetComponent<SpriteRenderer>().color;       
-    }
     public void destroyObj()
     {
         enemyCount++;
@@ -92,38 +85,19 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (isDead || LevelSuccess.isInLootRoom == true || isDummy == true) return;  // kein Movement, wenn tot oder im Loot Raum oder wenn Dummy aktiv
-        if (et.isShiny) FlashShiny();
         if (atc.inRange == false)
-        {            res.setWalkingAnimation(true);
-            //Vector2 dir = (p.transform.position - transform.position).normalized;
-            //transform.position += (Vector3)(dir * speed * Time.deltaTime);
-            
-                targetPos = p.transform.position + personalOffset;
-            
-
+        {            
+            res.setWalkingAnimation(true);            
+            targetPos = p.transform.position + personalOffset;         
             Vector2 dir = (targetPos - transform.position).normalized;
             transform.position += (Vector3)(dir * speed * Time.deltaTime);
-
         }
         else
-
         {
             res.setWalkingAnimation(false);
         }
         FlipSprite();
-        //if(gameObject.transform.position.x > p.transform.position.x)
-        //{
-        //    sprite.localScale = new Vector3(-1, 1, 1); // Rechts
-
-        //}else
-        //{
-        //    sprite.localScale = new Vector3(1, 1, 1); // Rechts
-
-        //}
     }
-    // Annahme: 'sprite' ist der Transform deines Sprite-GameObjects
-    // und 'p' ist das Ziel (z.B. Spieler)
-
     void FlipSprite()
     {
         Vector3 scale = baseScale;
@@ -205,16 +179,15 @@ public class Enemy : MonoBehaviour
             circle.gameObject.SetActive(false);
         }
         int dropChance = Random.Range(1, 101);
-        if (dropChance <= 100 && !bulletSpawned && isBoss)
+        if (dropChance <= 50 && isBoss)
         {
             item.spawnItemsWithEffects(enemydeathpos);
-            bulletSpawned = true;
         }
-        else if (dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
+        if (dropChance <= 5 && !CompareTag("S-Tier-Enemy"))
         {
             itemType.spawnItems(enemydeathpos, 1);
         }
-        else if (dropChance <= 10 && !CompareTag("S-Tier-Enemy"))
+        else if (dropChance <= 15 && !CompareTag("S-Tier-Enemy"))
         {
             itemType.spawnItems(enemydeathpos, 2);
         }
@@ -242,7 +215,7 @@ public class Enemy : MonoBehaviour
         }
         if (CompareTag("Boss"))
         {
-            p.experience += 30;
+            p.experience += 50;
             bossDead = true;
         }
         else if(!CompareTag("S-Tier-Enemy"))
@@ -257,17 +230,6 @@ public class Enemy : MonoBehaviour
         LevelSuccess.Instance.setAct();
         //allCleared = true;
     }
-    void FlashShiny()
-    {
-        Transform shinyChild = transform.Find("SpriteWraith") ?? transform.Find("SpriteGolem") ?? transform.Find("SpriteEnemy");
-        SpriteRenderer sr = shinyChild.GetComponent<SpriteRenderer>();
-
-        if (shinyChild == null)
-        {
-            Debug.LogWarning("Kein passendes Child gefunden!");      
-        }
-        sr.color = new Color(1f, 1f, 0.3f); // shiny
-    }
     public void UpdateDamageSpell()
     {
         int random = Random.Range(1, 101);
@@ -280,6 +242,7 @@ public class Enemy : MonoBehaviour
             bullet.damageSpell = 0;
         }else if(Bullets.isComboConfirmed)
         {
+            //wenn combo (dash und gleich danach spell) erfolgreich, wird schaden erhöht
             bullet.damageSpell = Mathf.RoundToInt(Random.Range(Bullets.mindamageSpell * 3f, Bullets.maxdamageSpell * 3f));
         }
     }
