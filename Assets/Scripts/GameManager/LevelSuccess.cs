@@ -12,27 +12,31 @@ public class LevelSuccess : MonoBehaviour
     public Button continueLevelButtoninRoom;
     public Button teleportButton;
     public Button shopButton;
-    public Text teleportText;
     public Text continueLevelText;
+    public Text timeLeftText;
     public EnemyManager enemyManager;
     public PlayerMovement player;
     public static Vector2 nextSpawnPosition;
     public static bool isInLootRoom = false;
     public static bool levelDoneText = false;
     private bool isTeleported = false;
+    public static float waveTime = 30;
+    public float fixedWaveTime = 30;
     public npcAzriel azriel;
     public Interact interactRange;
     public AzrielShop shop;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+        continueLevelText.gameObject.SetActive(false);
         teleportButton.gameObject.SetActive(false);
+        continueLevelButton.gameObject.SetActive(false);
         continueLevelButton.onClick.AddListener(OnContinueLevelButtonClicked);
         teleportButton.onClick.AddListener(OnTeleportClicked);
         continueLevelButtoninRoom.onClick.AddListener(OnContinueLevelButtoninRoomClicked);
         azriel.gameObject.SetActive(false);
         shopButton.onClick.AddListener(OnShopButtonClicked);
+        setAct();
     }
     private void Awake()
     {
@@ -42,7 +46,18 @@ public class LevelSuccess : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if (!PauseManager.Instance.isPaused && InputDevice.isClicked)
+        {
+            if ((waveTime - Time.time) > 0)
+            {
+                timeLeftText.text = Mathf.RoundToInt(waveTime - Time.time).ToString();
+            }
+            else
+            {
+                timeLeftText.text = "0";
+            }
+        }
+        
     }
     public void OnContinueLevelButtonClicked()
     {
@@ -50,7 +65,8 @@ public class LevelSuccess : MonoBehaviour
         //healthbar.setPlayerMaxHealth(shop.hpboost + player.maxhp);
         level++;
         enemyManager.InitializeLevel(level, true);
-        gameObject.SetActive(false);
+        continueLevelText.gameObject.SetActive(false);
+        teleportButton.gameObject.SetActive(false);
         //continueLevelButtoninRoom.gameObject.SetActive(true);
         teleportButton.gameObject.SetActive(false);
         levelDoneText = false;
@@ -58,6 +74,8 @@ public class LevelSuccess : MonoBehaviour
         EnemyManager.bossSpawned = false;
         Enemy.killCount = 0;
         enemyManager.level++;
+        waveTime = Time.time + fixedWaveTime;
+        setAct();
     }
     public void OnShopButtonClicked() {
         shop.gameObject.SetActive(true);
@@ -79,6 +97,8 @@ public class LevelSuccess : MonoBehaviour
         EnemyManager.bossSpawned = false;
         Enemy.killCount = 0;
         enemyManager.level++;
+        waveTime = Time.time + fixedWaveTime;
+        setAct();
     }
 
     public void OnTeleportClicked()
@@ -86,6 +106,8 @@ public class LevelSuccess : MonoBehaviour
         isTeleported = true;
         nextSpawnPosition = new Vector2(82.75f, -86.44f); 
         player.transform.position = nextSpawnPosition;
+        continueLevelText.gameObject.SetActive(false);
+        teleportButton.gameObject.SetActive(false);
         //player.Hp.gameObject.SetActive(false);
         //healthbar.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -98,14 +120,19 @@ public class LevelSuccess : MonoBehaviour
 
     public void setAct()
     {
-        if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
-        {
-            levelDoneText = true;
-            gameObject.SetActive(true);
-            teleportButton.gameObject.SetActive(true);
-            continueLevelText.text = "Wave " + (level) + " completed!";
-        }
+        //if ((Enemy.killCount == enemyManager.maxEnemies + 1 && Enemy.bossDead == true) || (Enemy.killCount == enemyManager.maxEnemies && EnemyManager.bossSpawned == false)) 
+        StartCoroutine(WaveTimer());
+            
+        
     }
-    
+    IEnumerator WaveTimer()
+    {
+        yield return new WaitForSeconds(fixedWaveTime);
+        levelDoneText = true;
+        continueLevelText.gameObject.SetActive(true);
+        continueLevelButton.gameObject.SetActive(true);
+        teleportButton.gameObject.SetActive(true);
+        continueLevelText.text = "Wave " + (level) + " completed!";
+    }
 
 }

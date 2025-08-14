@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  dmgApplied: 0
   damage: 281
   damageSpell: 0
   objectPooling: {fileID: 0}

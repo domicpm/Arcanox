@@ -10,6 +10,7 @@ public class PlayerAttackSpawn : MonoBehaviour
     [SerializeField]public float fireCooldown = 0.9f;
     public static float fireCooldownSpell = 0f;
     public PlayerMovement player;
+    public RotatePlayerSprite rt;
     private bool cooldown = false;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class PlayerAttackSpawn : MonoBehaviour
             {
                 bullet.shoot();
                 lastFireTime = Time.time; // Setze die Zeit des letzten Schusses auf die aktuelle Zeit
-
+                //rt.setAttackAnimation(true);
             }
             if (Input.GetKey(KeyCode.JoystickButton7) || Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.J))
             {

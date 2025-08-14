@@ -5,6 +5,9 @@ using UnityEngine;
 public class BulletPosition : MonoBehaviour
 {
     public RotatePlayerSprite player;
+
+    private float horizontalInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,10 @@ public class BulletPosition : MonoBehaviour
     void Update()
     {
         float mouseX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-        if (mouseX <= player.transform.position.x)
+
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (mouseX <= player.transform.position.x || horizontalInput < 0)
         {
             player.rotate(false);
         }

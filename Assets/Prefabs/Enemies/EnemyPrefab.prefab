@@ -328,7 +328,7 @@ MonoBehaviour:
   itemType: {fileID: -3837769607044853715, guid: 622e40a2e7246b24595b9e6d926bf58a,
     type: 3}
   item: {fileID: 0}
-  p: {fileID: 0}
+  p: {fileID: 2574348228412017867, guid: 4d481690a415c4c47b771ded3d0041b3, type: 3}
   randomPosition: {x: 0, y: 0, z: 0}
   isSpawned: 0
   hpEnemy: {fileID: 2715785419702085007}
@@ -342,6 +342,7 @@ MonoBehaviour:
   fb: {fileID: 8202535746269988528, guid: f7ecd6d523517f74b899e5551d7a9f91, type: 3}
   isDead: 0
   res: {fileID: 2362712619157992117}
+  thunder: {fileID: 0}
   et: {fileID: 4904633909713121431, guid: ecc99d081db25544387804c76e0bf756, type: 3}
   fireballSizeMultiplier: 1
   fireballInterval: 0.7

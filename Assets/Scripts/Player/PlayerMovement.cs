@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
           
             bp.transform.localRotation = Quaternion.Euler(0, 0, angle);
             bool isWalking = horizontalInput != 0 || verticalInput != 0;
-            // playerSprite.setWalkingAnimation(isWalking);
+             playerSprite.setWalkingAnimation(isWalking);
             if (Input.GetKeyDown(KeyCode.G))
             {
                 //GodMode

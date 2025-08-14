@@ -36,7 +36,6 @@ public class AzrielShop : MonoBehaviour
         player.speed += 2;
         type = 1;
         gameObject.SetActive(false);
-        ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
     public void onUpgrade2clicked()
     {
@@ -45,7 +44,6 @@ public class AzrielShop : MonoBehaviour
         Bullets.accuracy += 5; 
         type = 2;
         gameObject.SetActive(false);
-        ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
     public void onUpgrade3clicked()
     {
@@ -56,7 +54,6 @@ public class AzrielShop : MonoBehaviour
         type = 3;
         item.addSpellToInventory(item.blueItem);
         gameObject.SetActive(false);
-        ls.continueLevelButtoninRoom.gameObject.SetActive(true);
     }
 
 

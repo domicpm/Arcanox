@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     public static int killCount = 0;
     private Vector3 personalOffset;
     public bool isGolem = false;
+    private bool isDone = false;
     private Color originalColor;
     private void Start()
     {
@@ -95,6 +96,11 @@ public class Enemy : MonoBehaviour
         else
         {
             res.setWalkingAnimation(false);
+        }
+        if(LevelSuccess.levelDoneText == true)
+        {
+            isDone = true;
+            deathHandler();
         }
         FlipSprite();
     }
@@ -166,63 +172,73 @@ public class Enemy : MonoBehaviour
     }
     void deathHandler()
     {
+        
         enemydeathpos = transform.position;
         killCount++;
-        Transform circle = transform.Find("SpriteWraith/Circle");
+        Transform shadow = transform.Find("SpriteWraith/Circle");
 
-        if (circle == null)
-            circle = transform.Find("SpriteEnemy/Circle");
+        if (shadow == null)
+                shadow = transform.Find("SpriteEnemy/Circle");
 
-        if (circle == null)
-            circle = transform.Find("SpriteWraith/MagicCircle");
-        if (circle != null)
+        if (shadow == null)
+                shadow = transform.Find("SpriteWraith/MagicCircle");
+        if (shadow != null)
         {
-            circle.gameObject.SetActive(false);
+                shadow.gameObject.SetActive(false);
         }
-        int dropChance = Random.Range(1, 101);
-        if (dropChance <= 50 && isBoss)
+        if (!isDone)
         {
-            item.spawnItemsWithEffects(enemydeathpos);
-        }
-        if (dropChance <= 5 && !CompareTag("S-Tier-Enemy"))
-        {
-            itemType.spawnItems(enemydeathpos, 1);
-        }
-        else if (dropChance <= 15 && !CompareTag("S-Tier-Enemy"))
-        {
-            itemType.spawnItems(enemydeathpos, 2);
-        }
-        else if(!CompareTag("S-Tier-Enemy") && dropChance <= 1)
-        {
-            itemType.spawnItems(enemydeathpos, 3);
-        }
-        if (CompareTag("S-Tier-Enemy") && dropChance >= 50)
-        {
-            itemType.spawnItems(enemydeathpos, 3);
-            p.experience += 50;   // if enemy S Tier, gain additional xp
+            int dropChance = Random.Range(1, 101);
+            if (dropChance <= 50 && isBoss)
+            {
+                item.spawnItemsWithEffects(enemydeathpos);
+            }
+            if (dropChance <= 5 && !CompareTag("S-Tier-Enemy"))
+            {
+                itemType.spawnItems(enemydeathpos, 1);
+            }
+            else if (dropChance <= 15 && !CompareTag("S-Tier-Enemy"))
+            {
+                itemType.spawnItems(enemydeathpos, 2);
+            }
+            else if (!CompareTag("S-Tier-Enemy") && dropChance <= 1)
+            {
+                itemType.spawnItems(enemydeathpos, 3);
+            }
+            if (CompareTag("S-Tier-Enemy") && dropChance >= 50)
+            {
+                itemType.spawnItems(enemydeathpos, 3);
+                p.experience += 50;   // if enemy S Tier, gain additional xp
+            }
+            else
+            {
+                p.experience += 50;   // if enemy S Tier, gain additional xp
+            }
+
+            if (isBoss)
+            {
+                bossDead = true;
+            }
+            else if (EnemyManager.bossSpawned == false)
+            {
+            }
+            if (CompareTag("Boss"))
+            {
+                p.experience += 50;
+                bossDead = true;
+            }
+            else if (!CompareTag("S-Tier-Enemy"))
+            {
+                if (p.experience <= p.maxExperience)
+                    p.experience += 10;
+            }
+            destroyObj();
         }
         else
         {
-            p.experience += 50;   // if enemy S Tier, gain additional xp
-        }
-        destroyObj();
-
-        if(isBoss) {
-             bossDead = true;
-             StartCoroutine(Delay());
-                     }
-        else if (EnemyManager.bossSpawned == false){
-                    StartCoroutine(Delay());
-        }
-        if (CompareTag("Boss"))
-        {
-            p.experience += 50;
-            bossDead = true;
-        }
-        else if(!CompareTag("S-Tier-Enemy"))
-        {
-            if(p.experience <= p.maxExperience)
-            p.experience += 10;
+            
+                destroyObj();
+            
         }
     }
     IEnumerator Delay()

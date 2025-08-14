@@ -55,9 +55,10 @@ public class EnemyManager : MonoBehaviour
         }
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
-        {
-            InitializeLevel(1); //spawnt Gegner
+        //if (spawnTimer >= spawnInterval && enemyCount < maxEnemies)
+           if (spawnTimer >= spawnInterval)
+            {
+                InitializeLevel(1); //spawnt Gegner
             enemyCount++;
             spawnTimer = 0f;
         }
@@ -73,65 +74,68 @@ public class EnemyManager : MonoBehaviour
     }
     public void InitializeLevel(int level)
     {
-        int enemyType = Random.Range(1, 4);
-        Vector3 spawnPos = new Vector3(Random.Range(-100f, -36f), Random.Range(-5f, 30f));
-        int spawnType = Random.Range(1, 101);
-        GameObject enemyGO;
-
-
-        switch (enemyType)
+        if (!LevelSuccess.levelDoneText)
         {
-            case 1:
-                enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
-                enemyType = 1;
-                break;
-
-            case 2:
-                enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
-                enemyType = 2;
-                break;
-
-            case 3:
-                enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
-                enemyType = 2;
-                break;
-            default:
-                enemyGO = null;
-
-                enemyType = 0;
-                break;
-        }
-        Enemy enemy = enemyGO.GetComponent<Enemy>();
-        char tier = et.tierDecider();
-        EnemyTierStats stats = et.enemyChanger(tier);
-        Transform rarityTransform = enemyGO.transform.Find("RarityParticles");
-        Rarity rarityComponent = rarityTransform.GetComponent<Rarity>();
-
-        if (tier == 'S')
-        {
-            rarityComponent.setRarity();
-            enemy.tag = "S-Tier-Enemy";
-        } 
-        enemy.maxhp = baseHP + (level * 100) + stats.hpBonus;
-        enemy.speed = stats.speed;
-        enemy.p = player;
-        enemy.healthbar.setMaxHealth(enemy.hp);
-        enemy.hpEnemy.text = enemy.hp.ToString();
-        enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
-        enemy.fb.player = enemy.p.transform;
-        enemy.fb.p = enemy.p;
-        enemy.bullet = bulletPrefab;
-        enemy.fb.gameObject.SetActive(true);
-        enemy.fb = setEnemyBullet(enemyType);
-        enemy.tierTag = tier;
-        float scaleVariance = Random.Range(0.8f, 1.2f);
-        //enemy.atc.transform.localScale *= scaleVariance;
+            int enemyType = Random.Range(1, 4);
+            Vector3 spawnPos = new Vector3(Random.Range(-100f, -36f), Random.Range(-5f, 30f));
+            int spawnType = Random.Range(1, 101);
+            GameObject enemyGO;
 
 
-        spawnAfterKill += level;
-        if (player.godmode == false)
-        {
-            player.damageFromEnemy = player.damageFromEnemy + level;
+            switch (enemyType)
+            {
+                case 1:
+                    enemyGO = Instantiate(deathEyePrefab, spawnPos, Quaternion.identity);
+                    enemyType = 1;
+                    break;
+
+                case 2:
+                    enemyGO = Instantiate(wraithPrefab, spawnPos, Quaternion.identity);
+                    enemyType = 2;
+                    break;
+
+                case 3:
+                    enemyGO = Instantiate(golemPrefab, spawnPos, Quaternion.identity);
+                    enemyType = 2;
+                    break;
+                default:
+                    enemyGO = null;
+
+                    enemyType = 0;
+                    break;
+            }
+            Enemy enemy = enemyGO.GetComponent<Enemy>();
+            char tier = et.tierDecider();
+            EnemyTierStats stats = et.enemyChanger(tier);
+            Transform rarityTransform = enemyGO.transform.Find("RarityParticles");
+            Rarity rarityComponent = rarityTransform.GetComponent<Rarity>();
+
+            if (tier == 'S')
+            {
+                rarityComponent.setRarity();
+                enemy.tag = "S-Tier-Enemy";
+            }
+            enemy.maxhp = baseHP + (level * 100) + stats.hpBonus;
+            enemy.speed = stats.speed;
+            enemy.p = player;
+            enemy.healthbar.setMaxHealth(enemy.hp);
+            enemy.hpEnemy.text = enemy.hp.ToString();
+            enemy.fb = enemyGO.GetComponentInChildren<Fireball>();
+            enemy.fb.player = enemy.p.transform;
+            enemy.fb.p = enemy.p;
+            enemy.bullet = bulletPrefab;
+            enemy.fb.gameObject.SetActive(true);
+            enemy.fb = setEnemyBullet(enemyType);
+            enemy.tierTag = tier;
+            float scaleVariance = Random.Range(0.8f, 1.2f);
+            //enemy.atc.transform.localScale *= scaleVariance;
+
+
+            spawnAfterKill += level;
+            if (player.godmode == false)
+            {
+                player.damageFromEnemy = player.damageFromEnemy + level;
+            }
         }
     }
 

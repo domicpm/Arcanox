@@ -84,6 +84,10 @@ public class Fireball : MonoBehaviour
         {
           //  gameObject.SetActive(false);
         }
+        if (LevelSuccess.levelDoneText)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -12,7 +12,7 @@ public class PauseManager : MonoBehaviour
     public PlayerHealthBar phb;
     private bool invActive = false;
     private bool isPausedSkillTree = false;
-    private bool isPaused = false;
+    public bool isPaused = false;
     public bool gameFreezed = false;
     void Awake()
     {

@@ -10,6 +10,7 @@ public class InputDevice : MonoBehaviour
     public Button ButtonMouse;
     public static bool mouse = false;
     private bool firstTimeCheck = false;
+    public static bool isClicked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +27,17 @@ public class InputDevice : MonoBehaviour
     void OnButtonClick()
     {
         mouse = false;
+        isClicked = true;
         SceneManager.LoadScene("SampleScene");
+        LevelSuccess.waveTime = LevelSuccess.waveTime + Time.time; ;
         firstTimeCheckfunc();
     }
     void OnButtonClick1()
     {
         mouse = true;
+        isClicked = true;
         SceneManager.LoadScene("SampleScene");
+        LevelSuccess.waveTime = LevelSuccess.waveTime + Time.time;
         firstTimeCheckfunc();
     }
     void firstTimeCheckfunc()
